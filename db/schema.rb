@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_114848) do
+ActiveRecord::Schema.define(version: 2019_08_26_130036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.bigint "user_id"
+    t.string "latitude"
+    t.string "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clubs_on_user_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.bigint "sport_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_interests_on_sport_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "status"
+    t.bigint "user_id"
+    t.bigint "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "sport_id"
+    t.bigint "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_offers_on_club_id"
+    t.index ["sport_id"], name: "index_offers_on_sport_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.boolean "teamsport"
+    t.string "intensity"
+    t.boolean "equipment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +72,24 @@ ActiveRecord::Schema.define(version: 2019_08_26_114848) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "age"
+    t.string "address"
+    t.text "description"
+    t.string "longitude"
+    t.string "latitude"
+    t.bigint "club_id"
+    t.index ["club_id"], name: "index_users_on_club_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clubs", "users"
+  add_foreign_key "interests", "sports"
+  add_foreign_key "interests", "users"
+  add_foreign_key "memberships", "clubs"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "offers", "clubs"
+  add_foreign_key "offers", "sports"
+  add_foreign_key "users", "clubs"
 end
