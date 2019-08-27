@@ -1,0 +1,19 @@
+.card-origin {
+  border-radius: 5px;
+  box-shadow: 0 14px 90px rgba(26,87,120,.26);
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+}
+
+.card-vertical {
+  width: 350px;
+  min-height: 400px;
+  display: block;
+  align-items: center;
+}
+
+.card-horizontal {
+  // width: 300px;
+  display: flex;
+  align-items: center;
+}
