@@ -1,4 +1,7 @@
 class Club < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   belongs_to :user, class_name: "admin_id"
   has_many :memberships
   has_many :offers
