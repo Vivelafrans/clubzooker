@@ -3,6 +3,8 @@ class Club < ApplicationRecord
   has_many :memberships
   has_many :offers
 
+  mount_uploader :photo, PhotoUploader
+
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { maximum: 500 }
