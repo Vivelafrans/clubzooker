@@ -9,8 +9,7 @@ class User < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  belongs_to :club, class_name: "administered_club", optional: true
-  has_many :memberships
+  has_one :club
   has_many :interests
 
   validates :name, presence: true
