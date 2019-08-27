@@ -5,8 +5,8 @@ class CreateClubs < ActiveRecord::Migration[5.2]
       t.string :address
       t.text :description
       t.references :user, foreign_key: true
-      t.string :latitude
-      t.string :longitude
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

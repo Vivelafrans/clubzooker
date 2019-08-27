@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_101759) do
     t.string "address"
     t.text "description"
     t.bigint "user_id"
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_101759) do
     t.integer "age"
     t.string "address"
     t.text "description"
-    t.string "longitude"
-    t.string "latitude"
+    t.float "longitude"
+    t.float "latitude"
     t.bigint "club_id"
     t.string "photo"
     t.index ["club_id"], name: "index_users_on_club_id"
