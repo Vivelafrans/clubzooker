@@ -3,14 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  
+
   mount_uploader :photo, PhotoUploader
 
-  belongs_to :club, class_name: "administered_club"
-  has_many :memberships
+  has_one :club
   has_many :interests
 
   validates :name, presence: true
