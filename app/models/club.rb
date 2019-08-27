@@ -8,5 +8,5 @@ class Club < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { maximum: 500 }
-  validates :user_id, uniqueness: true
+  validates :user_id, uniqueness: true, presence: true
 end
