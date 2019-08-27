@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class= 'text-center my-3'>Add a Cutie to make other people happy</h1>
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+  <%= simple_form_for [@club] do |c| %>
+  <%= c.input :name %>
+  <%= c.input :address %>
+  <%= c.input :description %>
+  <%= c.input :photo %>
+  <%= c.input :photo_cache, as: :hidden %>
+  <div style="text-align:center">
+  <%= c.submit "Add your Club", class: 'btn-confirm' %>
+  </div>
+  <% end %>
+  <% end %>
+</div>

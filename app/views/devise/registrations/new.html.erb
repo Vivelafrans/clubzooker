@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-wrapper" style="width: 400px; margin: 0 auto;">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,6 +15,17 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :name,
+                required: true %>
+    <%= f.input :age,
+                hint: ("Minimum age required is 18"),
+                required: true %>
+    <%= f.input :address,
+                required: true %>
+    <%= f.input :description,
+                required: true %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions">
