@@ -6,12 +6,32 @@
   <a href="#" class="btn btn-confirm">Click me</a>
   <a href="#" class="btn btn-other">Click me</a>
 
+  <div class="horizontal-card-wrapper row justify-content-center">
+    <div class="col-12 col-xl-6">
+      <%= render 'shared/card-horizontal' %>
+    </div>
 
-  <div class="row">
-    <%= render 'shared/card-vertical' %>
+    <div class="col-12 col-xl-6">
+      <%= render 'shared/card-horizontal' %>
+    </div>
   </div>
 
-  <div class="row">
-    <%= render 'shared/card-horizontal' %>
+  <div class="vertical-card-wrapper row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
   </div>
+
 </div>
