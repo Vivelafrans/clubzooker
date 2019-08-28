@@ -28,9 +28,9 @@ sport_names = %w(Archery Badminton Cricket Boxing Tennis Surfing Hockey Yoga Fen
   club = Club.create!(
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
-    description: "Join our club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
+    description: "Join our club to have great fun"
   )
+  club.remote_photo_url = "https://pigment.github.io/fake-logos/logos/medium/color/#{rand(1..13)}.png"
 
   admin = User.create(
     email: 'test@admin.com',
@@ -39,7 +39,7 @@ sport_names = %w(Archery Badminton Cricket Boxing Tennis Surfing Hockey Yoga Fen
     age: (18..99).to_a.sample,
     address: Faker::Address.full_address,
     description: "Join my club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
   )
 
   club.update_attributes admin_id: admin.id
@@ -48,16 +48,16 @@ end
 
 # Create Testuser who is normal user
 
-users << User.create(
+us = User.create(
     email: 'test@user.com',
     password: '123456789',
     name: Faker::Name.name,
     age: (18..99).to_a.sample,
     address: Faker::Address.full_address,
     description: "I am looking for a cool sports club",
-    photo: "https://joeschmoe.io/api/v1/random",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random"
 )
-
+users << us
 # Create 200 ordinary users
 
 20.times do
@@ -68,7 +68,7 @@ users << User.create(
     age: (18..99).to_a.sample,
     address: Faker::Address.full_address,
     description: "I am looking for a cool sports club",
-    photo: "https://joeschmoe.io/api/v1/random",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
   )
   users << user
   p user
@@ -81,8 +81,8 @@ end
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
     description: "Join our club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
   )
+  club.remote_photo_url = "https://pigment.github.io/fake-logos/logos/medium/color/#{rand(1..13)}.png"
 
   admin = User.create(
     email: Faker::Internet.email,
@@ -91,7 +91,7 @@ end
     age: (18..99).to_a.sample,
     address: Faker::Address.full_address,
     description: "Join my club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
   )
 
   club.update_attributes admin_id: admin.id
