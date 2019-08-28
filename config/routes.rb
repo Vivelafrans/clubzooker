@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'user/index'
+  get 'user/dashboard'
+  get 'user/show'
+  get 'user/clubdashboard'
   devise_for :users
   root to: 'pages#home'
 
