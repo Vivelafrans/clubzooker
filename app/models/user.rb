@@ -10,7 +10,8 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   has_one :club, foreign_key: 'admin_id'
-  has_many :interests
+  has_many :memberships, dependent: :destroy
+  has_many :interests, dependent: :destroy
   has_many :sports, through: :interests
 
   validates :name, presence: true

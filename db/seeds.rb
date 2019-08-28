@@ -29,7 +29,7 @@ sport_names = %w(Archery, Badminton, Cricket, Boxing, Tennis, Surfing, Hockey, Y
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
     description: "Join our club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
+    photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
   )
 
   admin = User.create(
@@ -81,7 +81,7 @@ end
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
     description: "Join our club to have great fun",
-    photo: "https://joeschmoe.io/api/v1/random",
+    photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
   )
 
   admin = User.create(
