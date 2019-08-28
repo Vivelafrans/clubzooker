@@ -20,7 +20,7 @@ users = []
 admins = []
 sports = []
 sum = 0
-sport_names = %w(Archery, Badminton, Cricket, Boxing, Tennis, Surfing, Hockey, Yoga, Fencing, Fitness, Gymnastics, Karate, Volleyball, Basketball, Baseball, Rugby, Wrestling, Running, Table tennis, Judo, Climbing, Golf, Football)
+sport_names = %w(Archery, Badminton, Cricket, Boxing, Tennis, Surfing, Hockey, Yoga, Fencing, Fitness, Gymnastics, Karate, Volleyball, Basketball, Baseball, Rugby, Wrestling, Running, Handball, Judo, Climbing, Golf, Football)
 
 # Create Testuser who is a club admin
 
@@ -95,7 +95,7 @@ end
   )
 
   club.update_attributes admin_id: admin.id
-  # admins << admin
+  admins << admin
   p club
   p admin
 end
@@ -130,6 +130,6 @@ User.all.each do |user|
   user.sports.push Sport.all[18..24].sample
 end
 
-puts "Finished creating #{users.count} users"
-puts "Finished creating #{admins.count} admins"
-puts "Finished creating #{sports.count} sports"
+puts "Finished creating #{users.count + 1} users"
+puts "Finished creating #{admins.count + 1} admins"
+puts "Finished creating #{sports.count + 1} sports"
