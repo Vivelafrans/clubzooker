@@ -9,7 +9,7 @@ class MembershipsController < ApplicationController
   end
 
   def create
-    @membership = Membership.new
+    @membership = Membership.new(params.require(:membership).permit(:status))
     @club = Club.find(params[:club_id])
     @membership.user = current_user
     @membership.club = @club

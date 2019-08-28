@@ -1,8 +1,21 @@
 <%= cl_image_tag @club.photo, class: "avatar-bordered" %>
 <h2><%= @club.name %></h2>
 <p><%= @club.address %></p>
+<p>
+  <% @club.offers.each do |offer| %>
+    <span><%= offer.sport.name %></span>
+  <% end %>
+</p>
 <p><%= @club.description %></p>
-<%= simple_form_for [@club, @membership = Membership.new] do |f| %>
-  <%= f.hidden_field :status, value: "Pending" %>
-  <%= f.submit "Add to Memberships", class:"btn-confirm"%>
+<% @membership = Membership.where(user_id: current_user.id, club_id: @club.id) %>
+<% if @membership == [] %>
+  <%= simple_form_for [@club, @membership = Membership.new] do |f| %>
+    <%= f.hidden_field :status, value: "Pending" %>
+    <%= f.submit "Add to Memberships", class:"btn-confirm"%>
+  <% end %>
+<% elsif @membership[0].status == "Member" %>
+  <div class="alert alert-success"><p>You are a Memberhip of this Club!</p></div>
+<% else %>
+  <div class="alert alert-warning"><p>Your Memberhip-Request is getting processed</p></div>
 <% end %>
+<%= link_to "All Clubs", clubs_path, class: "btn-confirm" %>
