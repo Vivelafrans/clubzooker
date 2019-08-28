@@ -60,7 +60,7 @@ users << User.create(
 
 # Create 200 ordinary users
 
-2.times do
+20.times do
   user = User.create(
     email: Faker::Internet.email,
     password: '123456789',
@@ -76,7 +76,7 @@ end
 
 #Create 50 admins and clubs
 
-2.times do
+5.times do
   club = Club.create!(
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
@@ -107,7 +107,7 @@ end
     name: "#{sport_names[sum]}",
     teamsport: true,
     equipment: true,
-    intensity: "middle",
+    intensity: "medium",
   )
   sports << sport
   sum += 1
@@ -117,35 +117,17 @@ end
 # Add three random sports to club
 
 Club.all.each do |club|
-  Offer.create(
-    club_id: club.id,
-    sport_id: sports[0..8].sample,
-  )
-  Offer.create(
-    club_id: club.id,
-    sport_id: sports[9..17].sample,
-  )
-  Offer.create(
-    club_id: club.id,
-    sport_id: sports[18..24].sample,
-  )
+  club.sports.push Sport.all[0..8].sample
+  club.sports.push Sport.all[9..17].sample
+  club.sports.push Sport.all[18..24].sample
 end
 
 # Add three random sports to user
 
 User.all.each do |user|
-  Interest.create(
-    user_id: user.id,
-    sport_id: sports[0..8].sample,
-  )
-  Interest.create(
-    user_id: user.id,
-    sport_id: sports[9..17].sample,
-  )
-  Interest.create(
-    user_id: user.id,
-    sport_id: sports[18..24].sample,
-  )
+  user.sports.push Sport.all[0..8].sample
+  user.sports.push Sport.all[9..17].sample
+  user.sports.push Sport.all[18..24].sample
 end
 
 puts "Finished creating #{users.count} users"
