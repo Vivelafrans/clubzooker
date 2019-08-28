@@ -11,11 +11,10 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new
     @club = Club.find(params[:club_id])
-    @membership.status = "Pending"
     @membership.user = current_user
     @membership.club = @club
 
-    if membership.save
+    if @membership.save
       redirect_to club_path(@club)
     else
       render :new
