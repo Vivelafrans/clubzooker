@@ -20,7 +20,7 @@ users = []
 admins = []
 sports = []
 sum = 0
-sport_names = %w(Archery, Badminton, Cricket, Boxing, Tennis, Surfing, Hockey, Yoga, Fencing, Fitness, Gymnastics, Karate, Volleyball, Basketball, Baseball, Rugby, Wrestling, Running, Handball, Judo, Climbing, Golf, Football)
+sport_names = %w(Archery Badminton Cricket Boxing Tennis Surfing Hockey Yoga Fencing Fitness Gymnastics Karate Volleyball Basketball Baseball Rugby Wrestling Running Handball Judo Climbing Golf Football)
 
 # Create Testuser who is a club admin
 

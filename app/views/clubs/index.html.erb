@@ -8,6 +8,11 @@
         </div>
         <div>
           <h3><%= club.name %></h3>
+          <p>
+          <% club.offers.each do |offer| %>
+            <span><%= offer.sport.name %></span>
+          <% end %>
+          </p>
           <p><%= club.description %></p>
           <%= link_to "View Club", club_path(club), class: "btn-confirm" %>
         </div>
