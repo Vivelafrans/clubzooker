@@ -1,1 +1,8 @@
-
+<%= cl_image_tag @club.photo, class: "avatar-bordered" %>
+<h2><%= @club.name %></h2>
+<p><%= @club.address %></p>
+<p><%= @club.description %></p>
+<%= simple_form_for [@club, @membership = Membership.new] do |f| %>
+  <%= f.hidden_field :status, value: "Pending" %>
+  <%= f.submit "Add to Memberships", class:"btn-confirm"%>
+<% end %>

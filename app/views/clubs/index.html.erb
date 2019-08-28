@@ -1,0 +1,17 @@
+<h2>Find the most suitable club for you!</h2>
+<div class="vertical-card-wrapper row">
+  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+    <% @clubs.each do |club| %>
+      <div class="card-origin mr-5 card-vertical text-center">
+        <div>
+          <%= cl_image_tag club.photo, class: "avatar-bordered" %>
+        </div>
+        <div>
+          <h3><%= club.name %></h3>
+          <p><%= club.description %></p>
+          <%= link_to "View Club", club_path(club), class: "btn-confirm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
