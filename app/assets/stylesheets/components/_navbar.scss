@@ -8,5 +8,14 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 75px;
+}
+
+.navbar-link {
+  color: rgba(255,255,255,0.8) !important;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: rgba(255,255,255,1) !important;
+  }
 }
