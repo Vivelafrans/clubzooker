@@ -16,4 +16,15 @@ class Club < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true, length: { maximum: 500 }
   validates :admin_id, uniqueness: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_address,
+    against: [ :name, :address],
+    associated_against: {
+      sports: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

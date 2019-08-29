@@ -2,7 +2,11 @@ class ClubsController < ApplicationController
   before_action :find_club, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clubs = Club.all
+    if params[:query] && params[:query] != ""
+      @clubs = Club.search_by_name_and_address("#{params[:query]}")
+    else
+      @clubs = Club.all
+    end
   end
 
   def show
