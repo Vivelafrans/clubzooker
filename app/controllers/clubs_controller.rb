@@ -18,6 +18,14 @@ class ClubsController < ApplicationController
     save_club(@club)
   end
 
+  def edit
+  end
+
+  def update
+    @club = Club.new(club_params)
+    save_club(@club)
+  end
+
   def destroy
     @club.destroy
     redirect_to clubs_path

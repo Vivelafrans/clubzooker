@@ -11,6 +11,31 @@
   <%= link_to "Update your Profile", edit_club_path(@club), class:"btn-confirm" %>
 </div>
 </div>
+<div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+  <%= simple_form_for [@club] do |c| %>
+  <%= c.input :name %>
+  <%= c.input :address %>
+  <%= c.input :description %>
+  <%= c.input :photo %>
+  <%= c.input :photo_cache, as: :hidden %>
+  <div style="text-align:center">
+  <%= c.submit "Add your Club", class: 'btn-confirm' %>
+  </div>
+  <% end %>
+  <h2>Offered Sports</h2>
+  <% @club.offers.each do |offer| %>
+  <div class="d-flex align-items-center">
+    <p><%= offer.sport.name %></p>
+    <%= link_to "Delete", club_offer_path(@club, offer), method: :delete, class:"btn-confirm" %>
+  </div>
+  <% end %>
+  <%= simple_form_for [@club, Offer.new] do |f| %>
+    <div class="d-flex align-items-center">
+       <%= f.association :sport %>
+       <%= f.submit 'Add Sport', class: 'btn-confirm' %>
+    </div>
+    <% end %>
+</div>
 
 <h2>Membership-Requests</h2>
 
