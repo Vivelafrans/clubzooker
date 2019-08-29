@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :sports, through: :interests
 
   has_many :memberships, dependent: :destroy
+  has_many :reviews
 
   validates :name, presence: true
   validates :age, presence: true, inclusion: { in: 14..120, message: "%{value} is not a valid age" }

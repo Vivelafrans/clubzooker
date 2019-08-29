@@ -8,6 +8,7 @@ class Club < ApplicationRecord
   has_many :offers, dependent: :destroy
   has_many :sports, through: :offers
   has_many :members, through: :memberships, source: :user
+  has_many :reviews
 
   mount_uploader :photo, PhotoUploader
 
