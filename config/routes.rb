@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :offers, except: [:show]
     resources :memberships, only: [:new, :create, :destroy, :update, :edit, :index]
+    resources :reviews, only: [:new, :create, :delete]
   end
 
   resources :interests, except: [:show, :index]

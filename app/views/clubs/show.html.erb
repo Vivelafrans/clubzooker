@@ -19,3 +19,25 @@
   <div class="alert alert-warning"><p>Your Memberhip-Request is getting processed</p></div>
 <% end %>
 <%= link_to "All Clubs", clubs_path, class: "btn-confirm" %>
+
+<h2><%= pluralize @club.reviews.size, "review" %></h2>
+
+<div id="reviews">
+  <% if @club.reviews.blank? %>
+    <p>Be the first to leave a review for <%= @club.name %></p>
+  <% else %>
+    <% @club.reviews.each do |review| %>
+      <div class="d-flex align-items-center">
+        <p><strong>Name:</strong> <%= review.user.name %></p>
+        <p><strong>Comment:</strong><%= review.comment %></p>
+        <p><strong>Rating:</strong><%= review.rating %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%= simple_form_for [ @club, Review.new ] do |f| %>
+  <%= f.input :rating, collection: [ 1, 2, 3, 4, 5 ] %>
+  <%= f.input :comment, as: :text %>
+  <%= f.submit "Send the review", class: 'btn-confirm' %> %>
+<% end %>
+
