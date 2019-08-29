@@ -35,7 +35,7 @@ class ClubsController < ApplicationController
 
   def save_club(club)
     if club.save
-      redirect_to club_path(club)
+      redirect_to new_club_offer_path(club, Offer.new)
     else
       render :new
     end
