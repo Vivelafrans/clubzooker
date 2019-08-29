@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :address, :description, :photo)
+    params.require(:club).permit(:name, :address, :description, :photo, :photo_cache)
   end
 
   def save_club(club)
