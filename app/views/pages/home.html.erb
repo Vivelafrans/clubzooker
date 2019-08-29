@@ -33,7 +33,7 @@
           <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
             <!--Body-->
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= simple_form_for(resource, as: resource_name, url: user_session_path) do |f| %>
               <%= f.error_notification %>
             <div class="modal-body mb-1">
               <div class="md-form form-sm mb-5">
