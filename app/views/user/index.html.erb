@@ -3,6 +3,19 @@
     <h1>Find members</h1>
   </div>
 
+  <%= simple_form_for user_index_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control string required", id: "search_query",
+        placeholder: "Find Members"
+        %>
+        <button name="button" type="submit" class="btn btn-confirm">
+          <i class="fas fa-search"></i> Search
+        </button>
+    </div>
+  <% end %>
+
   <div class="horizontal-card-wrapper row justify-content-center">
     <% @users.each do |user| %>
     <div class="col-12 col-xl-6">
