@@ -1,2 +1,35 @@
-<h1>User#dashboard</h1>
-<p>Find me in app/views/user/dashboard.html.erb</p>
+<div class="container">
+  <div class="section">
+    <h1>Hello, <%= current_user.name %> </h1>
+  </div>
+
+  <div class="section my-3">
+    <h2>Edit your sports</h2>
+    <p>These sports will help clubs looking for new members to find you.</p>
+    <ul style="padding-inline-start:0px; list-style-type: none">
+      <% current_user.interests.each do |interest| %>
+      <li class="my-4"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn-confirm" %> </li>
+      <% end %>
+    </ul>
+
+    <%= simple_form_for [Interest.new] do |f| %>
+       <%= f.association :sport %>
+       <%= f.submit 'Add Sport', class: 'btn-confirm' %>
+    <% end %>
+
+
+  </div>
+
+
+  <div class="section my-3">
+    <h2>Edit your memberships</h2>
+
+
+  </div>
+
+  <div class="section my-3">
+    <h2>Change your profile data</h2>
+
+  </div>
+
+</div>

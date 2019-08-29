@@ -7,12 +7,20 @@ class InterestsController < ApplicationController
   def create
     @interest = Interest.new
     @interest.user = current_user
-    @sport = Sport.find(params[:sport_id])
-    @interest.sport = @sport
+    @interest.sport = Sport.find(interest_params[:sport_id])
+    @interest.save
+    redirect_to user_dashboard_path
   end
 
   def destroy
+    @interest = Interest.find(params[:id])
     @interest.destroy
-    # redirect_to dashboard
+    redirect_to user_dashboard_path
+  end
+
+  private
+
+  def interest_params
+    params.require(:interest).permit(:sport_id)
   end
 end
