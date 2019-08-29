@@ -1,20 +1,38 @@
 .card-origin {
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(26,87,120,.26);
-  padding: 20px;
-  background: rgba(255,255,255,0.8);
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(54,54,54,.19);
+  background: rgba(255,255,255,1);
   margin: 15px;
+  overflow: hidden;
 }
 
 .card-vertical {
-  width: 250px;
-  min-height: 300px;
+  width: 270px;
+  height: 350px;
   display: block;
   align-items: center;
 }
 
+.card-vertical-cover {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
 .card-horizontal {
-  max-width: 500px;
+  width: 400px;
+  height: 180px;
   display: flex;
   align-items: center;
+}
+
+.card-info {
+
+}
+
+.card-info h3 {
+  font-family: Open Sans;
+  font-size: 15px;
+  font-weight: bold;
 }

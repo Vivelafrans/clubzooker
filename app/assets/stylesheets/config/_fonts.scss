@@ -1,10 +1,31 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Manjari:400,700|Roboto:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Manjari:400,700|Open+Sans:300,400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Roboto", "Helvetica", "sans-serif";
+$body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Manjari", "Helvetica", "sans-serif";
 
+h1 {
+  font-size: 72px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+p {
+  font-size: 15px;
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
