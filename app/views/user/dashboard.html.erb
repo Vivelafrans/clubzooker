@@ -1,2 +1,75 @@
-<h1>User#dashboard</h1>
-<p>Find me in app/views/user/dashboard.html.erb</p>
+<div class="container">
+  <div class="section">
+    <h1>Hello, <%= current_user.name %> </h1>
+  </div>
+
+  <div class="section my-3">
+    <h2>Edit your sports</h2>
+    <p>These sports will help clubs looking for new members to find you.</p>
+    <ul style="padding-inline-start:0px; list-style-type: none">
+      <% current_user.interests.each do |interest| %>
+      <li class="my-4"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn-confirm" %> </li>
+      <% end %>
+    </ul>
+
+    <%= simple_form_for [Interest.new] do |f| %>
+       <%= f.association :sport %>
+       <%= f.submit 'Add Sport', class: 'btn-confirm' %>
+    <% end %>
+
+
+  </div>
+
+
+  <div class="section my-3">
+    <h2>Edit your memberships</h2>
+
+    <% current_user.memberships.each do |membership| %>
+        <div class="card-origin mr-5 card-vertical text-center">
+          <div>
+            <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+          </div>
+          <div>
+            <h3> <%= membership.club.name %> </h3>
+            <% membership.club.sports.each do |sport| %>
+            <p> <%= sport.name %></p>
+            <% end %>
+            <p><strong><%= membership.status %></strong></p>
+          </div>
+        </div>
+    <!-- Delete Method missing here -->
+    <% end %>
+  </div>
+
+  <div class="section my-3">
+    <h2>Change your profile data</h2>
+
+
+    <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+          <%= f.input :age, required: true %>
+          <%= f.input :address, required: true %>
+          <%= f.input :description, required: true %>
+          <%= f.input :photo, required: true %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :current_password,
+            hint: "We need your current password to confirm your changes",
+            required: true,
+            input_html: { autocomplete: "current-password" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class:"btn-confirm" %>
+        </div>
+      <% end %>
+
+      <%= link_to "Change password", edit_user_registration_path, class: "btn-confirm" %>
+
+
+
+
+  </div>
+
+</div>

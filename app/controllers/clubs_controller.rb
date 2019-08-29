@@ -2,7 +2,11 @@ class ClubsController < ApplicationController
   before_action :find_club, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clubs = Club.all
+    if params[:query] && params[:query] != ""
+      @clubs = Club.search_by_name_and_address("#{params[:query]}")
+    else
+      @clubs = Club.all
+    end
   end
 
   def show
@@ -14,7 +18,15 @@ class ClubsController < ApplicationController
 
   def create
     @club = Club.new(club_params)
-    @club.user = current_user
+    @club.admin = current_user
+    save_club(@club)
+  end
+
+  def edit
+  end
+
+  def update
+    @club = Club.new(club_params)
     save_club(@club)
   end
 
@@ -30,12 +42,12 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :address, :description, :photo)
+    params.require(:club).permit(:name, :address, :description, :photo, :photo_cache)
   end
 
   def save_club(club)
     if club.save
-      redirect_to club_path(club)
+      redirect_to new_club_offer_path(club, Offer.new)
     else
       render :new
     end

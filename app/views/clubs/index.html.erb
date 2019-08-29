@@ -1,13 +1,27 @@
 <h2>Find the most suitable club for you!</h2>
+
+  <%= simple_form_for clubs_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control string required", id: "search_query",
+        placeholder: "Find a Club"
+        %>
+        <button name="button" type="submit" class="btn-confirm">
+          <i class="fas fa-search"></i> Search
+        </button>
+    </div>
+  <% end %>
+
 <div class="vertical-card-wrapper row">
   <% @clubs.each do |club| %>
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 club-cards">
       <div class="card-origin mr-5 card-vertical text-center">
         <div>
           <%= cl_image_tag club.photo, class: "avatar-bordered" %>
         </div>
         <div>
-          <h3><%= club.name %></h3>
+          <h3 class="club-card-name"><%= club.name %></h3>
           <p>
           <% club.offers.each do |offer| %>
             <span><%= offer.sport.name %></span>
@@ -20,4 +34,4 @@
     </div>
   <% end %>
 </div>
-<%= link_to "Back", root_path %>
+

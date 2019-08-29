@@ -1,6 +1,10 @@
 class UserController < ApplicationController
   def index
-    @users = User.all
+    if params[:query] && params[:query] != ""
+      @users = User.search_by_name_and_age("#{params[:query]}")
+    else
+      @users = User.all
+    end
   end
 
   def dashboard
