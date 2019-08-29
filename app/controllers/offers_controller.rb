@@ -5,15 +5,17 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @club = Club.find(params[:id])
+    @club = Club.find(params[:club_id])
   end
 
   def create
     @offer = Offer.new
-    @club = Club.find(params[:id])
+    @club = Club.find(params[:club_id])
     @offer.club = @club
-    @sport = Sport.find(params[:sport_id])
+    @sport = Sport.find(params[:offer][:sport_id])
     @offer.sport = @sport
+    @offer.save
+    redirect_to club_path(@club)
   end
 
   def destroy

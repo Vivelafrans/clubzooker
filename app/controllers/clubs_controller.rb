@@ -30,12 +30,12 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :address, :description, :photo)
+    params.require(:club).permit(:name, :address, :description, :photo, :photo_cache)
   end
 
   def save_club(club)
     if club.save
-      redirect_to club_path(club)
+      redirect_to new_club_offer_path(club, Offer.new)
     else
       render :new
     end
