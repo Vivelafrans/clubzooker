@@ -29,12 +29,13 @@ class MembershipsController < ApplicationController
   def update
     @membership = Membership.find(params[:id])
     @membership.update(params.require(:membership).permit(:status))
-    redirect_to club_path(@club), notice: 'The request was send successfully.'
+    redirect_to user_clubdashboard_path, notice: 'The request was send successfully.'
   end
 
   def destroy
     @club = Club.find(params[:club_id])
+    @membership = Membership.find(params[:id])
     @membership.destroy
-    redirect_to club_path(@club)
+    redirect_to user_clubdashboard_path
   end
 end

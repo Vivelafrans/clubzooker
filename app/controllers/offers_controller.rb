@@ -17,8 +17,9 @@ class OffersController < ApplicationController
   end
 
   def destroy
+    @offer.find(params[:id])
     @offer.destroy
-    # redirect_to dashboard
+    redirect_to user_dashboard_path
   end
 end
 

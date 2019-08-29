@@ -1,2 +1,41 @@
-<h1>User#clubdashboard</h1>
-<p>Find me in app/views/user/clubdashboard.html.erb</p>
+<div class="container">
+<% @user = current_user %>
+<% @club = @user.club %>
+<h1><%= @club.name %> Dashboard</h1>
+<div>
+<div>
+  <%= cl_image_tag @club.photo, class: "avatar-bordere" %>
+</div>
+<div>
+  <p><%= @club.description %></p>
+  <%= link_to "Update your Profile", edit_club_path(@club), class:"btn-confirm" %>
+</div>
+</div>
+
+<h2>Membership-Requests</h2>
+
+<% @club.memberships.each do |membership| %>
+  <% if membership.status == "Pending" %>
+    <div class="d-flex align-items-center">
+      <p><%= membership.user.name %></p>
+      <p><%= membership.user.email %></p>
+      <p><strong><%= membership.status %></strong></p>
+      <%= simple_form_for [@club, membership] do |f| %>
+        <%= f.hidden_field :status, value: "Member" %>
+        <%= f.submit "Confirm", class:"btn-confirm"%>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+    <h2>Members</h2>
+    <% @club.memberships.each do |membership| %>
+      <% if membership.status != "Pending" %>
+        <div class="d-flex align-items-center">
+          <p><%= membership.user.name %></p>
+          <p><%= membership.user.email %></p>
+          <p><%= membership.user.address %></p>
+          <p><strong><%= membership.status %></strong></p>
+          <%= link_to "Delete", club_membership_path(@club, membership), method: :delete, class:"btn-confirm"   %>
+        </div>
+      <% end %>
+    <% end %>
