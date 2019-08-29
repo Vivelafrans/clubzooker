@@ -14,7 +14,7 @@ class ClubsController < ApplicationController
 
   def create
     @club = Club.new(club_params)
-    @club.user = current_user
+    @club.admin = current_user
     save_club(@club)
   end
 
