@@ -24,7 +24,20 @@
   <div class="section my-3">
     <h2>Edit your memberships</h2>
 
-
+    <% current_user.memberships.each do |membership| %>
+        <div class="card-origin mr-5 card-vertical text-center">
+          <div>
+            <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+          </div>
+          <div>
+            <h3> <%= membership.club.name %> </h3>
+            <% membership.club.sports.each do |sport| %>
+            <p> <%= sport.name %></p>
+            <% end %>
+            <p><strong><%= membership.status %></strong></p>
+          </div>
+        </div>
+    <% end %>
   </div>
 
   <div class="section my-3">
