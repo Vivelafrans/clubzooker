@@ -1,10 +1,41 @@
-<div class="container">
-  <h1>We connect Players with Clubs</h1>
-  <h2>Clubs</h2>
-  <h2>Players</h2>
-  <h3>This is the h3 header</h3>
-  <h4>This is the h4 header</h4>
-  <p>This is a paragraph</p>
+<div class="my-container">
+  <h1 style="display: none">We connect Players with Clubs</h1>
 
+  <div class="row space-around" >
+    <div class="col-6" id="club-half">
+      <div>
+        <h2>Clubs</h2>
+      </div>
+
+      <div>
+       <h3>Find new members and succeed</h3>
+       <h4>So many people want to do sports but don't know where.</h4>
+       <h4>Recruit new members to improve your overall club life.</h4>
+     </div>
+
+      <div>
+        <%= link_to "Find Players", user_index_path, class:"btn btn-confirm", id:"player-btn" %>
+      </div>
+
+   </div>
+
+   <div class="col-6" id="player-half">
+
+
+    <div>
+      <h2>Find members</h2>
+    </div>
+
+    <div>
+      <h3>Find your club now and be healthy</h3>
+      <h4>There are thousands of cool sport clubs out there looking for new members</h4>
+    </div>
+
+    <div>
+      <%= link_to "Find Clubs", clubs_path, class:"btn btn-confirm" %>
+    </div>
+
+  </div>
+</div>
 
 </div>
