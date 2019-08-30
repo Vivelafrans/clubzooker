@@ -35,21 +35,23 @@
     <h3 class="text-center">Edit your memberships</h3>
     <p class="text-center">Any memberships of sportsclubs will appear below</p>
 
-    <% current_user.memberships.each do |membership| %>
-        <div class="card-origin mr-5 card-vertical text-center">
-          <div>
-            <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+    <div class="row d-flex justify-content-around">
+      <% current_user.memberships.each do |membership| %>
+          <div class="card-origin card-dashboard m-3 card-vertical text-center">
+            <div>
+              <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+            </div>
+            <div>
+              <h3> <%= membership.club.name %> </h3>
+              <% membership.club.sports.each do |sport| %>
+              <p> <%= sport.name %></p>
+              <% end %>
+              <p>Status: <strong><%= membership.status %></strong></p>
+            </div>
           </div>
-          <div>
-            <h3> <%= membership.club.name %> </h3>
-            <% membership.club.sports.each do |sport| %>
-            <p> <%= sport.name %></p>
-            <% end %>
-            <p><strong><%= membership.status %></strong></p>
-          </div>
-        </div>
-    <!-- Delete Method missing here -->
-    <% end %>
+      <!-- Delete Method missing here -->
+      <% end %>
+    </div>
   </div>
 
   <div class="section my-3 card-origin card-dashboard">
