@@ -47,3 +47,12 @@
   padding-left: 5px;
   padding-right: 5px;
 }
+
+.card-link {
+  text-decoration: none;
+  color: $gray;
+  &:hover {
+    color: $gray;
+  }
+}
+
