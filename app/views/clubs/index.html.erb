@@ -1,37 +1,56 @@
-<h2>Find the most suitable club for you!</h2>
+<div class="container">
+  <div class="section">
+<h2 style="text-align: center">Find the most suitable club!</h2>
+</div>
 
-  <%= simple_form_for clubs_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control string required", id: "search_query",
-        placeholder: "Find a Club"
-        %>
-        <button name="button" type="submit" class="btn-confirm">
-          <i class="fas fa-search"></i> Search
-        </button>
-    </div>
+<div class="section">
+<%= simple_form_for clubs_path, method: :get do |f| %>
+<div class="search-form-control form-group">
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control string required", id: "search_query",
+    placeholder: "Find a Club"
+    %>
+    <button name="button" type="submit" class="btn-confirm" id="club-s-btn">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
   <% end %>
+  </div>
 
-<div class="vertical-card-wrapper row">
-  <% @clubs.each do |club| %>
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 club-cards">
-      <div class="card-origin mr-5 card-vertical text-center">
+  <div class="section">
+  <div class="vertical-card-wrapper row">
+    <% @clubs.each do |club| %>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="card-origin card-vertical my-2 text-center mx-auto">
+        <%= link_to club_path(club), class:"card-link" do %>
         <div>
-          <%= cl_image_tag club.photo, class: "avatar-bordered" %>
+          <img src="https://pilgrimageyogaonline-yaronguez.netdna-ssl.com/wp-content/uploads/2018/11/Img1-1024x675.jpg" alt="yoga studio" class="card-vertical-cover">
         </div>
-        <div>
-          <h3 class="club-card-name"><%= club.name %></h3>
-          <p>
-          <% club.offers.each do |offer| %>
-            <span><%= offer.sport.name %></span>
-          <% end %>
-          </p>
-          <p><%= club.description %></p>
-          <%= link_to "View Club", club_path(club), class: "btn-confirm" %>
+        <div class="avatar-new-position">
+          <%= cl_image_tag club.photo, class: "avatar-bordered-card" %>
+        </div>
+        <div class="card-bottom">
+          <div class="card-info">
+            <h3 class="club-card-name"><%= club.name %></h3>
+            <p>City: Amsterdam</p>
+          </div>
+          <div class="card-tags">
+            <div class="row d-flex">
+              <% club.offers.each do |offer| %>
+              <div class="col-4">
+                <div class="tag"><%= offer.sport.name %></div>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-  <% end %>
+      <% end %>
+  </div>
+  </div>
+
 </div>
 
