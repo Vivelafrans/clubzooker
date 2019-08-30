@@ -1,29 +1,39 @@
-<div class="container">
+<div class="container" style="max-width: 800px;">
   <div class="section text-center">
-    <%= image_tag "#{current_user.photo}", class: "avatar-bordered" %>
+    <%= image_tag "#{current_user.photo}", class: "avatar-bordered-profile my-3" %>
     <h1>Hello, <%= current_user.name %> </h1>
   </div>
 
-  <div class="section my-3 card-origin">
-    <h3>Edit your sports</h3>
-    <p>These sports will help clubs looking for new members to find you.</p>
-    <ul style="padding-inline-start:0px; list-style-type: none">
-      <% current_user.interests.each do |interest| %>
-      <li class="my-4"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn btn-confirm" %> </li>
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Edit your sports</h3>
+    <p class="text-center">These sports will help clubs looking for new members to find you.</p>
+
+    <div class="d-flex justify-content-center">
+      <ul style="padding-inline-start:0px; list-style-type: none; width:400px;">
+        <% current_user.interests.each do |interest| %>
+
+          <li class="my-4 d-flex justify-content-between align-items-center"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn btn-confirm" %>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+      <%= simple_form_for [Interest.new] do |f| %>
+        <%= f.association :sport %>
+        <div class="text-center">
+          <%= f.submit 'Add Sport', class: 'btn btn-confirm' %>
+        </div>
       <% end %>
-    </ul>
-
-    <%= simple_form_for [Interest.new] do |f| %>
-       <%= f.association :sport %>
-       <%= f.submit 'Add Sport', class: 'btn-confirm' %>
-    <% end %>
-
+    </div>
 
   </div>
 
 
-  <div class="section my-3 card-origin">
-    <h3>Edit your memberships</h3>
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Edit your memberships</h3>
+    <p class="text-center">Any memberships of sportsclubs will appear below</p>
 
     <% current_user.memberships.each do |membership| %>
         <div class="card-origin mr-5 card-vertical text-center">
@@ -42,8 +52,8 @@
     <% end %>
   </div>
 
-  <div class="section my-3 card-origin">
-    <h3>Change your profile data</h3>
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Change your profile data</h3>
 
 
     <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
@@ -61,16 +71,14 @@
             input_html: { autocomplete: "current-password" } %>
         </div>
 
-        <div class="form-actions">
+        <div class="form-actions text-center">
           <%= f.button :submit, "Update", class:"btn-confirm" %>
         </div>
       <% end %>
 
-      <%= link_to "Change password", edit_user_registration_path, class: "btn-confirm" %>
-
-
-
+      <div class="text-center">
+        <%= link_to "Change password", edit_user_registration_path, class: "btn btn-confirm" %>
+      </div>
 
   </div>
-
 </div>
