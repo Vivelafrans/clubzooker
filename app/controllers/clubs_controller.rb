@@ -2,8 +2,13 @@ class ClubsController < ApplicationController
   before_action :find_club, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query] && params[:query] != ""
+    if params[:query].present? && params[:query] != ""
       @clubs = Club.search_by_name_and_address("#{params[:query]}")
+    elsif params[:sport].present?
+      @clubs = []
+      params[:sport].each do |sport|
+        Offer.where(sport_id: Sport.where(name: sport)).each { |offer|@clubs << club = Club.find(offer.club_id) }
+      end
     else
       @clubs = Club.all
     end

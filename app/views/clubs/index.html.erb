@@ -17,6 +17,28 @@
   </div>
   <% end %>
   </div>
+<div class= "next">
+<div class="section card-origin mb-3 p-3 ">
+<%= form_tag clubs_path, method: :get do %>
+<div class="row">
+  <% Sport.all.each do |sport| %>
+  <div class="col-sm-4 col-md-3 col-lg-2">
+  <p><%= check_box_tag "sport[]", sport.name %>
+  <%= sport.name %></p>
+  </div>
+  <% end %>
+</div>
+  <div class="p-0" style="text-align:center">
+  <br><%= submit_tag "Search", class: "btn-confirm" %>
+  </div>
+<% end %>
+</div>
+<div class="section">
+<% if params[:sport].blank? %>
+<% else %>
+<h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" or ") %></i></h3>
+<% end %>
+</div>
 
   <div class="section">
   <div class="vertical-card-wrapper row">
@@ -51,6 +73,7 @@
       <% end %>
   </div>
   </div>
+</div>
 
 </div>
 
