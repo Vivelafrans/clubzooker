@@ -44,3 +44,25 @@
 .avatar-new-position img {
   left: 152px !important;
 }
+
+.avatar-show-position {
+  left: 80px !important;
+}
+
+.user-av {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.avatar-review-page {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: white 2px solid;
+  left: 110px;
+  top: 90px;
+  background: #fff;
+}
+
