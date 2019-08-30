@@ -1,66 +1,93 @@
 <div class="container">
-<% @user = current_user %>
-<% @club = @user.club %>
-<h1><%= @club.name %> Dashboard</h1>
-<div>
-<div>
-  <%= cl_image_tag @club.photo, class: "avatar-bordere" %>
-</div>
-<div>
-  <p><%= @club.description %></p>
-  <%= link_to "Update your Profile", edit_club_path(@club), class:"btn-confirm" %>
-</div>
-</div>
-<div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-  <%= simple_form_for [@club] do |c| %>
-  <%= c.input :name %>
-  <%= c.input :address %>
-  <%= c.input :description %>
-  <%= c.input :photo %>
-  <%= c.input :photo_cache, as: :hidden %>
-  <div style="text-align:center">
-  <%= c.submit "Add your Club", class: 'btn-confirm' %>
-  </div>
-  <% end %>
-  <h2>Offered Sports</h2>
-  <% @club.offers.each do |offer| %>
-  <div class="d-flex align-items-center">
-    <p><%= offer.sport.name %></p>
-    <%= link_to "Delete", club_offer_path(@club, offer), method: :delete, class:"btn-confirm" %>
-  </div>
-  <% end %>
-  <%= simple_form_for [@club, Offer.new] do |f| %>
-    <div class="d-flex align-items-center">
+  <% @user = current_user %>
+  <% @club = @user.club %>
+  <h1><%= @club.name %> Dashboard</h1>
+  <div>
+    <div>
+      <%= cl_image_tag @club.photo, class: "avatar-bordere" %>
+    </div>
+
+    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+      <%= simple_form_for [@club] do |c| %>
+      <%= c.input :name %>
+      <%= c.input :address %>
+      <%= c.input :description %>
+      <%= c.input :photo %>
+      <%= c.input :photo_cache, as: :hidden %>
+      <div style="text-align:center">
+        <%= c.submit "Add your Club", class: 'btn-confirm' %>
+      </div>
+      <% end %>
+      <h2>Offered Sports</h2>
+      <% @club.offers.each do |offer| %>
+      <div class="d-flex align-items-center">
+        <p><%= offer.sport.name %></p>
+        <%= link_to "Delete", club_offer_path(@club, offer), method: :delete, class:"btn-confirm" %>
+      </div>
+      <% end %>
+      <%= simple_form_for [@club, Offer.new] do |f| %>
+      <div class="d-flex align-items-center">
        <%= f.association :sport %>
        <%= f.submit 'Add Sport', class: 'btn-confirm' %>
-    </div>
+     </div>
+     <% end %>
+   </div>
+
+   <h2>Membership-Requests</h2>
+
+   <% @club.memberships.each do |membership| %>
+   <% if membership.status == "Pending" %>
+   <div class="d-flex align-items-center">
+    <p><%= membership.user.name %></p>
+    <p><%= membership.user.email %></p>
+    <p><strong><%= membership.status %></strong></p>
+    <%= simple_form_for [@club, membership] do |f| %>
+    <%= f.hidden_field :status, value: "Member" %>
+    <%= f.submit "Confirm", class:"btn-confirm"%>
     <% end %>
-</div>
-
-<h2>Membership-Requests</h2>
-
-<% @club.memberships.each do |membership| %>
-  <% if membership.status == "Pending" %>
-    <div class="d-flex align-items-center">
-      <p><%= membership.user.name %></p>
-      <p><%= membership.user.email %></p>
-      <p><strong><%= membership.status %></strong></p>
-      <%= simple_form_for [@club, membership] do |f| %>
-        <%= f.hidden_field :status, value: "Member" %>
-        <%= f.submit "Confirm", class:"btn-confirm"%>
-      <% end %>
-    </div>
+  </div>
   <% end %>
-<% end %>
-    <h2>Members</h2>
-    <% @club.memberships.each do |membership| %>
-      <% if membership.status != "Pending" %>
-        <div class="d-flex align-items-center">
-          <p><%= membership.user.name %></p>
-          <p><%= membership.user.email %></p>
-          <p><%= membership.user.address %></p>
-          <p><strong><%= membership.status %></strong></p>
-          <%= link_to "Delete", club_membership_path(@club, membership), method: :delete, class:"btn-confirm"   %>
-        </div>
+  <% end %>
+  <h2>Members</h2>
+  <% @club.memberships.each do |membership| %>
+  <% if membership.status != "Pending" %>
+  <div class="d-flex align-items-center">
+    <p><%= membership.user.name %></p>
+    <p><%= membership.user.email %></p>
+    <p><%= membership.user.address %></p>
+    <p><strong><%= membership.status %></strong></p>
+    <%= link_to "Delete", club_membership_path(@club, membership), method: :delete, class:"btn-confirm"   %>
+  </div>
+  <% end %>
+  <% end %>
+
+  <h2><%= @club.name %></h2>
+  <% ratings = [] %>
+  <% @club.reviews.each do |ra| %>
+  <% ratings << ra.rating.to_i %>
+  <% end %>
+  <% if ratings.size != 0 %>
+  <% rating = ratings.sum / ratings.size unless ratings.size == 0 %>
+  <% rating.times do  %>
+  <span><i class="fas fa-star"></i></span>
+  <% end %>
+  <% end %>
+</div>
+<h3><%= pluralize @club.reviews.size, "review" %></h3>
+<div>
+  <% if @club.reviews.blank? %>
+  <p>Your club has not yet been reviewed...</p>
+  <% else %>
+  <% @club.reviews.each do |review| %>
+  <div class="d-flex align-items-center">
+    <p><strong>Name:</strong> <%= review.user.name %></p>
+    <p><strong>Comment:</strong><%= review.comment %></p>
+    <p><strong>Rating:</strong>
+      <% review.rating.times do  %>
+      <span><i class="fas fa-star"></i></span>
       <% end %>
-    <% end %>
+    </p>
+  </div>
+  <% end %>
+  <% end %>
+</div>

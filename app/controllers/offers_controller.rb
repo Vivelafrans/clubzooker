@@ -15,13 +15,13 @@ class OffersController < ApplicationController
     @sport = Sport.find(params[:offer][:sport_id])
     @offer.sport = @sport
     @offer.save
-    redirect_to club_path(@club)
+    redirect_to user_clubdashboard_path
   end
 
   def destroy
-    @offer.find(params[:id])
+    @offer = Offer.find(params[:id])
     @offer.destroy
-    redirect_to user_dashboard_path
+    redirect_to user_clubdashboard_path
   end
 end
 
