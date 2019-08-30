@@ -35,7 +35,7 @@
 </div>
 <h3><%= pluralize @club.reviews.size, "review" %></h3>
 
-<div id="reviews">
+<div>
   <% if @club.reviews.blank? %>
     <p>Be the first to leave a review for <%= @club.name %></p>
   <% else %>
@@ -52,7 +52,7 @@
     <% end %>
   <% end %>
 </div>
-<%= simple_form_for [ @club, Review.new ], remote: true do |f| %>
+<%= simple_form_for [ @club, Review.new ] do |f| %>
   <%= f.input :rating, collection: [ 1, 2, 3, 4, 5 ] %>
   <%= f.input :comment, as: :text %>
   <%= f.submit "Send the review", class: 'btn-confirm' %>
