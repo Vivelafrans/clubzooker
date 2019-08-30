@@ -20,7 +20,20 @@
 <% end %>
 <%= link_to "All Clubs", clubs_path, class: "btn-confirm" %>
 
-<h2><%= pluralize @club.reviews.size, "review" %></h2>
+<div class="d-flex align-items-center">
+<h2><%= @club.name %></h2>
+          <% ratings = [] %>
+          <% @club.reviews.each do |ra| %>
+            <% ratings << ra.rating.to_i %>
+          <% end %>
+          <% if ratings.size != 0 %>
+            <% rating = ratings.sum / ratings.size unless ratings.size == 0 %>
+            <% rating.times do  %>
+            <span><i class="fas fa-star"></i></span>
+            <% end %>
+            <% end %>
+</div>
+<h3><%= pluralize @club.reviews.size, "review" %></h3>
 
 <div id="reviews">
   <% if @club.reviews.blank? %>
@@ -30,14 +43,18 @@
       <div class="d-flex align-items-center">
         <p><strong>Name:</strong> <%= review.user.name %></p>
         <p><strong>Comment:</strong><%= review.comment %></p>
-        <p><strong>Rating:</strong><%= review.rating %></p>
+        <p><strong>Rating:</strong>
+          <% review.rating.times do  %>
+            <span><i class="fas fa-star"></i></span>
+          <% end %>
+        </p>
       </div>
     <% end %>
   <% end %>
 </div>
-<%= simple_form_for [ @club, Review.new ] do |f| %>
+<%= simple_form_for [ @club, Review.new ], remote: true do |f| %>
   <%= f.input :rating, collection: [ 1, 2, 3, 4, 5 ] %>
   <%= f.input :comment, as: :text %>
-  <%= f.submit "Send the review", class: 'btn-confirm' %> %>
+  <%= f.submit "Send the review", class: 'btn-confirm' %>
 <% end %>
 
