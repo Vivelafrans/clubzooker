@@ -1,14 +1,15 @@
 <div class="container">
-  <div class="section">
+  <div class="section text-center">
+    <%= image_tag "#{current_user.photo}", class: "avatar-bordered" %>
     <h1>Hello, <%= current_user.name %> </h1>
   </div>
 
-  <div class="section my-3">
-    <h2>Edit your sports</h2>
+  <div class="section my-3 card-origin">
+    <h3>Edit your sports</h3>
     <p>These sports will help clubs looking for new members to find you.</p>
     <ul style="padding-inline-start:0px; list-style-type: none">
       <% current_user.interests.each do |interest| %>
-      <li class="my-4"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn-confirm" %> </li>
+      <li class="my-4"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn btn-confirm" %> </li>
       <% end %>
     </ul>
 
@@ -21,8 +22,8 @@
   </div>
 
 
-  <div class="section my-3">
-    <h2>Edit your memberships</h2>
+  <div class="section my-3 card-origin">
+    <h3>Edit your memberships</h3>
 
     <% current_user.memberships.each do |membership| %>
         <div class="card-origin mr-5 card-vertical text-center">
@@ -41,8 +42,8 @@
     <% end %>
   </div>
 
-  <div class="section my-3">
-    <h2>Change your profile data</h2>
+  <div class="section my-3 card-origin">
+    <h3>Change your profile data</h3>
 
 
     <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
