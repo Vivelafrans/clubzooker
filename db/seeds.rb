@@ -76,7 +76,7 @@ end
 
 #Create 50 admins and clubs
 
-5.times do
+14.times do
   club = Club.create!(
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
