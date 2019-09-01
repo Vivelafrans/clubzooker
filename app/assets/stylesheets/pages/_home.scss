@@ -1,40 +1,49 @@
 // Specific CSS for your home-page
 html {
-  background: url('https://res.cloudinary.com/vivelafrans/image/upload/v1567150696/Background_qxy3ru.svg');
+  background: url('https://res.cloudinary.com/vivelafrans/image/upload/v1567341132/Background3_zbuenp.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
 }
 
+// #player-half {
+//     flex: 0 0 50%;
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 50vh;
+//     justify-content: flex-end;
+//     max-width: 50%;
+//     text-align: right;
+// }
 
-#player-half {
-    flex: 0 0 50%;
-    display: flex;
-    flex-direction: column;
-    min-height: 50vh;
-    justify-content: flex-end;
-    max-width: 50%;
-    text-align: right;
+
+// #club-half {
+//     flex: 0 0 50%;
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 50vh;
+//     justify-content: flex-start;
+//     max-width: 50%;
+// }
+
+.hp-container {
+  margin-top: 170px;
 }
 
-
-#club-half {
-    flex: 0 0 50%;
-    display: flex;
-    flex-direction: column;
-    min-height: 50vh;
-    justify-content: flex-start;
-    max-width: 50%;
-}
-
-.my-container {
-  margin-right: 40px;
-  margin-left: 40px;
-  margin-top: 80px;
-}
-
-#player-btn {
+.hp-btn {
   margin-left: 0px;
+  margin-right: 0px;
 }
 
+.content-section {
+  max-width: 420px;
+  // background-color: gray;
+}
 
+.hp-line {
+  line-height: 70%;
+}
+
+.hp-text-width {
+  max-width: 400px;
+}
