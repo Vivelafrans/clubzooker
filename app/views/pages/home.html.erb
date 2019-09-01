@@ -1,14 +1,6 @@
 <div class="hp-container">
   <h1 style="display: none">We Connect Players With Sports Clubs</h1>
-
-<div class="row d-flex justify-content-around">
-    <div class="my-5 my-5 content-section">
-      <h2 class="hp-line">Clubs</h2>
-      <%= link_to "Find Members", user_index_path, class: "btn btn-confirm hp-btn" %>
-      <h3>Find members and grow as a club</h3>
-      <h4>A lot of people want to do sports but aren't sure where they would fit in. Show how your club stands out and recruit new members.</h4>
-    </div>
-
+  <div class="row d-flex justify-content-end">
     <div class="my-5 my-5 content-section">
       <h2 class="hp-line">Players</h2>
       <%= link_to "Find Clubs", clubs_path, class: "btn btn-confirm hp-btn" %>
@@ -16,4 +8,14 @@
       <h4>There are thousands of cool sports clubs out there looking for new members. Find the one that suits you and your lifestyle.</h4>
     </div>
   </div>
+
+  <div class="row d-flex justify-content-start">
+    <div class="my-5 my-5 content-section">
+      <h2 class="hp-line">Clubs</h2>
+      <%= link_to "Find Members", user_index_path, class: "btn btn-confirm hp-btn" %>
+      <h3>Find members and grow as a club</h3>
+      <h4>A lot of people want to do sports but aren't sure where they would fit in. Show how your club stands out and recruit new members.</h4>
+    </div>
+  </div>
+
 </div>
