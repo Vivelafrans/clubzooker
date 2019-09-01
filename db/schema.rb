@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_144323) do
+ActiveRecord::Schema.define(version: 2019_09_01_115843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2019_08_29_144323) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "content"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.bigint "sport_id"
     t.bigint "club_id"
@@ -65,6 +75,15 @@ ActiveRecord::Schema.define(version: 2019_08_29_144323) do
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_reviews_on_club_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_rooms_on_club_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "sports", force: :cascade do |t|
@@ -98,8 +117,10 @@ ActiveRecord::Schema.define(version: 2019_08_29_144323) do
   end
 
   add_foreign_key "interests", "sports"
+  add_foreign_key "messages", "rooms"
   add_foreign_key "offers", "sports"
   add_foreign_key "reviews", "clubs"
   add_foreign_key "reviews", "users"
+  add_foreign_key "rooms", "clubs"
   add_foreign_key "users", "clubs"
 end

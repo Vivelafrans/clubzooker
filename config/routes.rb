@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :offers, except: [:show]
     resources :memberships, only: [:new, :create, :destroy, :update, :edit, :index]
     resources :reviews, only: [:new, :create, :delete]
+    resources :rooms, only: [:new, :create] do
+      resources :messages, only: [:index, :new, :create]
+    end
   end
 
   resources :interests, except: [:show, :index]

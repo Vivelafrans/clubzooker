@@ -9,6 +9,7 @@ class Club < ApplicationRecord
   has_many :sports, through: :offers
   has_many :members, through: :memberships, source: :user
   has_many :reviews
+  has_many :rooms
 
   mount_uploader :photo, PhotoUploader
 

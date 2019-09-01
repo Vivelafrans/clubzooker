@@ -1,0 +1,17 @@
+<% @messages.each do |message| %>
+<%  club = Club.find(params[:club_id]) %>
+<% if club.admin_id == message.user_id %>
+<p><strong><%= club.name %></strong></p>
+<p><%= message.content %></p>
+<% else %>
+<% user = User.find(message.user_id) %>
+<p><strong><%= user.name %></strong></p>
+<p><%= message.content %></p>
+<% end %>
+<% end %>
+<h3>New Message:</h3>
+<%= simple_form_for [@club, @room, Message.new] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Send", class: 'btn btn-confirm'%>
+<% end %>
+
