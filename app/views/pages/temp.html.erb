@@ -1,3 +1,50 @@
+<!-- Test page for HTML functionality -->
+
+<!-- Leo's Homepage -->
+
+<div class="hp-container">
+  <h1 style="display: none">We connect Players with Sports Clubs</h1>
+
+  <div class="row space-around" >
+    <div class="col-6" id="club-half">
+      <div>
+        <h2>Clubs</h2>
+      </div>
+
+      <div>
+       <h3>Find new members and succeed</h3>
+       <h4>So many people want to do sports but don't know where.</h4>
+       <h4>Recruit new members to improve your overall club life.</h4>
+     </div>
+
+      <div>
+        <%= link_to "Find Members", user_index_path, class: "btn btn-confirm player-btn" %>
+      </div>
+
+   </div>
+
+   <div class="col-6" id="player-half">
+
+
+    <div>
+      <h2>Players</h2>
+    </div>
+
+    <div>
+      <h3>Find your club now and be healthy</h3>
+      <h4>There are thousands of cool sport clubs out there looking for new members</h4>
+    </div>
+
+    <div>
+      <%= link_to "Find Clubs", clubs_path, class: "btn btn-confirm player-btn" %>
+    </div>
+
+    </div>
+  </div>
+
+</div>
+
+
   <!-- Modal: Login / Register Form -->
 <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog cascading-modal" role="document">
