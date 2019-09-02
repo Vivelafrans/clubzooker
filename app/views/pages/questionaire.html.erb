@@ -81,7 +81,7 @@
     console.log(nextPageIndex)
     pages[nextPageIndex].questions.forEach((question) => {
       question.addEventListener('click', (event) => {
-        // SPECIFY ANSWER HERE
+        // SPECIFY ANSWER
         answers[nextPageIndex] = event.target
         pages[nextPageIndex].questions.forEach((q) => {
           q.classList.remove('active-question');
