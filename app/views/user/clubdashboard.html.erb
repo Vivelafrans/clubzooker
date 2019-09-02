@@ -116,13 +116,15 @@
     <% user = User.find(chat.user_id) %>
     <p><%= user.name %></p>
     <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
+      <%= render 'shared/chatroom', room: chat, club: @club %>
     <% end %>
   </div>
 </div>
 
-
-
-
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
+</div>
 
 
 
