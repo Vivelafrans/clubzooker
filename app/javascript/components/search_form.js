@@ -40,7 +40,7 @@ const clearList = () => {
 const addListItems = (data) => {
   const list = document.getElementById('results')
   data.forEach((item) => {
-    list.insertAdjacentHTML('beforeend', `<li>${item.name}</li>`)
+    list.insertAdjacentHTML('beforeend', `<li class="list-group-item list-group-item-action">${item.name}</li>`)
   })
 }
 
@@ -55,12 +55,19 @@ const listenToThoseKeys = async () => {
       const url  = window.location.origin + '/api/v1/sports/' + input.value;
       const data = await fetch(url).then(response => response.json()).then((data) => { return data; })
       addListItems(data);
-    }
-  })
-}
+      document.querySelectorAll("#results li").forEach(li => {
+        li.addEventListener("click", event => {
+
+          input.value = event.currentTarget.innerText;
+        });
+      });
+    };
+  });
+};
 
 
 listenToThoseKeys();
+
 
 
 

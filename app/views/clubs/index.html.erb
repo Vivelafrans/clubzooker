@@ -27,21 +27,25 @@
           </div>
           <% end %>
 
+
         <div class="p-0" style="text-align:center">
-          <br><%= submit_tag "Filter", class: "btn btn-confirm" %>
+          <%= submit_tag "Filter", class: "btn btn-confirm" %>
         </div>
         <% end %>
       </div>
+    </div>
 
-      <div class="section">
-        <div class='printchatbox' id='printchatbox'></div>
+      <div class="section" class="section card-origin mb-3 p-3">
         <div id="search-form" class="form-inline">
-        <input type='text' name='fname' class='chatinput' id='chatinput'>
+        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput'>
         <ul id="results"></ul>
         </div>
+        <div class='printchatbox' id='printchatbox'></div>
+        <div>
         <form id="form_search">
           <input type="submit" value="Send" class="btn btn-confirm" >
         </form>
+        </div>
       </div>
 
       <div class="section">

@@ -1,2 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#search-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /*grid-gap: 16px;*/
+  margin-top: 80px;
+}
+/*width: calc(100% - 90px)*/
+#results {
+  list-style: none;
+  padding-left: 0;
+  margin-top: -1px;
+}
+#results li {
+  cursor: pointer;
+}
