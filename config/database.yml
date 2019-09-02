@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: clubzooker_production
-  username: clubzooker
-  password: <%= ENV['CLUBZOOKER_DATABASE_PASSWORD'] %>
+  # username: clubzooker
+  # password: <%= ENV['CLUBZOOKER_DATABASE_PASSWORD'] %>
