@@ -35,3 +35,8 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails', groups: [:development, :test]
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+  gem 'rails-assets-chosen-bootstrap'
+end
