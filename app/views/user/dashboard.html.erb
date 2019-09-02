@@ -33,13 +33,14 @@
 
   <div class="section my-3 card-origin card-dashboard">
     <h3 class="text-center">Edit your memberships</h3>
-    <p class="text-center">Any memberships of sportsclubs will appear below</p>
+    <p class="text-center">Your club memberships and requests will appear below</p>
 
     <div class="row d-flex justify-content-around">
       <% current_user.memberships.each do |membership| %>
           <div class="card-origin card-dashboard m-3 card-vertical text-center">
+            <%= link_to club_path(membership.club), class: "card-link" do %>
             <div>
-              <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+              <img src="<%= membership.club.photo %>" class="avatar-bordered">
             </div>
             <div>
               <h3> <%= membership.club.name %> </h3>
@@ -48,6 +49,7 @@
               <% end %>
               <p>Status: <strong><%= membership.status %></strong></p>
             </div>
+            <% end %>
           </div>
       <!-- Delete Method missing here -->
       <% end %>
