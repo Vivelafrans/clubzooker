@@ -13,6 +13,21 @@
   }
 }
 
+.btn-confirm-trash {
+  color: rgba(192, 124, 186, 0.8);
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  width: 50px;
+
+  &:hover {
+  color: #fff;
+  background-color: rgba(192, 124, 186, 1);
+  transition: ease 0.3s;
+  }
+}
+
 .btn-other {
   color: rgba(192, 124, 186, 0.8);
   background-color: #fff;

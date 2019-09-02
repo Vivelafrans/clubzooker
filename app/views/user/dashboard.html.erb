@@ -12,7 +12,7 @@
       <ul style="padding-inline-start:0px; list-style-type: none; width:400px;">
         <% current_user.interests.each do |interest| %>
 
-          <li class="my-4 d-flex justify-content-between align-items-center"> <%= interest.sport.name  %> <%= link_to "Delete Sport", interest_path(interest), method: :delete, class: "btn btn-confirm" %>
+          <li class="my-4 d-flex justify-content-between align-items-center"> <%= interest.sport.name  %> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, interest_path(interest), method: :delete, class: "btn btn-confirm-trash" %>
           </li>
 
         <% end %>
@@ -32,14 +32,15 @@
 
 
   <div class="section my-3 card-origin card-dashboard">
-    <h3 class="text-center">Edit your memberships</h3>
-    <p class="text-center">Any memberships of sportsclubs will appear below</p>
+    <h3 class="text-center">Memberships</h3>
+    <p class="text-center">Your club memberships and requests will appear below</p>
 
     <div class="row d-flex justify-content-around">
       <% current_user.memberships.each do |membership| %>
           <div class="card-origin card-dashboard m-3 card-vertical text-center">
+            <%= link_to club_path(membership.club), class: "card-link" do %>
             <div>
-              <img src="<%= membership.club.photo %>" alt="skateboard" class="avatar-bordered">
+              <img src="<%= membership.club.photo %>" class="avatar-bordered">
             </div>
             <div>
               <h3> <%= membership.club.name %> </h3>
@@ -48,10 +49,25 @@
               <% end %>
               <p>Status: <strong><%= membership.status %></strong></p>
             </div>
+            <% end %>
           </div>
       <!-- Delete Method missing here -->
       <% end %>
     </div>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Chats with clubs</h3>
+    <% current_user.rooms.each do |chat| %>
+    <% @club = Club.find(chat.club_id) %>
+
+    <div class="row d-flex justify-content-around card-origin card-dashboard m-3">
+      <img src="<%= @club.photo %>" class="avatar-bordered">
+      <a href="" class="btn btn-confirm mb-4" data-toggle="modal" data-target="#modalLoginForm">Pop-up chat</a>
+      <%= render 'shared/chatroom', room: chat, club: @club %>
+    </div>
+
+    <% end %>
   </div>
 
   <div class="section my-3 card-origin card-dashboard">
@@ -81,20 +97,9 @@
       <div class="text-center">
         <%= link_to "Change password", edit_user_registration_path, class: "btn btn-confirm" %>
       </div>
-
   </div>
 
-  <div class="section my-3 card-origin card-dashboard">
-    <h3 class="text-center">Current Chats</h3>
-    <% current_user.rooms.each do |chat| %>
-    <% @club = Club.find(chat.club_id) %>
-    <p><%= @club.name %></p>
-    <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
-    <% end %>
-  </div>
 </div>
-
-
 
 
 

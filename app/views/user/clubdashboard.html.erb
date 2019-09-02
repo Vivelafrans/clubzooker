@@ -24,21 +24,26 @@
   </div>
 
   <div class="section my-3 card-origin card-dashboard">
-     <h3>Offered Sports</h3>
-     <% @club.offers.each do |offer| %>
-     <div class="d-flex align-items-center">
-       <p><%= offer.sport.name %></p>
-       <%= link_to "Delete", club_offer_path(@club, offer), method: :delete, class: "btn btn-confirm" %>
-     </div>
-     <% end %>
-     <%= simple_form_for [@club, Offer.new] do |f| %>
-     <div class="d-flex align-items-center">
-      <%= f.association :sport %>
-      <%= f.submit 'Add Sport', class: 'btn btn-confirm' %>
+    <div class="text-center">
+      <h3>Offered Sports</h3>
     </div>
-    <% end %>
+    <div class="d-flex justify-content-center">
+      <ul style="padding-inline-start:0px; list-style-type: none; width:400px;">
+        <% @club.offers.each do |offer| %>
+        <li class="my-4 d-flex justify-content-between align-items-center"> <%= offer.sport.name  %> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, club_offer_path(@club, offer), method: :delete, class: "btn btn-confirm-trash" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+      <%= simple_form_for [@club, Offer.new] do |f| %>
+        <%= f.association :sport %>
+        <div class="text-center">
+          <%= f.submit 'Add Sport', class: 'btn btn-confirm' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
 
   <div class="section my-3 card-origin card-dashboard">
      <h3>Membership-Requests</h3>
@@ -50,7 +55,9 @@
         <p><strong><%= membership.status %></strong></p>
         <%= simple_form_for [@club, membership] do |f| %>
         <%= f.hidden_field :status, value: "Member" %>
-        <%= f.submit "Confirm", class: "btn btn-confirm"%>
+        <%= button_tag type: 'submit', class: "btn btn-confirm-trash" do %>
+          <i class="fas fa-check"></i>
+        <% end %>
         <% end %>
       </div>
     <% end %>
@@ -64,9 +71,8 @@
     <div class="d-flex align-items-center">
       <p><%= membership.user.name %></p>
       <p><%= membership.user.email %></p>
-      <p><%= membership.user.address %></p>
       <p><strong><%= membership.status %></strong></p>
-      <%= link_to "Delete", club_membership_path(@club, membership), method: :delete, class: "btn btn-confirm"   %>
+      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, club_membership_path(@club, membership), method: :delete, class: "btn btn-confirm-trash"   %>
     </div>
     <% end %>
     <% end %>
@@ -110,13 +116,15 @@
     <% user = User.find(chat.user_id) %>
     <p><%= user.name %></p>
     <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
+      <%= render 'shared/chatroom', room: chat, club: @club %>
     <% end %>
   </div>
 </div>
 
-
-
-
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
+</div>
 
 
 
