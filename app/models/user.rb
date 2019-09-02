@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :reviews
 
+  has_many :rooms
+
   validates :name, presence: true
   validates :age, presence: true, inclusion: { in: 14..120, message: "%{value} is not a valid age" }
   validates :address, presence: true

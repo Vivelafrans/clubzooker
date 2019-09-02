@@ -83,4 +83,28 @@
       </div>
 
   </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Current Chats</h3>
+    <% current_user.rooms.each do |chat| %>
+    <% @club = Club.find(chat.club_id) %>
+    <p><%= @club.name %></p>
+    <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+<%= simple_form_for [@club, @room, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Send", class: 'btn btn-confirm'%>
+<% end %>
+

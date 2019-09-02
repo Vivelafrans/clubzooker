@@ -103,4 +103,25 @@
       <% end %>
     </div>
   </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3>Chats of <%= @club.name %></h3>
+    <% @club.rooms.each do |chat| %>
+    <% user = User.find(chat.user_id) %>
+    <p><%= user.name %></p>
+    <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+

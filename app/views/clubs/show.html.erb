@@ -107,3 +107,9 @@
     </div>
 </div>
 
+<div class="section">
+  <%= simple_form_for [ @club, Room.new ] do |f| %>
+  <%= f.submit "Send a Message", class: 'btn btn-confirm'%>
+  <% end %>
+</div>
+
