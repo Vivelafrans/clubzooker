@@ -3,4 +3,12 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def questionaire
+  end
+
+  def results
+    puts params
+    redirect_to root_path
+  end
 end
