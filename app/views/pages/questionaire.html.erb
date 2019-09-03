@@ -1,59 +1,143 @@
 
 <div class="questionaire">
-  <div class="q1 page" style="display: flex; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 1</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q2 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 2</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q3 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 3</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q4 page" style="display: flex; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 1</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q5 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 2</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q6 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 3</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q7 page" style="display: flex; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 1</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q8 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 2</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q9 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 3</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-  <div class="q10 page" style="display: none; width: 100%; height: 100%;">
-    <div class="first question" style="width: 33%;">page 3</div>
-    <div class="second question" style="width: 33%;"></div>
-    <div class="third question" style="width: 33%;"></div>
-  </div>
-</div>
-<p id="button1">CLICK HERE TO GO TO THE COOL PAGE</p>
 
- <p id="auth-token" style="display: none;"><%= form_authenticity_token %></p>
+<!-- Remove the ps because they are not clickable
+ -->  <div class="q1 page" style="width: 100%; height: 100%;">
+    <h3>Type of sport</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>Racket: you’re looking for something you can swing or hit at</p>
+    </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p >Adventure : you’re looking for something unconventional</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>Good old …: I prefer something typical</p>
+    </div>
+  </div>
+
+  <div class="q2 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Workout intensity</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>Give me all you got</p>
+    </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p >I want to challenge myself but not completely overdo it</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p >I prefer something with little effort</p>
+    </div>
+  </div>
+
+  <div class="q3 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Team Sports</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I prefer working in teams</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I don’t mind if I work in a team or by myself</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I’m a lonely ranger</p>
+    </div>
+  </div>
+
+  <div class="q4 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Equipment</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I am willing to spend a high amount of money for sport</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I am willing to spend a decent amount on sport</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I am not  willing to spend anything for sport</p>
+    </div>
+  </div>
+
+  <div class="q5 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Goals</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I want to build up muscles to increase my strength</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I want to increase my endurance</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I want to improve my flexibility,  coordination and agility</p>
+    </div>
+  </div>
+
+  <div class="q6 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Precision sports</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I am fascinated by sports that require me to hit the mark</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>Precision is important but sport is about more than just hitting the mark</p>
+    </div>
+    <div class="third question" style="height: 30%;"data-value="c">
+      <p>Targeting precise goals is nothing for me</p>
+    </div>
+  </div>
+
+  <div class="q7 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Motivation</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I want to relax when doing sports</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I want to burn as much calories as possible and get in shape</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I want to improve my overall health</p>
+    </div>
+  </div>
+
+  <div class="q8 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Playful sports</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>If the sport is not a game, I don’t want to do it</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I don’t really care if playful elements are included in the sport</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I rather do sports without rules and playful elements</p>
+    </div>
+  </div>
+
+  <div class="q9 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Body Contact</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>I enjoy sports where I have lots of physical contact with other people</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I am fine with physical contact as long as it is not the whole time</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I dislike the idea of having physical contact with other people</p>
+    </div>
+  </div>
+
+  <div class="q10 page" style="display: none; width: 100%; height: 100%;">
+    <h3>Strategy</h3>
+    <div class="first question" style="height: 30%;" data-value="a">
+      <p>Games that require extensive strategic thinking really fascinate me</p>
+      </div>
+    <div class="second question" style="height: 30%;" data-value="b">
+      <p>I like strategy but it is not the most important aspect of sport</p>
+    </div>
+    <div class="third question" style="height: 30%;" data-value="c">
+      <p>I prefer sports without strategic elements</p>
+    </div>
+  </div>
+
+</div>
+
+<p class= "btn btn-confirm" id="button1">Next</p>
+
+<p id="auth-token" style="display: none;"><%= form_authenticity_token %></p>
+
 
 <script>
   const rawPages = document.querySelectorAll('.page')
@@ -82,7 +166,8 @@
     pages[nextPageIndex].questions.forEach((question) => {
       question.addEventListener('click', (event) => {
         // SPECIFY ANSWER
-        answers[nextPageIndex] = event.target
+        console.log(event.target.dataset.value);
+        answers[nextPageIndex] = event.target.dataset.value
         pages[nextPageIndex].questions.forEach((q) => {
           q.classList.remove('active-question');
         })
@@ -127,7 +212,7 @@
       console.log('we reached the end')
       sendTheForm();
     } else {
-      pages[nextPageIndex].html.style.display = 'flex'
+      pages[nextPageIndex].html.style.display = 'block'
       pages[nextPageIndex].displaying = true;
       selectAnswer();
     }
