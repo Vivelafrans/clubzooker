@@ -1,7 +1,7 @@
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog card-origin card-dashboard" role="document">
-    <div class="modal-content">
+    <div class="modal-content card-origin card-dashboard chat-height">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold"><%= @club.name %> Chat</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -9,24 +9,30 @@
         </button>
       </div>
 
-      <div class="m-3">
+      <div class="m-3 scroll-overflow">
         <% @messages = Message.where(room_id: room.id) %>
         <% @messages.each do |message| %>
-        <% if club.admin_id == message.user_id %>
-        <p><strong><%= club.name %></strong></p>
-        <p><%= message.content %></p>
-        <% else %>
-        <% user = User.find(message.user_id) %>
-        <p><strong><%= user.name %></strong></p>
-        <p><%= message.content %></p>
-        <% end %>
+          <% if club.admin_id == message.user_id %>
+            <div class="d-flex justify-content-end">
+              <div class="chat-cloud-club">
+                <p><strong><%= club.name %></strong></p>
+                <p><%= message.content %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="chat-cloud-user">
+              <% user = User.find(message.user_id) %>
+              <p><strong><%= user.name %></strong></p>
+              <p><%= message.content %></p>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
       <div class="modal-footer d-flex justify-content-center">
         <%= simple_form_for [club, room, Message.new] do |f| %>
-          <%= f.input :content %>
-          <%= f.submit "Send", class: 'btn btn-confirm'%>
+          <%= f.input :content, label: "Type your message here:" %>
+          <%= f.submit "Send Message", class: 'btn btn-confirm'%>
         <% end %>
       </div>
     </div>
