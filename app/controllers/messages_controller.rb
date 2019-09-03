@@ -18,7 +18,23 @@ class MessagesController < ApplicationController
     @message.user_id = @user.id
     @room = Room.find(params[:room_id])
     @message.room_id = params[:room_id]
-    @message.save!
-    # redirect_to club_room_messages_path(@club, @room)
+    save_message
+  end
+  # redirect_to club_room_messages_path(@club, @room)
+
+  private
+
+  def save_message
+    if @message.save!
+      respond_to do |format|
+        format.html { redirect_to club_room_messages_path(@club, @room) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to club_room_messages_path(@club, @room) }
+        format.js
+      end
+    end
   end
 end
