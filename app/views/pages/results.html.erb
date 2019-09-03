@@ -1,1 +1,4 @@
-
+<% Score.where(user_id: current_user.id).each do |score| %>
+<%= score.sport.name %>
+<%= score.level %>
+<% end %>
