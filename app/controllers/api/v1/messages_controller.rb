@@ -1,6 +1,11 @@
 class Api::V1::MessagesController < Api::V1::BaseController
   def create
-    Message.create!(params)
+    message = Message.new
+    p params
+    message.user_id = params[:user_id]
+    message.room = Room.find(params[:room_id])
+    message.content = params[:content]
+    message.save!
   end
 
   def show
