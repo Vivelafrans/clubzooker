@@ -19,6 +19,6 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @message.room_id = params[:room_id]
     @message.save!
-    redirect_to club_room_messages_path(@club, @room)
+    # redirect_to club_room_messages_path(@club, @room)
   end
 end

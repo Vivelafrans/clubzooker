@@ -12,3 +12,27 @@
   justify-content: center;
   align-items: center;
 }
+
+.chat-cloud-user {
+  background-color: rgba(54, 54, 54, 0.2);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 250px;
+}
+
+.chat-cloud-user p {
+  margin: 0;
+}
+
+.chat-cloud-club {
+  background-color: rgba(192, 124, 186, 0.2);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 250px;
+}
+
+.chat-cloud-club p {
+  margin: 0;
+}
