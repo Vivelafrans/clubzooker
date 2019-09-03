@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   resources :search_suggestions
   get 'user/index'
   get 'user/dashboard'
+  get 'questionaire', to: 'pages#questionaire', as: 'questionaire'
   get 'user/show'
   get 'user/clubdashboard'
   devise_for :users
   root to: 'pages#home'
+  post '/answer', to: 'pages#results', as: 'results'
 
   resources :clubs do
     resources :offers, except: [:show]
