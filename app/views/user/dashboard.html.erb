@@ -103,7 +103,67 @@
 
 
 
+<script>
+  const api_call_get_messages = async (roomID) => {
+    const boxname = `messageBox${roomID}`;
+    const chatbox = document.getElementsByClassName(boxname);
+    const clubID = chatbox[0].querySelector('.clubID').innerText
+    const url = window.location.origin + "/api/v1/messages/" + roomID + `/${clubID}`
+    const messages = await fetch(url)
+            .then(response => response.json())
+            .then((data) => {
+              return data
+            })
+    appendMessages(roomID, messages);
+  }
 
+  const api_call_create_message = (roomID, userID) => {
+    // een eventlistener op elke send form
+    // een api call via de goeie
+    // api call
+  }
+
+  const appendMessages = async (roomID, messages) => {
+    const boxname = `messageBox${roomID}`;
+    const chatbox = document.getElementsByClassName(boxname)[0];
+    messages.forEach((message) => {
+      console.log(message)
+      if (message['sender=']) {
+        chatbox.insertAdjacentHTML('beforeend', `
+          <div class="d-flex justify-content-end">
+              <div class="chat-cloud-club">
+                <p><strong>${message['club_name=']}</strong></p>
+                <p>${message['content=']}</p>
+              </div>
+            </div>
+        `)
+      } else {
+        chatbox.insertAdjacentHTML('beforeend', `
+          <div class="chat-cloud-user">
+            <p><strong>${message['user_name=']}</strong></p>
+            <p>${message['content=']}</p>
+          </div>
+        `)
+      }
+    })
+  }
+
+  const clearMessages = async (roomID) => {
+    const boxname1 = `messageBox${roomID}`;
+    const messageList = document.getElementsByClassName(boxname1)[0];
+    const allMessages = document.querySelectorAll('.message');
+    allMessages.forEach((messageToDelete) => {
+      messageList.removeChild(messageToDelete);
+    })
+  }
+
+  const execute = async (roomID) => {
+    clearMessages(roomID);
+    api_call_get_messages(roomID);
+  }
+
+  execute(1);
+</script>
 
 
 

@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newMessageForm = document.getElementById('new_message');
+  newMessageForm.innerHTML = innerHTML;
+}
+
+function addMessage(messageHTML) {
+  const messages = document.getElementById('messages');
+  message.insertAdjacentHTML('beforeend', messageHTML);
+}
+
+<% if @message.errors.any? %>
+  refreshForm('<%= j render "messages/form", club: @club, message: @message %>');
+<% else %>
+  addMessage('<%= j render "shared/chatroom", message: @message %>');
+  refreshForm('<%= j render "shared/chatroom", club: @club, message: Message.new %>');
+<% end %>
