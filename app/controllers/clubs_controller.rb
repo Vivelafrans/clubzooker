@@ -4,18 +4,41 @@ class ClubsController < ApplicationController
   def index
     if params[:query].present? && params[:query] != ""
       @clubs = Club.search_by_name_and_address("#{params[:query]}")
-    elsif params[:sport].present?
-      @clubs = []
-      params[:sport].each do |sport|
-        Offer.where(sport_id: Sport.where(name: sport)).each { |offer|@clubs << club = Club.find(offer.club_id) }
+    elsif params[:sport].present? && params[:distance].present?
+      # presearch = []
+      # params[:sport].each do |sport|
+      #   Offer.where(sport_id: Sport.where(name: sport)).each { |offer|@clubs << club = Club.find(offer.club_id) }
+      # end
+      presearch = Club.near(current_user.address, params[:distance].to_i)
+      big_range = []
+      presearch .each do |club|
+        club.offers.each do |offer|
+          big_range << club if offer.sport.name == params[:sport]
+        end
       end
+      @clubs = big_range.uniq
+    elsif params[:sport].present?
+      presearch = []
+      params[:sport].each do |sport|
+        Offer.where(sport_id: Sport.where(name: sport)).each { |offer| presearch << club = Club.find(offer.club_id) }
+      end
+      @clubs = presearch.uniq
+    elsif params[:distance].present?
+      @clubs = Club.near(current_user.address, params[:distance].to_i)
     else
       @clubs = Club.all
+    end
+    @markers = @clubs.map do |club|
+      {
+        lat: club.latitude,
+        lng: club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: club })
+      }
     end
   end
 
   def show
-    @marker = { lat: @club.latitude, lng: @club.longitude }
+    @marker = [{ lat: @club.latitude, lng: @club.longitude }]
   end
 
   def new

@@ -1,0 +1,7 @@
+<div class="card-origin text-center p-2 pb-3">
+<h4><%= club.name %></h4>
+<% club.sports.each do |sport| %>
+<p><%= sport.name %></p>
+<% end %>
+<%= link_to "See more", club_path(club), class: "btn-confirm" %>
+</div>
