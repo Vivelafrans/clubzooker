@@ -2,16 +2,24 @@
 @import "home";
 
 #search-form {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  width: 100%;
+  input {
+    width: 100%;
+  }
+  // display: grid;
+  // grid-template-columns: 1fr auto;
   /*grid-gap: 16px;*/
-  margin-top: 80px;
 }
 /*width: calc(100% - 90px)*/
 #results {
   list-style: none;
   padding-left: 0;
   margin-top: -1px;
+  position: absolute;
+  top: 54px;
+  z-index: 9999;
+  left: 16px;
+  right: 16px;
 }
 #results li {
   cursor: pointer;
