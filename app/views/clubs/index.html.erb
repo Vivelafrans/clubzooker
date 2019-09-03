@@ -17,78 +17,63 @@
       </div>
       <% end %>
     </div>
-    <div class="section card-origin mb-3 p-3 ">
-      <%= form_tag clubs_path, method: :get do %>
-      <div class="row">
-        <% Sport.all.each do |sport| %>
-        <div class="col-sm-4 col-md-3 col-lg-2">
-          <p><%= check_box_tag "sport[]", sport.name %>
-            <%= sport.name %></p>
-          </div>
-          <% end %>
 
+    <div class="section card-origin card--overflow mb-3 p-3 d-flex flex-column">
+      <div id="search-form" class="form-inline">
+        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput'>
+      </div>
+      <ul id="results"></ul>
+      <div class='printchatbox d-flex m-2' id='printchatbox'>
 
-        <div class="p-0" style="text-align:center">
-          <%= submit_tag "Filter", class: "btn btn-confirm" %>
-        </div>
-        <% end %>
+      </div>
+      <div class="d-flex justify-content-end">
+        <form id="form_search">
+          <input type="submit" value="Show Results" class="btn btn-confirm" >
+        </form>
       </div>
     </div>
 
-      <div class="section" class="section card-origin mb-3 p-3">
-        <div id="search-form" class="form-inline">
-        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput'>
-        <ul id="results"></ul>
-        </div>
-        <div class='printchatbox' id='printchatbox'></div>
-        <div>
-        <form id="form_search">
-          <input type="submit" value="Send" class="btn btn-confirm" >
-        </form>
-        </div>
-      </div>
+    <div class="section">
+      <% if params[:sport].blank? %>
+      <% else %>
+      <h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" or ") %></i></h3>
+      <% end %>
+    </div>
 
-      <div class="section">
-        <% if params[:sport].blank? %>
-        <% else %>
-        <h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" or ") %></i></h3>
-        <% end %>
-      </div>
-
-      <div class="section">
-        <div class="vertical-card-wrapper row">
-          <% @clubs.each do |club| %>
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card-origin card-vertical my-2 text-center mx-auto">
-              <%= link_to club_path(club), class:"card-link" do %>
-              <div>
-                <img src="https://images.unsplash.com/photo-1464983308776-3c7215084895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80" alt="sports background" class="card-vertical-cover">
+    <div class="section">
+      <div class="vertical-card-wrapper row">
+        <% @clubs.each do |club| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card-origin card-vertical my-2 text-center mx-auto">
+            <%= link_to club_path(club), class:"card-link" do %>
+            <div>
+              <img src="https://images.unsplash.com/photo-1464983308776-3c7215084895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80" alt="sports background" class="card-vertical-cover">
+            </div>
+            <div class="avatar-new-position">
+              <%= cl_image_tag club.photo, class: "avatar-bordered-card" %>
+            </div>
+            <div class="card-bottom">
+              <div class="card-info">
+                <h3 class="club-card-name"><%= club.name %></h3>
+                <p>City: Amsterdam</p>
               </div>
-              <div class="avatar-new-position">
-                <%= cl_image_tag club.photo, class: "avatar-bordered-card" %>
-              </div>
-              <div class="card-bottom">
-                <div class="card-info">
-                  <h3 class="club-card-name"><%= club.name %></h3>
-                  <p>City: Amsterdam</p>
-                </div>
-                <div class="card-tags">
-                  <div class="row d-flex">
-                    <% club.offers.each do |offer| %>
-                    <div class="col-4">
-                      <div class="tag"><%= offer.sport.name %></div>
-                    </div>
-                    <% end %>
+              <div class="card-tags">
+                <div class="row d-flex">
+                  <% club.offers.each do |offer| %>
+                  <div class="col-4">
+                    <div class="tag"><%= offer.sport.name %></div>
                   </div>
+                  <% end %>
                 </div>
               </div>
             </div>
-            <% end %>
           </div>
           <% end %>
         </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>
 
 

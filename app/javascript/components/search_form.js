@@ -18,16 +18,8 @@ export { runPage }
 
 
 const inputBox = document.getElementById('chatinput');
+const listItem = document.querySelectorAll("#results li");
 const form = document.getElementById('form_search');
-
-inputBox.addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) {
-      document.getElementById('printchatbox').insertAdjacentHTML("beforeend",`<p>${inputBox.value}</p>`);
-      form.insertAdjacentHTML("beforeend", `<input type="hidden" name="sport[]" value=${inputBox.value}>`);
-      document.getElementById("chatinput").value = "";
-    }
-});
 
 const clearList = () => {
   const list = document.querySelector('#results')
@@ -57,8 +49,11 @@ const listenToThoseKeys = async () => {
       addListItems(data);
       document.querySelectorAll("#results li").forEach(li => {
         li.addEventListener("click", event => {
-
           input.value = event.currentTarget.innerText;
+          document.getElementById('printchatbox').insertAdjacentHTML("beforeend",`<span class="tag m-2 px-3">${inputBox.value}</span>`);
+          form.insertAdjacentHTML("beforeend", `<input type="hidden" name="sport[]" value=${inputBox.value}>`);
+          document.getElementById("chatinput").value = "";
+          clearList();
         });
       });
     };

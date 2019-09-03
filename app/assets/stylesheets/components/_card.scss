@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+.card-origin.card--overflow {
+  overflow: visible;
+  position: relative;
+}
+
 .card-dashboard {
   padding: 15px;
 }
