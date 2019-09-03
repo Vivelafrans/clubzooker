@@ -15,6 +15,7 @@ class ClubsController < ApplicationController
   end
 
   def show
+    @marker = { lat: @club.latitude, lng: @club.longitude }
   end
 
   def new
