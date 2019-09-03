@@ -117,17 +117,29 @@
     appendMessages(roomID, messages);
   }
 
-  const api_call_create_message = (roomID, userID) => {
-    // een eventlistener op elke send form
-    // een api call via de goeie
-    // api call
+  const api_call_create_message = (roomID, userID, content) => {
+    const newurl = window.location.origin + `/api/v1/messages/new/${roomID}/${userID}/${content}`
+    fetch(newurl)
+  }
+
+  const create_message = (roomID) => {
+    const boxname = `messageBox${roomID}`;
+    const chatbox = document.getElementsByClassName(boxname)[0];
+    const chatbutton = document.getElementsByClassName(`chatButton${roomID}`)[0];
+    const user_id = chatbox.getElementsByClassName('userID')[0].innerText;
+    chatbutton.addEventListener('click', (event) => {
+      console.log(event);
+      const chatinput = document.getElementsByClassName(`chatInput${roomID}`)[0].value
+      api_call_create_message(roomID,user_id,chatinput);
+      execute(roomID);
+    })
   }
 
   const appendMessages = async (roomID, messages) => {
     const boxname = `messageBox${roomID}`;
+    clearMessages();
     const chatbox = document.getElementsByClassName(boxname)[0];
     messages.forEach((message) => {
-      console.log(message)
       if (message['sender=']) {
         chatbox.insertAdjacentHTML('beforeend', `
           <div class="d-flex justify-content-end">
@@ -159,10 +171,25 @@
 
   const execute = async (roomID) => {
     clearMessages(roomID);
+    clearMessages(roomID);
+    clearMessages(roomID);
+    clearMessages(roomID);
     api_call_get_messages(roomID);
   }
 
-  execute(1);
+  const do_everything = () => {
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const chatboxes = document.querySelectorAll('.chatboxes')
+      chatboxes.forEach((box) => {
+        const room_id = box.querySelector('.roomID').innerText;
+        console.log(room_id)
+        api_call_get_messages(room_id);
+        create_message(room_id);
+      })
+    })
+  }
+
+  do_everything();
 </script>
 
 

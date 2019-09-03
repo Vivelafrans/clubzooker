@@ -9,32 +9,16 @@
         </button>
       </div>
 
-      <div class="m-3 scroll-overflow <%= "messageBox#{room.id}" %>">
+      <div class="m-3 scroll-overflow <%= "messageBox#{room.id}" %> chatboxes">
         <p class="clubID" style="display: none;"><%= club.id %></p>
-        <% @messages = Message.where(room_id: room.id) %>
-        <% @messages.each do |message| %>
-          <% if club.admin_id == message.user_id %>
-            <div class="d-flex justify-content-end message">
-              <div class="chat-cloud-club">
-                <p><strong><%= club.name %></strong></p>
-                <p><%= message.content %></p>
-              </div>
-            </div>
-          <% else %>
-            <div class="chat-cloud-user message">
-              <% user = User.find(message.user_id) %>
-              <p><strong><%= user.name %></strong></p>
-              <p><%= message.content %></p>
-            </div>
-          <% end %>
-        <% end %>
+        <p class="userID" style="display: none;"><%= current_user.id %></p>
+        <p class="roomID" style="display: none;"><%= room.id %></p>
       </div>
 
       <div class="modal-footer d-flex justify-content-center">
-        <%= simple_form_for([club, room, Message.new], remote: true) do |f| %>
-          <%= f.input :content, label: "Type your message here:" %>
-          <%= f.submit "Send Message", class: 'btn btn-confirm'%>
-        <% end %>
+        <label for=<%= "input#{room.id}" %>></label>
+        <input type="text" name=<%= "input#{room.id}" %> class=<%= "chatInput#{room.id}" %>>
+        <button class="<%= "btn btn-confirm chatButton#{room.id}" %>"></button>
       </div>
     </div>
   </div>
