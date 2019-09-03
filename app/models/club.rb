@@ -18,6 +18,8 @@ class Club < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   validates :admin_id, uniqueness: true
 
+  scope :by_location, -> (address, distance) { near(address, distance) }
+
   include PgSearch::Model
   pg_search_scope :search_by_name_and_address,
     against: [ :name, :address],
