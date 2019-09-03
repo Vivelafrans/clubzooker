@@ -104,92 +104,113 @@
 
 
 <script>
-  const api_call_get_messages = async (roomID) => {
-    const boxname = `messageBox${roomID}`;
-    const chatbox = document.getElementsByClassName(boxname);
-    const clubID = chatbox[0].querySelector('.clubID').innerText
-    const url = window.location.origin + "/api/v1/messages/" + roomID + `/${clubID}`
-    const messages = await fetch(url)
-            .then(response => response.json())
-            .then((data) => {
-              return data
-            })
-    appendMessages(roomID, messages);
-  }
+  const generate_objects = () => {
+      const rawChatboxes = document.querySelectorAll('.chatboxes')
+      const temp_array = [];
+      rawChatboxes.forEach((chatbox) => {
+        const temp_obj = new Object;
+        temp_obj.html = chatbox;
+        temp_obj.messages = chatbox.querySelectorAll('.message');
+        temp_obj.clubId = chatbox.querySelector('.clubID');
+        temp_obj.userId = chatbox.querySelector('.userID');
+        temp_obj.roomId = chatbox.querySelector('.roomID');
+        temp_obj.chatButton = chatbox.getElementsByClassName(`chatButton${temp_obj.roomId}`)[0];
+        temp_obj.new_messages = null;
+        temp_array.push(temp_obj)
+      })
+      return temp_array;
+    };
 
-  const api_call_create_message = (roomID, userID, content) => {
-    const newurl = window.location.origin + `/api/v1/messages/new/${roomID}/${userID}/${content}`
-    fetch(newurl)
-  }
+    const chatboxes = generate_objects();
 
-  const create_message = (roomID) => {
-    const boxname = `messageBox${roomID}`;
-    const chatbox = document.getElementsByClassName(boxname)[0];
-    const chatbutton = document.getElementsByClassName(`chatButton${roomID}`)[0];
-    const user_id = chatbox.getElementsByClassName('userID')[0].innerText;
-    chatbutton.addEventListener('click', (event) => {
-      console.log(event);
-      const chatinput = document.getElementsByClassName(`chatInput${roomID}`)[0].value
-      api_call_create_message(roomID,user_id,chatinput);
-      execute(roomID);
-    })
-  }
+    const clearMessages = () => {
+      chatboxes.forEach((box) => {
+        box.messages.forEach((message) => {
+          box.removeChild(message);
+        })
+      })
+    };
 
-  const appendMessages = async (roomID, messages) => {
-    const boxname = `messageBox${roomID}`;
-    clearMessages();
-    const chatbox = document.getElementsByClassName(boxname)[0];
-    messages.forEach((message) => {
-      if (message['sender=']) {
-        chatbox.insertAdjacentHTML('beforeend', `
-          <div class="d-flex justify-content-end">
-              <div class="chat-cloud-club">
-                <p><strong>${message['club_name=']}</strong></p>
+    const get_new_messages = async () => {
+      clearMessages();
+      chatboxes.forEach((box) => {
+        const url = window.location.origin + "/api/v1/messages/" + box.roomId + `/${box.clubId}`;
+        // await before fetch(url) was removed but has to be present
+        box.new_messages = fetch(url)
+                                  .then(response => response.json())
+                                  .then((data) => { return data; });
+      });
+      chatbox.forEach((box) => {
+        box.new_messages.forEach((msg) => {
+          if (msg['sender=']) {
+            box.html.insertAdjacentHTML('beforeend', `
+              <div class="d-flex justify-content-end message">
+                <div class="chat-cloud-club">
+                  <p><strong>${message['club_name=']}</strong></p>
+                  <p>${message['content=']}</p>
+                </div>
+              </div>
+            `);
+          } else {
+            box.html.insertAdjacentHTML('beforeend', `
+              <div class="chat-cloud-user message">
+                <p><strong>${message['user_name=']}</strong></p>
                 <p>${message['content=']}</p>
               </div>
-            </div>
-        `)
-      } else {
-        chatbox.insertAdjacentHTML('beforeend', `
-          <div class="chat-cloud-user">
-            <p><strong>${message['user_name=']}</strong></p>
-            <p>${message['content=']}</p>
-          </div>
-        `)
-      }
-    })
-  }
-
-  const clearMessages = async (roomID) => {
-    const boxname1 = `messageBox${roomID}`;
-    const messageList = document.getElementsByClassName(boxname1)[0];
-    const allMessages = document.querySelectorAll('.message');
-    allMessages.forEach((messageToDelete) => {
-      messageList.removeChild(messageToDelete);
-    })
-  }
-
-  const execute = async (roomID) => {
-    clearMessages(roomID);
-    clearMessages(roomID);
-    clearMessages(roomID);
-    clearMessages(roomID);
-    api_call_get_messages(roomID);
-  }
-
-  const do_everything = () => {
-    window.addEventListener('DOMContentLoaded', (event) => {
-      const chatboxes = document.querySelectorAll('.chatboxes')
-      chatboxes.forEach((box) => {
-        const room_id = box.querySelector('.roomID').innerText;
-        console.log(room_id)
-        api_call_get_messages(room_id);
-        create_message(room_id);
+            `);
+          };
+        })
       })
-    })
-  }
+    };
 
-  do_everything();
+    const send_new_message = async (roomID) => {
+      chatboxes.forEach((box) => {
+        if (box.roomId === roomID) {
+          const form = document.createElement('form');
+          form.method = 'post';
+          form.action = '/api/v1/messages/new';
+
+          const hiddenField = document.createElement('input');
+          hiddenField.type = 'hidden';
+          hiddenField.name = key;
+          hiddenField.value = params[key];
+          form.appendChild(hiddenField);
+
+          const useridelement = document.createElement('input');
+          useridelement.type = 'hidden';
+          useridelement.name = 'user_id';
+          useridelement.value = box.userId;
+          form.appendChild(useridelement);
+
+          const roomIdElement = document.createElement('input');
+          roomIdElement.type = 'hidden';
+          roomIdElement.name = 'room_id';
+          roomIdElement.value = box.roomId;
+          form.appendChild(roomIdElement);
+
+          const clubIdElement = document.createElement('input');
+          clubIdElement.type = 'hidden';
+          clubIdElement.name = 'club_id';
+          clubIdElement.value = box.clubId;
+          form.appendChild(clubIdElement);
+
+          document.body.appendChild(form);
+          form.submit();
+        }
+      })
+      get_new_messages();
+    };
+
+    const run_the_thing = () => {
+      document.addEventListener('DOMContentLoaded', (event) => {
+        get_new_messages();
+        chatboxes.forEach((box) => {
+          box.chatbutton.addEventListener('click', send_new_message);
+        });
+      });
+    };
+
+    run_the_thing();
 </script>
 
 
