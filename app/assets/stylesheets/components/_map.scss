@@ -1,0 +1,15 @@
+.mapboxgl-marker {
+  position: absolute;
+}
+
+.mapboxgl-canvas {
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(54,54,54,.19);
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
