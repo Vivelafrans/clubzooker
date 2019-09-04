@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sports, only: [ :index ]
       get "/sports/:query", to: 'sports#search', as: 'api_search'
-      get "/messages/new/:room_id/:user_id/:content", to: 'messages#create', as: 'api_message_create'
+      post "/messages/new", to: 'messages#create', as: 'api_message_create'
       get "/messages/:room_id/:club_id", to: 'messages#show', as: 'api_message_show'
     end
   end

@@ -40,6 +40,18 @@
   background: #fff;
 }
 
+.avatar-bordered-card-show {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: white 2px solid;
+  position: absolute;
+  left: 510px;
+  top: 80px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
 .avatar-square {
   width: 40px;
   border-radius: 0px;
