@@ -225,6 +225,11 @@
         get_new_messages();
         chatboxes.forEach((box) => {
           box.chatButton.addEventListener('click', send_new_message);
+          box.chatInput.addEventListener('keyup', (event) => {
+            if (event.keyCode === 13) {
+              send_new_message();
+            };
+          });
         });
       });
     };
@@ -268,7 +273,7 @@
     background-color: white;
     display: block;
     height: 90%;
-    width: 60%;
+    width: 440px;
     position: relative;
     border-radius: 15px;
   }
