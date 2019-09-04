@@ -26,8 +26,8 @@
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
   <div class="form-actions text-center">
-    <button class="btn-confirm"><%= f.button :submit, "Sign up" %></button>
-    <button class="btn btn-confirm"><%= render "devise/shared/links" %></button>
+    <button class="btn btn-confirm"><%= f.button :submit, "Sign up" %></button>
+    <button id="login-button" class="btn btn-confirm"><%= render "devise/shared/links" %></button>
   </div>
   </div>
 
