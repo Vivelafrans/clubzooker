@@ -72,3 +72,33 @@
 .chat-height {
   height: 80vh;
 }
+
+.yellow_box {
+  background-color: #fff3cd;
+  color: #f2cf68;
+  display: inline-block;
+  border: 1px solid #f2cf68;
+  padding: 10px;
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.round_card {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 500px ;
+  height: 500px;
+}
+
+.flexing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.information {
+  width: 500px;
+  display: inline-block;
+}
