@@ -23,7 +23,9 @@ users = []
 admins = []
 sports = []
 sum = 0
-sport_names = %w(Archery Badminton Basketball Boxing Climbing Cycling Dodgeball Fencing Field-Hockey Football Golf Handball Horse-Riding Korfball Krav-Maga Kung-Fu Quidditch Rowing Rugby Running Sailing Squash Surfing Swimming Table-Tennis Tennis Ultimate-Frisbee Volleyball Water-Polo Wrestling Yoga)
+# sport_names = %w(Archery Badminton Basketball Boxing Climbing Cycling Dodgeball Fencing Field-Hockey Football Golf Handball Horse-Riding Korfball Krav-Maga Kung-Fu Quidditch Rowing Rugby Running Sailing Squash Surfing Swimming Table-Tennis Tennis Ultimate-Frisbee Volleyball Water-Polo Wrestling Yoga)
+sport_names = ["Archery", "Badminton", "Basketball", "Boxing", "Climbing", "Cycling", "Dodgeball", "Fencing", "Field Hockey", "Football", "Golf", "Handball", "Horse Riding", "Korfball", "Krav Maga", "Kung Fu", "Quidditch", "Rowing", "Rugby", "Running", "Sailing", "Squash", "Surfing", "Swimming", "Table Tennis", "Tennis", "Ultimate Frisbee", "Volleyball", "Water Polo", "Wrestling", "Yoga"]
+
 
 # Create Testuser who is a club admin
 
