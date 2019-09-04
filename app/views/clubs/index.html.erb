@@ -68,7 +68,7 @@
         <% @clubs.each do |club| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
           <div class="card-origin card-vertical my-2 text-center mx-auto">
-            <%= link_to club_path(club), class:"card-link" do %>
+            <%= link_to club_path(club), class: "card-link" do %>
             <div>
               <img src="https://images.unsplash.com/photo-1464983308776-3c7215084895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80" alt="sports background" class="card-vertical-cover">
             </div>
@@ -78,7 +78,18 @@
             <div class="card-bottom">
               <div class="card-info">
                 <h3 class="club-card-name"><%= club.name %></h3>
-                <p>City: Amsterdam</p>
+                <p>Rating:
+                  <% ratings = [] %>
+                  <% club.reviews.each do |ra| %>
+                  <% ratings << ra.rating.to_i %>
+                  <% end %>
+                  <% if ratings.size != 0 %>
+                  <% rating = ratings.sum / ratings.size unless ratings.size == 0 %>
+                  <% rating.times do  %>
+                  <span><i class="fas fa-star"></i></span>
+                  <% end %>
+                  <% end %>
+                </p>
               </div>
               <div class="card-tags">
                 <div class="row d-flex">
