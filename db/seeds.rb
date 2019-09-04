@@ -33,6 +33,8 @@ sport_names = ["Archery", "Badminton", "Basketball", "Boxing", "Climbing", "Cycl
   club = Club.create!(
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
+    description: "Join our club to have great fun",
+    photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
     description: "Join our club to have great fun"
   )
   club.remote_photo_url = "https://pigment.github.io/fake-logos/logos/medium/color/#{rand(1..13)}.png"
@@ -89,6 +91,7 @@ end
     name: Faker::Sports::Football.team,
     address: Faker::Address.full_address,
     description: "Join our club to have great fun",
+    photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
     remote_photo_url: "https://pigment.github.io/fake-logos/logos/medium/color/#{rand(1..13)}.png",
   )
 

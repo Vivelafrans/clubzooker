@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_one :club, foreign_key: 'admin_id'
 
+  has_many :memberships, dependent: :destroy
+
   has_many :interests, dependent: :destroy
   has_many :sports, through: :interests
 
