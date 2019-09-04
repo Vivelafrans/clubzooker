@@ -1,234 +1,172 @@
 
-<div class="questionaire">
+<div class="container text-center">
 
-<!-- Remove the ps because they are not clickable
- -->  <div class="q1 page" style="width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_0'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+<div class="questionaire mx-auto">
+
+  <div class="q1 page" style="width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_0'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_0'.to_sym][:answers][:a][:content] %>
      </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_0'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_0'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q2 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_1'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q2 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_1'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_1'.to_sym][:answers][:a][:content] %>
     </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_1'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_1'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 10%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q3 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_2'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q3 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_2'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_2'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_2'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_2'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 20%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q4 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_3'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q4 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_3'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_3'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_3'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_3'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 30%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q5 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_4'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q5 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_4'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_4'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_4'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_4'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 40%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q6 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_5'.to_sym][:content] %>s</h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q6 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_5'.to_sym][:content] %> </h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_5'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_5'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;"data-value="c">
+    <div class="third question" style="height: 25%;"data-value="c">
       <%= QUESTIONS['question_5'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 50%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q7 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_6'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q7 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_6'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_6'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_6'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_6'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 60%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q8 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_7'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q8 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_7'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
       <%= QUESTIONS['question_7'.to_sym][:answers][:a][:content] %>
       </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
       <%= QUESTIONS['question_7'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
       <%= QUESTIONS['question_7'.to_sym][:answers][:c][:content] %>
     </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 70%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
+    </div>
   </div>
 
-  <div class="q9 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_8'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q9 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_8'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
         <%= QUESTIONS['question_8'.to_sym][:answers][:a][:content] %>
     </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
         <%= QUESTIONS['question_8'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
         <%= QUESTIONS['question_8'.to_sym][:answers][:c][:content] %>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 80%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
     </div>
   </div>
 
-  <div class="q10 page" style="display: none; width: 100%; height: 100%;">
-    <h3><%= QUESTIONS['question_9'.to_sym][:content] %></h3>
-    <div class="first question" style="height: 30%;" data-value="a">
+  <div class="q10 page" style="display: none; width: 100%; height: 600px;">
+    <h3 class="q-header"><%= QUESTIONS['question_9'.to_sym][:content] %></h3>
+    <div class="first question" style="height: 25%;" data-value="a">
         <%= QUESTIONS['question_9'.to_sym][:answers][:a][:content] %>
     </div>
-    <div class="second question" style="height: 30%;" data-value="b">
+    <div class="second question" style="height: 25%;" data-value="b">
         <%= QUESTIONS['question_9'.to_sym][:answers][:b][:content] %>
     </div>
-    <div class="third question" style="height: 30%;" data-value="c">
+    <div class="third question" style="height: 25%;" data-value="c">
         <%= QUESTIONS['question_9'.to_sym][:answers][:c][:content] %>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" style="width: 90%" role="progressbar" aria-valuenow="10" aria-valuemin="10" aria-valuemax="100"></div>
     </div>
   </div>
 
 </div>
 
-<p class= "btn btn-confirm" id="button1">Next</p>
+<p class= "btn btn-confirm my-2" id="button1">Next</p>
 
 <p id="auth-token" style="display: none;"><%= form_authenticity_token %></p>
 
-
-<script>
-  const rawPages = document.querySelectorAll('.page')
-  const pages = [];
-  let currentPageIndex = 0;
-  const answers = [];
-  let nextPageIndex = currentPageIndex;
-  rawPages.forEach((page, index) => {
-    const temp_obj = new Object;
-    temp_obj.html = page;
-    temp_obj.index = index;
-    temp_obj.q1 = page.querySelector('.first');
-    temp_obj.q2 = page.querySelector('.second');
-    temp_obj.q3 = page.querySelector('.third');
-    temp_obj.questions = page.querySelectorAll('.question')
-    if (index == 0) {
-      temp_obj.displaying = true;
-    } else {
-      temp_obj.displaying = false;
-    }
-    pages.push(temp_obj)
-  })
-
-  const selectAnswer = () => {
-    console.log(nextPageIndex)
-    pages[nextPageIndex].questions.forEach((question) => {
-      question.addEventListener('click', (event) => {
-        // SPECIFY ANSWER
-        console.log(event.target.dataset.value);
-        answers[nextPageIndex] = event.target.dataset.value
-        pages[nextPageIndex].questions.forEach((q) => {
-          q.classList.remove('active-question');
-        })
-        question.classList.add('active-question');
-      })
-    })
-  }
-
-  const sendTheForm = () => {
-    const form = document.createElement('form');
-    form.style.display = 'none';
-    form.method = 'post';
-    form.action = '/answer';
-
-    answers.forEach((answer,index) => {
-      const hiddenField = document.createElement('input');
-      hiddenField.name = `question${index}`
-      hiddenField.value = answer
-      form.appendChild(hiddenField);
-    })
-
-    const hiddenField1 = document.createElement('input');
-    hiddenField1.name = 'authenticity_token'
-    hiddenField1.value = document.getElementById('auth-token').innerText
-    form.appendChild(hiddenField1)
-
-    document.body.appendChild(form);
-    form.submit();
-  }
-
-  const displayNext = (event) => {
-    pages.forEach((page, index) => {
-      if (page.displaying == true) {
-        currentPageIndex = page.index;
-        page.displaying = false;
-        page.html.style.display = 'none';
-      } else {
-        page.html.style.display = 'none'
-      }
-    })
-    nextPageIndex += 1;
-    if (nextPageIndex > 9) {
-      console.log('we reached the end')
-      sendTheForm();
-    } else {
-      pages[nextPageIndex].html.style.display = 'block'
-      pages[nextPageIndex].displaying = true;
-      selectAnswer();
-    }
-  }
-
-  selectAnswer();
-  document.querySelector('#button1').addEventListener('click', displayNext);
-</script>
-<style>
-  .questionaire {
-    width: 500px;
-    height: 500px;
-  }
-
-  .active-question {
-    border: 5px solid red;
-  }
-</style>
+</div>
