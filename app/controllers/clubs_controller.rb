@@ -39,6 +39,9 @@ class ClubsController < ApplicationController
 
   def show
     @marker = [{ lat: @club.latitude, lng: @club.longitude }]
+    Room.all.each do |r|
+      @user_has_a_room = r if current_user.id == r.user_id && r.club_id == @club.id
+    end
   end
 
   def new

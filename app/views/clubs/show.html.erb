@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+
   <div class="card-origin flexing p-3 mb-3">
     <div class="information align-content-between">
       <div class="section">
@@ -62,8 +63,12 @@
           </div>
           <% if current_user != @club.admin %>
           <div class="section">
-            <%= simple_form_for [ @club, Room.new ] do |f| %>
-            <%= f.submit "Send a Message", class: 'btn btn-confirm'%>
+            <% if @user_has_a_room %>
+              <p class="btn btn-confirm" id="chat-with-club">Chat with the club</p>
+            <% else %>
+              <%= simple_form_for [ @club, Room.new ] do |f| %>
+              <%= f.submit "Send a Message", class: 'btn btn-confirm'%>
+              <% end %>
             <% end %>
           </div>
           <% end %>
@@ -75,7 +80,7 @@
         id="map"
         style="width: 500px; height: 500px;"
         data-markers="<%= @marker.to_json %>" data-mapbox-api-key=<%= ENV['MAPBOX_API_KEY'] %>></div>
-      </div>
+    </div>
     </div>
 
     <div class="card-origin mb-3 px-4">
@@ -159,3 +164,195 @@
       <% end %>
     </div>
 
+    <% if @user_has_a_room %>
+    <%= render 'shared/chatroom', room: @user_has_a_room, club: @club %>
+    <% end %>
+
+    <script>
+        const clearMessages = (index) => {
+          chatboxes[index].messages = chatboxes[index].html.querySelectorAll('.message');
+          chatboxes[index].messages.forEach((message) => {
+            chatboxes[index].html.removeChild(message);
+          })
+        };
+
+        const add_messages_to_box = (data, index) => {
+          chatboxes[index].new_messages = data;
+          chatboxes[index].new_messages.forEach((msg) => {
+            if (msg['sender=']) {
+              chatboxes[index].html.insertAdjacentHTML('beforeend', `
+                <div class="d-flex justify-content-end message">
+                  <div class="chat-cloud-club">
+                    <p><strong>${msg['club_name=']}</strong></p>
+                    <p>${msg['content=']}</p>
+                  </div>
+                </div>
+              `);
+            } else {
+              chatboxes[index].html.insertAdjacentHTML('beforeend', `
+                <div class="chat-cloud-user message">
+                  <p><strong>${msg['user_name=']}</strong></p>
+                  <p>${msg['content=']}</p>
+                </div>
+              `);
+            };
+          })
+          chatboxes[index].html.scrollTop = chatboxes[index].html.scrollHeight;
+        };
+
+        const get_new_messages = async () => {
+          chatboxes.forEach(async (box, index) => {
+            const url = window.location.origin + "/api/v1/messages/" + box.roomId + `/${box.clubId}`;
+            await fetch(url)
+              .then(response => response.json())
+              .then((data) => {
+                if (box.new_messages != data) {
+                  clearMessages(index);
+                  add_messages_to_box(data, index);
+                };
+              });
+          });
+        };
+
+        const send_new_message = async () => {
+          chatboxes.forEach((box) => {
+            if (box.chatInput.value.trim() != "") {
+              const form = document.createElement('form');
+              form.method = 'post';
+              form.action = '/api/v1/messages/new';
+
+              const hiddenField = document.createElement('input');
+              hiddenField.type = 'hidden';
+              hiddenField.name = 'authenticity_token';
+              hiddenField.value = box.authToken;
+              form.appendChild(hiddenField);
+
+              const useridelement = document.createElement('input');
+              useridelement.type = 'hidden';
+              useridelement.name = 'user_id';
+              useridelement.value = box.userId;
+              form.appendChild(useridelement);
+
+              const roomIdElement = document.createElement('input');
+              roomIdElement.type = 'hidden';
+              roomIdElement.name = 'room_id';
+              roomIdElement.value = box.roomId;
+              form.appendChild(roomIdElement);
+
+              const clubIdElement = document.createElement('input');
+              clubIdElement.type = 'hidden';
+              clubIdElement.name = 'club_id';
+              clubIdElement.value = box.clubId;
+              form.appendChild(clubIdElement);
+
+              const chatContent = document.createElement('input');
+              chatContent.type = 'hidden';
+              chatContent.name = 'content';
+              chatContent.value = box.chatInput.value;
+              form.appendChild(chatContent);
+
+              document.body.appendChild(form);
+              form.submit();
+              box.chatInput.value = "";
+            }
+          })
+        setTimeout(function() {
+          get_new_messages();
+        }, 250);
+        };
+
+        const generate_objects = () => {
+          const rawChatboxes = document.querySelectorAll('.chatboxes')
+          const temp_array = [];
+          rawChatboxes.forEach((chatbox) => {
+            const temp_obj = new Object;
+            temp_obj.html = chatbox;
+            temp_obj.messages = chatbox.querySelectorAll('.message');
+            temp_obj.clubId = chatbox.querySelector('.clubID').innerText;
+            temp_obj.userId = chatbox.querySelector('.userID').innerText;
+            temp_obj.roomId = chatbox.querySelector('.roomID').innerText;
+            temp_obj.authToken = chatbox.querySelector('.authToken').innerText;
+            temp_obj.chatButton = document.getElementsByClassName(`chatButton${temp_obj.roomId}`)[0];
+            temp_obj.chatInput = document.getElementsByClassName(`chatInput${temp_obj.roomId}`)[0];
+            temp_obj.new_messages = null;
+            temp_array.push(temp_obj)
+          })
+          setInterval(get_new_messages, 5000);
+          return temp_array;
+        };
+
+        const chatboxes = generate_objects();
+
+        const run_the_thing = () => {
+          make_modal_work();
+          document.addEventListener('DOMContentLoaded', (event) => {
+            get_new_messages();
+            chatboxes.forEach((box) => {
+              box.chatButton.addEventListener('click', send_new_message);
+              box.chatInput.addEventListener('keyup', (event) => {
+                if (event.keyCode === 13) {
+                  send_new_message();
+                };
+              });
+            });
+          });
+        };
+
+        const make_modal_work = () => {
+          chatboxes.forEach((box) => {
+            box.modalButton = document.getElementById(`chat-with-club`)
+            box.modalOutside = box.html.parentNode.parentNode
+            box.modalButton.addEventListener('click', (event) => {
+              if (event.target === box.modalButton) {
+                box.modalOutside.classList.toggle('disabled');
+              }
+            })
+            box.modalOutside.addEventListener('click', (event) => {
+              if (event.target === box.modalOutside) {
+                box.modalOutside.classList.toggle('disabled');
+              }
+            })
+          })
+        }
+
+        run_the_thing();
+    </script>
+
+    <style>
+      .chatmodal-outside {
+        display: flex;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .chatmodal-inside {
+        background-color: white;
+        display: block;
+        height: 90%;
+        width: 440px;
+        position: relative;
+        border-radius: 15px;
+      }
+
+      .chatboxes {
+        overflow: scroll;
+        height: 80%;
+        padding: 10%;
+      }
+
+      .inputBox {
+        padding: 5%;
+      }
+
+      .disabled {
+        display: none !important;
+      }
+    </style>
