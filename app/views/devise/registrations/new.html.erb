@@ -1,8 +1,8 @@
-<h2>Sign up</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs form-wrapper" style="width: 400px; margin: 0 auto;">
+  <div class="form-inputs form-wrapper card-origin text-center p-5 mb-5" style="width: 400px; margin: 0 auto;">
+    <div><h2>Sign up</h2></div>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -25,11 +25,11 @@
                 required: true %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions text-center">
+    <button class="btn-confirm"><%= f.button :submit, "Sign up" %></button>
+<button class="btn btn-confirm"><%= render "devise/shared/links" %></button>
   </div>
 <% end %>
+  </div>
 
-<%= render "devise/shared/links" %>
+

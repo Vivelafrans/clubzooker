@@ -1,9 +1,9 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-wrapper card-origin text-center p-5 mb-5" style="width: 400px; margin: 0 auto;">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,11 +21,11 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <div class="form-actions text-center">
+    <button class="btn-confirm"><%= f.button :submit, "Update" %></button>
+    <button class="btn-confirm"><%= link_to "Back", :back %></button>
+  </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
 <% end %>
 
-<%= link_to "Back", :back %>
