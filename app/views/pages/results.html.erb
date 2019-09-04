@@ -1,0 +1,9 @@
+<h2>These are your top 5 sports</h2>
+<% num = 1 %>
+<% Score.where(user_id: current_user.id).order(level: :desc).limit(5).each do |score| %>
+<div>
+<%= num %> <%= score.sport.name %>
+</div>
+<% num += 1 %>
+<% end %>
+
