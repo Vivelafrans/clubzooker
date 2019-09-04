@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs form-wrapper card-origin text-center p-5 mb-5" style="width: 400px; margin: 0 auto;">
-    <div><h2>Sign up</h2></div>
+    <h2>Sign up</h2>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -27,8 +27,10 @@
     <%= f.input :photo_cache, as: :hidden %>
   <div class="form-actions text-center">
     <button class="btn-confirm"><%= f.button :submit, "Sign up" %></button>
-<button class="btn btn-confirm"><%= render "devise/shared/links" %></button>
+    <button class="btn btn-confirm"><%= render "devise/shared/links" %></button>
   </div>
+  </div>
+
 <% end %>
   </div>
 
