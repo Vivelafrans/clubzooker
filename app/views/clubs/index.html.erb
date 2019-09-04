@@ -1,57 +1,66 @@
 <div class="container">
   <div class="section">
-    <h2 style="text-align: center">Find the most suitable club!</h2>
+    <h2 class="text-center">Find your club</h2>
   </div>
 
-  <div class="section">
+  <div class="section card-origin mb-3 p-3">
     <%= simple_form_for clubs_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <%= text_field_tag :query,
       params[:query],
       class: "form-control string required", id: "search_query",
-        placeholder: "Find a Club"
+        placeholder: "Find a specific Club"
         %>
         <button name="button" type="submit" class="btn-confirm" id="club-s-btn">
           <i class="fas fa-search"></i> Search
         </button>
-      </div>
-      <% end %>
     </div>
+    <% end %>
+  </div>
 
-    <div class="section card-origin card--overflow mb-3 p-3 d-flex flex-column">
-      <div id="search-form" class="form-inline">
-        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput'>
-      </div>
-      <ul id="results"></ul>
-      <div class='printchatbox d-flex m-2' id='printchatbox'>
-
-      </div>
-      <div class="d-flex justify-content-end">
+  <div class="section card-origin card--overflow p-3 d-flex justify-content-between">
+    <div class="card-origin card--overflow p-3 d-flex flex-column">
+      <div>
         <form id="form_search">
-          <input type="text" name="distance" >
-          <div>
+          <input type="range" min="1" max="25" name="distance">
+          <label for="distance"> Distance</label>
+          <datalist id="tickmarks">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="10"></option>
+            <option value="15"></option>
+            <option value="20"></option>
+            <option value="25"></option>
+          </datalist>
+         <!--  <div>
             <input type="range" min="1" max="100" step="1" value="100">
             <output class="output"></output>
-          </div>
+          </div> -->
           <input type="submit" value="Show Results" class="btn btn-confirm" >
         </form>
       </div>
+      <div id="search-form" class="form-inline">
+        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput' placeholder="Find sports offered">
+      </div>
+      <ul id="results"></ul>
+      <div class='printchatbox d-flex mr-2' id='printchatbox'>
+      </div>
+
     </div>
 
-    <div class="section">
-      <% if params[:sport].blank? %>
-      <% else %>
-      <h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" or ") %></i></h3>
-      <% end %>
-    </div>
+    <div class="card-origin ml-2" id="map" style="width: 50%; height: 200px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+  <div class="section mt-2">
+    <% if params[:sport].blank? %>
+    <% else %>
+    <h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" and/or ") %></i></h3>
+    <% end %>
+  </div>
 
     <div class="section">
       <div class="vertical-card-wrapper row">
