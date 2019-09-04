@@ -1,28 +1,15 @@
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog card-origin card-dashboard" role="document">
-    <div class="modal-content card-origin card-dashboard chat-height">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold"><%= @club.name %> Chat</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="m-3 scroll-overflow <%= "messageBox#{room.id}" %> chatboxes">
-        <p class="clubID" style="display: none;"><%= club.id %></p>
-        <p class="userID" style="display: none;"><%= current_user.id %></p>
-        <p class="roomID" style="display: none;"><%= room.id %></p>
-        <p class="authToken" style="display: none;"><%= form_authenticity_token %></p>
-      </div>
-
-      <div class="modal-footer d-flex justify-content-center">
-        <label for=<%= "input#{room.id}" %>></label>
-        <input type="text" name=<%= "input#{room.id}" %> class=<%= "chatInput#{room.id}" %>>
-        <button class="<%= "btn btn-confirm chatButton#{room.id}" %>"></button>
-      </div>
+<div class="chatmodal-outside disabled">
+  <div class="chatmodal-inside">
+    <div class="<%= "messageBox#{room.id}" %> chatboxes">
+      <p class="clubID" style="display: none;"><%= club.id %></p>
+      <p class="userID" style="display: none;"><%= current_user.id %></p>
+      <p class="roomID" style="display: none;"><%= room.id %></p>
+      <p class="authToken" style="display: none;"><%= form_authenticity_token %></p>
+    </div>
+    <div class="inputBox">
+      <label for=<%= "input#{room.id}" %>></label>
+      <input type="text" name=<%= "input#{room.id}" %> class=<%= "chatInput#{room.id}" %>>
+      <button class="<%= "btn btn-confirm chatButton#{room.id}" %>"></button>
     </div>
   </div>
 </div>
-
-
