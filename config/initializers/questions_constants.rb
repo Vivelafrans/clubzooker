@@ -1,6 +1,6 @@
 QUESTIONS = {
   question_0: {
-    content: 'What type of sport do you want to play?',
+    content: 'What type of sport do you want to engage in?',
     answers: {
       a: {
         content: 'Racket: you’re looking for something you can swing or hit at',
@@ -113,7 +113,7 @@ QUESTIONS = {
     }
   },
   question_1: {
-    content: 'How intense do you want your workout?',
+    content: 'How intense do you want your workout to be?',
     answers: {
       a: {
         content: 'Give me all you got ',
@@ -226,7 +226,7 @@ QUESTIONS = {
     }
   },
   question_2: {
-    content: 'What do you think of team sport?',
+    content: 'Do you prefer to do sports in teams or by yourself?',
     answers: {
       a: {
         content: 'I prefer working in teams',
@@ -339,7 +339,7 @@ QUESTIONS = {
     }
   },
   question_3: {
-    content: 'How much are you willing to spend on equipment?',
+    content: 'How much are you willing to spend on sports equipment?',
     answers: {
       a: {
         content: 'I am willing to spend a high amount',
@@ -452,7 +452,7 @@ QUESTIONS = {
     }
   },
   question_4: {
-    content: 'What do you want to improve by doing sports?',
+    content: 'In which area do you want to improve by doing sports?',
     answers: {
       a: {
         content: 'I want to build up muscles to increase my strength',
@@ -565,7 +565,7 @@ QUESTIONS = {
     }
   },
   question_5: {
-    content: 'What do you think of precision sports?',
+    content: 'What do you think of sports that requires precision?',
     answers: {
       a: {
         content: 'I am fascinated by sports that require me to hit the mark',
@@ -678,7 +678,7 @@ QUESTIONS = {
     }
   },
   question_6: {
-    content: 'What is your main motivation in doing sports?',
+    content: 'What is your main motivation behind doing sports?',
     answers: {
       a: {
         content: 'I want to relax when doing sports',
@@ -791,7 +791,7 @@ QUESTIONS = {
     }
   },
   question_7: {
-    content: 'What is your opinion on playful sports with set rules and competition?',
+    content: 'What is your opinion on playful sports with rules and competition?',
     answers: {
       a: {
         content: 'If the sport is not a game, I don’t want to do it',
@@ -1017,7 +1017,7 @@ QUESTIONS = {
     }
   },
   question_9: {
-    content: 'Do you like sport with strategic elements?',
+    content: 'Do you like sport that includes strategic elements?',
     answers: {
       a: {
         content: 'Games that require extensive strategic thinking really fascinate me',

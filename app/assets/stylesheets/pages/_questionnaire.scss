@@ -1,0 +1,42 @@
+.questionaire {
+  width: 500px;
+  text-align: center;
+}
+
+
+.active-question {
+  color: white;
+  background-color: rgba(192, 124, 186, 0.8) !important;
+}
+
+.progress-bar {
+  background-color: rgba(192, 124, 186, 0.8) !important;
+}
+
+.q-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.question {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(54,54,54,.19);
+  background: rgba(255,255,255,1);
+  overflow: hidden;
+}
+
+.second .question {
+
+}
+
+
+.third .question {
+
+}
+
+
