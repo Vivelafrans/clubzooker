@@ -1,0 +1,181 @@
+<!-- Test page for HTML functionality -->
+
+<!-- Leo's Homepage -->
+
+<div class="hp-container">
+  <h1 style="display: none">We connect Players with Sports Clubs</h1>
+
+  <div class="row space-around" >
+    <div class="col-6" id="club-half">
+      <div>
+        <h2>Clubs</h2>
+      </div>
+
+      <div>
+       <h3>Find new members and succeed</h3>
+       <h4>So many people want to do sports but don't know where.</h4>
+       <h4>Recruit new members to improve your overall club life.</h4>
+     </div>
+
+      <div>
+        <%= link_to "Find Members", user_index_path, class: "btn btn-confirm player-btn" %>
+      </div>
+
+   </div>
+
+   <div class="col-6" id="player-half">
+
+
+    <div>
+      <h2>Players</h2>
+    </div>
+
+    <div>
+      <h3>Find your club now and be healthy</h3>
+      <h4>There are thousands of cool sport clubs out there looking for new members</h4>
+    </div>
+
+    <div>
+      <%= link_to "Find Clubs", clubs_path, class: "btn btn-confirm player-btn" %>
+    </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- Modal: Login / Register Form -->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <%= simple_form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+              <%= f.error_notification %>
+            <div class="modal-body mb-1">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <%= f.input :email, class: "form-control form-control-sm validate",
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" }%>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <%= f.input :password, class: "form-control form-control-sm validate",
+                            required: false,
+                            input_html: { autocomplete: "current-password" }%>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+
+              <div class="text-center mt-2 form-actions">
+                <%= f.button :submit, "Log in", class: "btn btn-confirm" %>
+               <!--  <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button> -->
+              </div>
+            </div>
+            <% end %>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+              </div>
+
+              <div class="md-form form-sm mb-5">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+              </div>
+
+              <div class="text-center form-sm mt-2">
+                <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+              </div>
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+
+<div class="text-center">
+  <a href="" class="btn btn-confirm" data-toggle="modal" data-target="#modalLRForm">Launch
+    Modal LogIn/Register</a>
+</div>
+
+  <a href="#" class="btn btn-confirm">Click me</a>
+  <a href="#" class="btn btn-other">Click me</a>
+
+  <div class="vertical-card-wrapper row justify-content-around">
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <%= render 'shared/card-vertical' %>
+    </div>
+  </div>

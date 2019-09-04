@@ -1,0 +1,243 @@
+<div class="container" style="max-width: 800px;">
+  <div class="section text-center">
+    <%= image_tag "#{current_user.photo}", class: "avatar-bordered-profile my-3" %>
+    <h1>Hello, <%= current_user.name %> </h1>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Edit your sports</h3>
+    <p class="text-center">These sports will help clubs looking for new members to find you.</p>
+
+    <div class="d-flex justify-content-center">
+      <ul style="padding-inline-start:0px; list-style-type: none; width:400px;">
+        <% current_user.interests.each do |interest| %>
+
+          <li class="my-4 d-flex justify-content-between align-items-center"> <%= interest.sport.name  %> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, interest_path(interest), method: :delete, class: "btn btn-confirm-trash" %>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+      <%= simple_form_for [Interest.new] do |f| %>
+        <%= f.association :sport %>
+        <div class="text-center">
+          <%= f.submit 'Add Sport', class: 'btn btn-confirm' %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Memberships</h3>
+    <p class="text-center">Your club memberships and requests will appear below</p>
+
+    <div class="row d-flex justify-content-around">
+      <% current_user.memberships.each do |membership| %>
+          <div class="card-origin card-dashboard m-3 card-vertical text-center">
+            <%= link_to club_path(membership.club), class: "card-link" do %>
+            <div>
+              <img src="<%= membership.club.photo %>" class="avatar-bordered">
+            </div>
+            <div>
+              <h3> <%= membership.club.name %> </h3>
+              <% membership.club.sports.each do |sport| %>
+              <p> <%= sport.name %></p>
+              <% end %>
+              <p>Status: <strong><%= membership.status %></strong></p>
+            </div>
+            <% end %>
+          </div>
+      <!-- Delete Method missing here -->
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Chats with clubs</h3>
+    <% current_user.rooms.each do |chat| %>
+    <% @club = Club.find(chat.club_id) %>
+
+    <div class="row d-flex justify-content-around card-origin card-dashboard m-3">
+      <img src="<%= @club.photo %>" class="avatar-bordered">
+      <a href="" class="btn btn-confirm mb-4" data-toggle="modal" data-target="#modalLoginForm">Pop-up chat</a>
+      <%= render 'shared/chatroom', room: chat, club: @club %>
+    </div>
+
+    <% end %>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Change your profile data</h3>
+
+
+    <%= simple_form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+          <%= f.input :age, required: true %>
+          <%= f.input :address, required: true %>
+          <%= f.input :description, required: true %>
+          <%= f.input :photo, required: true %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :current_password,
+            hint: "We need your current password to confirm your changes",
+            required: true,
+            input_html: { autocomplete: "current-password" } %>
+        </div>
+
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Update", class: "btn btn-confirm" %>
+        </div>
+      <% end %>
+
+      <div class="text-center">
+        <%= link_to "Change password", edit_user_registration_path, class: "btn btn-confirm" %>
+      </div>
+  </div>
+
+</div>
+
+
+
+<script>
+  const clearMessages = () => {
+        chatboxes.forEach((box) => {
+          box.messages = box.html.querySelectorAll('.message');
+          box.messages.forEach((message) => {
+            box.html.removeChild(message);
+          })
+        })
+      };
+
+      const add_messages_to_box = (data, index) => {
+        chatboxes[index].new_messages = data;
+        chatboxes[index].new_messages.forEach((msg) => {
+          if (msg['sender=']) {
+            chatboxes[index].html.insertAdjacentHTML('beforeend', `
+              <div class="d-flex justify-content-end message">
+                <div class="chat-cloud-club">
+                  <p><strong>${msg['club_name=']}</strong></p>
+                  <p>${msg['content=']}</p>
+                </div>
+              </div>
+            `);
+          } else {
+            chatboxes[index].html.insertAdjacentHTML('beforeend', `
+              <div class="chat-cloud-user message">
+                <p><strong>${msg['user_name=']}</strong></p>
+                <p>${msg['content=']}</p>
+              </div>
+            `);
+          };
+        })
+        chatboxes[index].html.scrollTop = chatboxes[index].html.scrollHeight;
+      };
+
+      const get_new_messages = async () => {
+        console.log('refreshing!')
+        chatboxes.forEach(async (box, index) => {
+          const url = window.location.origin + "/api/v1/messages/" + box.roomId + `/${box.clubId}`;
+          await fetch(url)
+            .then(response => response.json())
+            .then((data) => {
+              if (box.new_messages != data) {
+                clearMessages();
+                add_messages_to_box(data, index);
+              };
+            });
+        });
+      };
+
+      const send_new_message = async () => {
+        chatboxes.forEach((box) => {
+          if (box.chatInput.value.trim() != "") {
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = '/api/v1/messages/new';
+
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'authenticity_token';
+            hiddenField.value = box.authToken;
+            form.appendChild(hiddenField);
+
+            const useridelement = document.createElement('input');
+            useridelement.type = 'hidden';
+            useridelement.name = 'user_id';
+            useridelement.value = box.userId;
+            form.appendChild(useridelement);
+
+            const roomIdElement = document.createElement('input');
+            roomIdElement.type = 'hidden';
+            roomIdElement.name = 'room_id';
+            roomIdElement.value = box.roomId;
+            form.appendChild(roomIdElement);
+
+            const clubIdElement = document.createElement('input');
+            clubIdElement.type = 'hidden';
+            clubIdElement.name = 'club_id';
+            clubIdElement.value = box.clubId;
+            form.appendChild(clubIdElement);
+
+            const chatContent = document.createElement('input');
+            chatContent.type = 'hidden';
+            chatContent.name = 'content';
+            chatContent.value = box.chatInput.value;
+            form.appendChild(chatContent);
+
+            document.body.appendChild(form);
+            form.submit();
+            box.chatInput.value = "";
+          }
+        })
+      setTimeout(function() {
+        get_new_messages();
+      }, 250);
+      };
+
+      const generate_objects = () => {
+        const rawChatboxes = document.querySelectorAll('.chatboxes')
+        const temp_array = [];
+        rawChatboxes.forEach((chatbox) => {
+          const temp_obj = new Object;
+          temp_obj.html = chatbox;
+          temp_obj.messages = chatbox.querySelectorAll('.message');
+          temp_obj.clubId = chatbox.querySelector('.clubID').innerText;
+          temp_obj.userId = chatbox.querySelector('.userID').innerText;
+          temp_obj.roomId = chatbox.querySelector('.roomID').innerText;
+          temp_obj.authToken = chatbox.querySelector('.authToken').innerText;
+          temp_obj.chatButton = document.getElementsByClassName(`chatButton${temp_obj.roomId}`)[0];
+          temp_obj.chatInput = document.getElementsByClassName(`chatInput${temp_obj.roomId}`)[0];
+          temp_obj.new_messages = null;
+          temp_array.push(temp_obj)
+        })
+        setInterval(get_new_messages, 5000);
+        return temp_array;
+      };
+
+      const chatboxes = generate_objects();
+
+      const run_the_thing = () => {
+        document.addEventListener('DOMContentLoaded', (event) => {
+          get_new_messages();
+          chatboxes.forEach((box) => {
+            box.chatButton.addEventListener('click', send_new_message);
+          });
+        });
+      };
+
+      run_the_thing();
+</script>
+
+
+
+
+
+
+
+
+

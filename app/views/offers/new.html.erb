@@ -1,0 +1,4 @@
+<%= simple_form_for [@club, @offer] do |f| %>
+       <%= f.association :sport %>
+       <%= f.submit 'Add Sport', class: 'btn-confirm' %>
+    <% end %>

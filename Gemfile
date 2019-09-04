@@ -10,6 +10,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'rails_12factor'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -20,7 +21,8 @@ gem 'webpacker'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
-
+gem 'mapbox-gl-rails'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -33,4 +35,9 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails', groups: [:development, :test]
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+  gem 'rails-assets-chosen-bootstrap'
 end

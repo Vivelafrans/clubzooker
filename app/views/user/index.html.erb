@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="section">
+    <h2 style="text-align: center">Find members</h2>
+  </div>
+
+  <div class="section">
+  <%= simple_form_for user_index_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control string required", id: "search_query",
+        placeholder: "Find Members"
+        %>
+        <button name="button" type="submit" class="btn btn-confirm" id="club-s-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+    </div>
+  <% end %>
+  </div>
+
+  <div class="section">
+  <div class="vertical-card-wrapper row">
+    <% @users.each do |user| %>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="card-origin card-vertical my-2 text-center mx-auto">
+        <%= link_to user_show_path(user), class:"card-link" do %>
+        <div>
+          <img src="https://pilgrimageyogaonline-yaronguez.netdna-ssl.com/wp-content/uploads/2018/11/Img1-1024x675.jpg" alt="yoga studio" class="card-vertical-cover">
+        </div>
+        <div class="avatar-new-position">
+          <%= cl_image_tag user.photo, class: "avatar-bordered-card" %>
+        </div>
+        <div class="card-bottom">
+          <div class="card-info">
+            <h3 class="club-card-name"><%= user.name %></h3>
+            <p>City: Amsterdam</p>
+          </div>
+          <div class="card-tags">
+            <div class="row d-flex">
+              <% user.interests.each do |interest| %>
+              <div class="col-4">
+                <div class="tag"><%= interest.sport.name %></div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
+  </div>
+
+</div>

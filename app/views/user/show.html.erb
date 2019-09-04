@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h1><%= @user.name %></h1>
+
+  <div class="horizontal-card-wrapper row justify-content-center">
+    <div class="col-12">
+      <div class="card-origin card-horizontal">
+        <div>
+          <%= cl_image_tag @user.photo, class: "avatar-bordered" %>
+        </div>
+        <div class="ml-3">
+          <h3><%= @user.name %></h3>
+          <p><%= @user.address %></p>
+          <p><%= @user.description %></p>
+          <div>
+            <% @user.sports.each do |sport| %>
+            <%= sport.name %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="text-align: center">
+    <%= link_to "All Members", user_index_path, class:"btn-confirm" %>
+  </div>
+</div>
+

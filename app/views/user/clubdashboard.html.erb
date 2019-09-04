@@ -1,0 +1,135 @@
+<div class="container" style="max-width: 800px;">
+  <% @user = current_user %>
+  <% @club = @user.club %>
+
+  <div class="section text-center">
+    <%= cl_image_tag @club.photo, class: "avatar-bordered-profile my-3" %>
+    <h1><%= @club.name %> Dashboard</h1>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3 class="text-center">Edit your club</h3>
+     <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+      <%= simple_form_for [@club] do |c| %>
+      <%= c.input :name %>
+      <%= c.input :address %>
+      <%= c.input :description %>
+      <%= c.input :photo %>
+      <%= c.input :photo_cache, as: :hidden %>
+      <div class="text-center">
+        <%= c.submit "Edit your Club details", class: 'btn btn-confirm'%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <div class="text-center">
+      <h3>Offered Sports</h3>
+    </div>
+    <div class="d-flex justify-content-center">
+      <ul style="padding-inline-start:0px; list-style-type: none; width:400px;">
+        <% @club.offers.each do |offer| %>
+        <li class="my-4 d-flex justify-content-between align-items-center"> <%= offer.sport.name  %> <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, club_offer_path(@club, offer), method: :delete, class: "btn btn-confirm-trash" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="form-inputs, form-wrapper" style="width: 400px; margin: 0 auto">
+      <%= simple_form_for [@club, Offer.new] do |f| %>
+        <%= f.association :sport %>
+        <div class="text-center">
+          <%= f.submit 'Add Sport', class: 'btn btn-confirm' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+     <h3>Membership-Requests</h3>
+     <% @club.memberships.each do |membership| %>
+     <% if membership.status == "Pending" %>
+     <div class="d-flex align-items-center">
+        <p><%= membership.user.name %></p>
+        <p><%= membership.user.email %></p>
+        <p><strong><%= membership.status %></strong></p>
+        <%= simple_form_for [@club, membership] do |f| %>
+        <%= f.hidden_field :status, value: "Member" %>
+        <%= button_tag type: 'submit', class: "btn btn-confirm-trash" do %>
+          <i class="fas fa-check"></i>
+        <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3>Member List</h3>
+    <% @club.memberships.each do |membership| %>
+    <% if membership.status != "Pending" %>
+    <div class="d-flex align-items-center">
+      <p><%= membership.user.name %></p>
+      <p><%= membership.user.email %></p>
+      <p><strong><%= membership.status %></strong></p>
+      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, club_membership_path(@club, membership), method: :delete, class: "btn btn-confirm-trash"   %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3>This is what members say about <%= @club.name %></h3>
+    <% ratings = [] %>
+    <% @club.reviews.each do |ra| %>
+    <% ratings << ra.rating.to_i %>
+    <% end %>
+    <% if ratings.size != 0 %>
+    <% rating = ratings.sum / ratings.size unless ratings.size == 0 %>
+    <% rating.times do  %>
+    <span><i class="fas fa-star"></i></span>
+    <% end %>
+    <% end %>
+    <h3><%= pluralize @club.reviews.size, "review" %></h3>
+    <div>
+      <% if @club.reviews.blank? %>
+      <p>Your club has not yet been reviewed...</p>
+      <% else %>
+      <% @club.reviews.each do |review| %>
+      <div class="d-flex align-items-center">
+        <p><strong>Name:</strong> <%= review.user.name %></p>
+        <p><strong>Comment:</strong><%= review.comment %></p>
+        <p><strong>Rating:</strong>
+          <% review.rating.times do  %>
+          <span><i class="fas fa-star"></i></span>
+          <% end %>
+        </p>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section my-3 card-origin card-dashboard">
+    <h3>Chats of <%= @club.name %></h3>
+    <% @club.rooms.each do |chat| %>
+    <% user = User.find(chat.user_id) %>
+    <p><%= user.name %></p>
+    <span><%= link_to "See Chat", club_room_messages_path(@club, chat), class: "btn btn-confirm" %></span>
+      <%= render 'shared/chatroom', room: chat, club: @club %>
+    <% end %>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
+</div>
+
+
+
+
+
+
+
+

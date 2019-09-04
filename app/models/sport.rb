@@ -1,6 +1,7 @@
 class Sport < ApplicationRecord
   has_many :interests
   has_many :offers
+  has_many :scores
 
   # validation for sport types must be inserted into name
   validates :name, presence: true

@@ -1,20 +1,104 @@
 .card-origin {
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(26,87,120,.26);
-  padding: 20px;
-  background: rgba(255,255,255,0.8);
-  margin: 15px;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(54,54,54,.19);
+  background: rgba(255,255,255,1);
+  overflow: hidden;
+}
+
+.card-origin.card--overflow {
+  overflow: visible;
+  position: relative;
+}
+
+.card-dashboard {
+  padding: 15px;
 }
 
 .card-vertical {
-  width: 250px;
-  min-height: 300px;
+  width: 270px;
+  height: 350px;
   display: block;
   align-items: center;
 }
 
+.card-vertical-cover {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
 .card-horizontal {
-  width: 500px;
+  width: 400px;
+  height: 180px;
   display: flex;
   align-items: center;
+}
+
+.card-info {
+  padding-top: 50px;
+}
+
+.card-bottom {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-tags {
+  justify-content: space-around;
+}
+
+.card-tags .row {
+  margin: 0px;
+}
+
+.card-tags .row .col-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: $gray;
+  &:hover {
+    color: $gray;
+  }
+}
+
+.scroll-overflow {
+  overflow: scroll;
+}
+
+.chat-height {
+  height: 80vh;
+}
+
+.yellow_box {
+  background-color: #fff3cd;
+  color: #f2cf68;
+  display: inline-block;
+  border: 1px solid #f2cf68;
+  padding: 10px;
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.round_card {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 500px ;
+  height: 500px;
+}
+
+.flexing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.information {
+  width: 500px;
+  display: inline-block;
 }

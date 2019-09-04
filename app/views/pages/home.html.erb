@@ -1,36 +1,20 @@
-<div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  <p>hoi</p>
-
-  <a href="#" class="btn btn-confirm">Click me</a>
-  <a href="#" class="btn btn-other">Click me</a>
-
-  <div class="horizontal-card-wrapper row justify-content-center">
-    <div class="col-12 col-xl-6">
-      <%= render 'shared/card-horizontal' %>
-    </div>
-
-    <div class="col-12 col-xl-6">
-      <%= render 'shared/card-horizontal' %>
+<div class="hp-container">
+  <h1 style="display: none">We Connect Players With Sports Clubs</h1>
+  <div class="row d-flex justify-content-end">
+    <div class="my-5 my-5 content-section">
+      <h2 class="hp-line">Players</h2>
+      <%= link_to "Find Clubs", clubs_path, class: "btn btn-confirm hp-btn" %>
+      <h3>Find your sports club and enjoy</h3>
+      <h4>There are thousands of cool sports clubs out there looking for new members. Find the one that suits you and your lifestyle.</h4>
     </div>
   </div>
 
-  <div class="vertical-card-wrapper row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <%= render 'shared/card-vertical' %>
-    </div>
-
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <%= render 'shared/card-vertical' %>
-    </div>
-
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <%= render 'shared/card-vertical' %>
-    </div>
-
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-      <%= render 'shared/card-vertical' %>
+  <div class="row d-flex justify-content-start">
+    <div class="my-5 my-5 content-section">
+      <h2 class="hp-line">Clubs</h2>
+      <%= link_to "Find Members", user_index_path, class: "btn btn-confirm hp-btn" %>
+      <h3>Find members and grow as a club</h3>
+      <h4>A lot of people want to do sports but aren't sure where they would fit in. Show how your club stands out and recruit new members.</h4>
     </div>
   </div>
 

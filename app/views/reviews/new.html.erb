@@ -1,0 +1,5 @@
+<%= simple_form_for([ @club, @review ]) do |f| %>
+  <%= c.input :rating, collection: [ 1, 2, 3, 4, 5 ] %>
+  <%= f.input :content, as: :text %>
+  <%= f.submit "Send the review", class: 'btn-confirm' %> %>
+<% end %>

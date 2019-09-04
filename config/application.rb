@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Clubzooker
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.action_controller.forgery_protection_origin_check = false
     config.generators do |generate|
           generate.assets false
           generate.helper false

@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="section">
+    <h2 class="text-center">Find your club</h2>
+  </div>
+
+  <div class="section card-origin mb-3 p-3">
+    <%= simple_form_for clubs_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control string required", id: "search_query",
+        placeholder: "Find a specific Club"
+        %>
+        <button name="button" type="submit" class="btn-confirm" id="club-s-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="section card-origin card--overflow p-3 d-flex justify-content-between">
+    <div class="card-origin card--overflow p-3 d-flex flex-column">
+      <div>
+        <form id="form_search">
+          <input type="range" min="1" max="50" name="distance">
+          <label for="distance"> Distance</label>
+          <datalist id="tickmarks">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="10"></option>
+            <option value="15"></option>
+            <option value="20"></option>
+            <option value="25"></option>
+            <option value="50"></option>
+          </datalist>
+         <!--  <div>
+            <input type="range" min="1" max="100" step="1" value="100">
+            <output class="output"></output>
+          </div> -->
+          <input type="submit" value="Show Results" class="btn btn-confirm" >
+        </form>
+      </div>
+      <div id="search-form" class="form-inline">
+        <input type='text' name='fname' class='chatinput form-control string required' id='chatinput' placeholder="Find sports offered">
+      </div>
+      <ul id="results"></ul>
+      <div class='printchatbox d-flex mr-2' id='printchatbox'>
+      </div>
+
+    </div>
+
+    <div class="card-origin ml-2" id="map" style="width: 50%; height: 200px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+  <div class="section mt-2">
+    <% if params[:sport].blank? %>
+    <% else %>
+    <h3 class= "mb-3">Clubs offering <i><%= params[:sport].join(" and/or ") %></i></h3>
+    <% end %>
+  </div>
+
+    <div class="section">
+      <div class="vertical-card-wrapper row">
+        <% @clubs.each do |club| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card-origin card-vertical my-2 text-center mx-auto">
+            <%= link_to club_path(club), class:"card-link" do %>
+            <div>
+              <img src="https://images.unsplash.com/photo-1464983308776-3c7215084895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80" alt="sports background" class="card-vertical-cover">
+            </div>
+            <div class="avatar-new-position">
+              <%= cl_image_tag club.photo, class: "avatar-bordered-card" %>
+            </div>
+            <div class="card-bottom">
+              <div class="card-info">
+                <h3 class="club-card-name"><%= club.name %></h3>
+                <p>City: Amsterdam</p>
+              </div>
+              <div class="card-tags">
+                <div class="row d-flex">
+                  <% club.offers.each do |offer| %>
+                  <div class="col-4">
+                    <div class="tag"><%= offer.sport.name %></div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="jquery-3.4.1.min.js">
+  $(function() {
+    var $document   = $(document),
+        $inputRange = $('input[type="range"]');
+
+    // Example functionality to demonstrate a value feedback
+    function valueOutput(element) {
+        var value = element.value,
+            output = element.parentNode.getElementsByTagName('output')[0];
+        output.innerHTML = value;
+    }
+    for (var i = $inputRange.length - 1; i >= 0; i--) {
+        valueOutput($inputRange[i]);
+    };
+    $document.on('input', 'input[type="range"]', function(e) {
+        valueOutput(e.target);
+    });
+    // end
+
+    $inputRange.rangeslider({
+      polyfill: false
+    });
+});
+</script>
+
+
