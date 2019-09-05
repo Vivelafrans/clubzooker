@@ -1403,8 +1403,8 @@ end
     teamsport: true,
     equipment: true,
     intensity: "medium",
-    description: "Rowing is the act of propelling a boat using the motion of oars in the water by displacing water to propel the boat forward. The sport can be either recreational for enjoyment or fitness, or competitive, when athletes race against each other in boats."
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669478/ClubZooker/morgan-mcknight-VVAKCaMCjrQ-unsplash_lhaxfq.jpg",,
+    description: "Rowing is the act of propelling a boat using the motion of oars in the water by displacing water to propel the boat forward. The sport can be either recreational for enjoyment or fitness, or competitive, when athletes race against each other in boats.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669478/ClubZooker/morgan-mcknight-VVAKCaMCjrQ-unsplash_lhaxfq.jpg"
   )
   sports << sport
   p sport
