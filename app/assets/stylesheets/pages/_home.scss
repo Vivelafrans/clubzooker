@@ -28,3 +28,17 @@ html {
 .hp-text-width {
   max-width: 400px;
 }
+
+#review-card {
+  height: 180px;
+}
+
+.rev-card {
+  height: 100%;
+}
+
+.text-review {
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
