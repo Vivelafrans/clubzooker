@@ -39,11 +39,11 @@ sports = []
   admin = User.create(
     email: 'test@admin.com',
     password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
+    name: 'Frans Knaapen',
+    age: 45,
     address: Faker::Address.full_address,
     description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567686301/i7gio95kxqul7pro54vl.jpg",
   )
 
   club.update_attributes admin_id: admin.id
@@ -55,11 +55,11 @@ end
 us = User.create(
     email: 'test@user.com',
     password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
+    name: 'Thomas Johnsen',
+    age: 27,
+    address: 'Nieuwe Oostenburgerstraat 10-D, Amsterdam',
     description: "I am looking for a cool sports club",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random"
+    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567690936/Tom_fwjpdw.jpg"
 )
 users << us
 
@@ -845,298 +845,298 @@ end
   p admin
 end
 
-sleep(120)
+# sleep(120)
 # 30
-sleep(20)
+# sleep(20)
 
-1.times do
-  club = Club.create!(
-    name: "Tanaina's Club",
-    address: "Oranje-Vrijstaatkade 21, 1093 KS Amsterdam",
-    description: "Tanaina founded this club in 1987. Since then we welcomed more than 1000 members looking to do fun sports.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo16_eaq8ku.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Tanaina's Club",
+#     address: "Oranje-Vrijstaatkade 21, 1093 KS Amsterdam",
+#     description: "Tanaina founded this club in 1987. Since then we welcomed more than 1000 members looking to do fun sports.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo16_eaq8ku.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 31
+# # 31
 
-1.times do
-  club = Club.create!(
-    name: "Club Française Amsterdam",
-    address: "Oude Haagseweg 200, 1171 PE Badhoevedorp",
-    description: "Our sports club strives do to improve your fitness, health and happiness. Come join us!",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo22_ux0mze.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Club Française Amsterdam",
+#     address: "Oude Haagseweg 200, 1171 PE Badhoevedorp",
+#     description: "Our sports club strives do to improve your fitness, health and happiness. Come join us!",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo22_ux0mze.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 32
+# # 32
 
-1.times do
-  club = Club.create!(
-    name: "Expats Exercise",
-    address: "Confuciusplein 14, 1064 LG Amsterdam",
-    description: "Welcome expats! Are you new to Amsterdam and want to join a sports club? Come join us and have lots of fun and meet new friends.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo21_wg4yyf.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Expats Exercise",
+#     address: "Confuciusplein 14, 1064 LG Amsterdam",
+#     description: "Welcome expats! Are you new to Amsterdam and want to join a sports club? Come join us and have lots of fun and meet new friends.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo21_wg4yyf.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 33
+# # 33
 
-1.times do
-  club = Club.create!(
-    name: "Amsterdam Eagles",
-    address: "Stadsplein 52, 1181 ZM Amstelveen",
-    description: "Join the Eagles and change your life by doing more sport and getting to know new people.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo36_ocvue3.jpg",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Amsterdam Eagles",
+#     address: "Stadsplein 52, 1181 ZM Amstelveen",
+#     description: "Join the Eagles and change your life by doing more sport and getting to know new people.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo36_ocvue3.jpg",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-sleep(120)
-# 34
-sleep(120)
+# sleep(120)
+# # 34
+# sleep(120)
 
 
-1.times do
-  club = Club.create!(
-    name: "Pelican Waters",
-    address: "Science Park 410, 1098 XH Amsterdam",
-    description: "We are located in the Science Park and love to take in scientists from around the world.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo19_swruul.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Pelican Waters",
+#     address: "Science Park 410, 1098 XH Amsterdam",
+#     description: "We are located in the Science Park and love to take in scientists from around the world.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo19_swruul.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 35
+# # 35
 
-1.times do
-  club = Club.create!(
-    name: "Italian Club",
-    address: "Gillis van Ledenberchstraat 135I, 1052 VE Amsterdam",
-    description: "Our club has the best club restaurant! But we offer way more than good Pizza & Pasta. Join us to learn more!",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo29_llpnpf.jpg",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Italian Club",
+#     address: "Gillis van Ledenberchstraat 135I, 1052 VE Amsterdam",
+#     description: "Our club has the best club restaurant! But we offer way more than good Pizza & Pasta. Join us to learn more!",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo29_llpnpf.jpg",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 36
+# # 36
 
-1.times do
-  club = Club.create!(
-    name: "Havana Club",
-    address: "Dapperstraat 2, 1093 BT Amsterdam",
-    description: "Come join the club with the Cuban culture. We accept members from all over the world.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo23_klrl9j.jpg",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Havana Club",
+#     address: "Dapperstraat 2, 1093 BT Amsterdam",
+#     description: "Come join the club with the Cuban culture. We accept members from all over the world.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo23_klrl9j.jpg",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-sleep(120)
-# 37
+# sleep(120)
+# # 37
 
-1.times do
-  club = Club.create!(
-    name: "Hot Club",
-    address: "Bos en Lommerweg 130, 1055 ED Amsterdam",
-    description: "Come to Bos en Lommerweg to check out our club and join us. You will not regret it.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo24_mny4xb.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Hot Club",
+#     address: "Bos en Lommerweg 130, 1055 ED Amsterdam",
+#     description: "Come to Bos en Lommerweg to check out our club and join us. You will not regret it.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo24_mny4xb.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-# 38
-sleep(120)
+# # 38
+# sleep(120)
 
-1.times do
-  club = Club.create!(
-    name: "FC De Pijp",
-    address: "Werfkade 4, 1033 RA Amsterdam",
-    description: "Named after the coolest quarter in Amsterdam, we are also the coolest club. Join us!",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo25_cd4hct.png",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "FC De Pijp",
+#     address: "Werfkade 4, 1033 RA Amsterdam",
+#     description: "Named after the coolest quarter in Amsterdam, we are also the coolest club. Join us!",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo25_cd4hct.png",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-#39
+# #39
 
-1.times do
-  club = Club.create!(
-    name: "Club Zuid",
-    address: "Waterlandplein 280, 1024 NB Amsterdam",
-    description: "We are currently looking for new Dutch speaking members to join our ranks. Please message us if you're interested.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo32_zfbcfw.jpg",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "Club Zuid",
+#     address: "Waterlandplein 280, 1024 NB Amsterdam",
+#     description: "We are currently looking for new Dutch speaking members to join our ranks. Please message us if you're interested.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo32_zfbcfw.jpg",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
-#40
+# #40
 
-1.times do
-  club = Club.create!(
-    name: "SC Diemen",
-    address: "Lijnbaansgracht 173, 1016 VZ Amsterdam",
-    description: "If you are looking for a fun time at a great sports club, you should joun SC Diemen.",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo37_yiisxy.jpg",
-  )
+# 1.times do
+#   club = Club.create!(
+#     name: "SC Diemen",
+#     address: "Lijnbaansgracht 173, 1016 VZ Amsterdam",
+#     description: "If you are looking for a fun time at a great sports club, you should joun SC Diemen.",
+#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo37_yiisxy.jpg",
+#   )
 
-  admin = User.create(
-    email: Faker::Internet.email,
-    password: '123456789',
-    name: Faker::Name.name,
-    age: (18..99).to_a.sample,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://joeschmoe.io/api/v1/random",
-  )
+#   admin = User.create(
+#     email: Faker::Internet.email,
+#     password: '123456789',
+#     name: Faker::Name.name,
+#     age: (18..99).to_a.sample,
+#     address: Faker::Address.full_address,
+#     description: "Join my club to have great fun",
+#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
+#   )
 
-  club.update_attributes admin_id: admin.id
-  admins << admin
-  p club
-  p admin
-end
+#   club.update_attributes admin_id: admin.id
+#   admins << admin
+#   p club
+#   p admin
+# end
 
 # Create 31 sports
 
