@@ -2,8 +2,7 @@
 
 <% Score.where(user_id: current_user.id).order(level: :desc).limit(3).each do |score| %>
 <div>
-<%= num %> <%= score.sport.name %>
+<%= score.sport.name %>
 </div>
-<% num += 1 %>
 <% end %>
 

@@ -169,4 +169,34 @@
 
 <p id="auth-token" style="display: none;"><%= form_authenticity_token %></p>
 
+<div id="loading-screen">
+  <img src="https://media.giphy.com/media/244NnGCdVNjq7qpHdB/giphy.gif" alt="loading" id="loading-image">
+  <h3 class="text-center">Loading...</h3>
 </div>
+
+</div>
+
+
+
+
+<style>
+  #loading-screen {
+    position: fixed;
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+  }
+
+  #loading-image {
+    width: auto;
+    height: 60%;
+  }
+
+</style>
