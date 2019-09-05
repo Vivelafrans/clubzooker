@@ -1,9 +1,24 @@
-<h2>These are your top 3 sports</h2>
-<% num = 1 %>
-<% Score.where(user_id: current_user.id).order(level: :desc).limit(3).each do |score| %>
-<div class="d-flex">
-<%= num %> <%= cl_image_tag score.sport.photo %> <%= score.sport.name %>
+<div class="container text-center">
+  <h2 class="">These are your top 3 sports</h2>
+  <% num = 1 %>
+  <% Score.where(user_id: current_user.id).order(level: :desc).limit(3).each do |score| %>
+  <div class="card-origin d-flex justify-content-between align-items-center p-3 mb-5">
+    <div class="section">
+      <%= cl_image_tag score.sport.photo, class: "photo-result" %>
+    </div>
+    <div class="section px-5">
+      <h3 class="m-3"><%= num %>. <%= score.sport.name %></h3>
+      <p><%= score.sport.description %></p>
+      <%= simple_form_for [Interest.new] do |f| %>
+        <% sport = Sport.find_by(name: score.sport.name) %>
+        <%= f.hidden_field :sport_id, value: sport.id %>
+      <div class="text-center">
+          <%= f.submit 'Add to your interests', class: 'btn btn-confirm' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% num += 1 %>
+  <% end %>
 </div>
-<% num += 1 %>
-<% end %>
 
