@@ -35,6 +35,8 @@
   }
 
   const sendTheForm = () => {
+    document.getElementById('loading-screen').style.display = 'flex';
+    document.getElementById('button1').style.display = 'none';
     const form = document.createElement('form');
     form.style.display = 'none';
     form.method = 'post';
