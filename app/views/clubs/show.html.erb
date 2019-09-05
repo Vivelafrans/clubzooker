@@ -21,12 +21,19 @@
       <%= f.submit "Add to Memberships", class:"btn btn-confirm"%>
       <% end %>
       <% elsif @membership[0].status == "Member" %>
-      <div class="alert alert-success">
-        <p>You already are a member of this club!</p>
-      </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <p>You are a member of this club!</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       <% else %>
-      <div class="alert alert-warning">
-        <p>Your membership request is getting processed</p></div>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <p>Your membership request is being processed</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <% end %>
         <% end %>
         </div>
@@ -112,12 +119,12 @@
           <% else %>
           <% @club.reviews.each do |review| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card-origin my-2">
-              <div class="d-flex">
-                <div class="text-review">
-                  <p class="ml-2"><strong>Name: </strong> <%= review.user.name %></p>
-                  <p class="ml-2"><strong>Comment: </strong><%= review.comment %></p>
-                  <p class="ml-2"><strong>Rating: </strong>
+            <div class="card-origin my-2 p-3" id="review-card">
+              <div class="rev-card d-flex" >
+                <div class="text-review d-flex">
+                  <p class="ml-2 text-left"><strong>Name: </strong> <%= review.user.name %></p>
+                  <p class="ml-2 text-left"><strong>Comment: </strong><%= review.comment %></p>
+                  <p class="ml-2 text-left"><strong>Rating: </strong>
                     <% review.rating.times do  %>
                     <span><i class="fas fa-star"></i></span>
                     <% end %>
