@@ -4,4 +4,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { displayNext } from '../components/questionnaire';
 initMapbox();
 runPage();
-displayNext();
+if (window.location.pathname === '/questionaire') {
+  displayNext();
+}
