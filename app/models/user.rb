@@ -4,9 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
-
   mount_uploader :photo, PhotoUploader
 
   has_one :club, foreign_key: 'admin_id'
