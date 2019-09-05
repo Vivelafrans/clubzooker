@@ -112,7 +112,7 @@ end
 1.times do
   club = Club.create!(
     name: "Club Excelsior",
-    address: "Haarlemmerweg 4, 1013 RW Amsterdam",
+    address: "Haarlemmerweg 4, 1014 RW Amsterdam",
     description: "Come join us. Take all your negativity and use it as a fuel to do something fun together.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo27_rwwexv.png",
   )
@@ -219,7 +219,7 @@ sleep(120)
 1.times do
   club = Club.create!(
     name: "Surinam Club Amsterdam",
-    address: "Metrostation, Waterlooplein 6, 1011 MS Amsterdam",
+    address: "Waterlooplein 6, 1011 PG Amsterdam",
     description: "The first Surinamese sports club in Amsterdam. We only accept people with passion for Surinamese food.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo38_sry67g.png",
   )
@@ -271,7 +271,7 @@ end
 1.times do
   club = Club.create!(
     name: "Korean Association",
-    address: "Albert Cuypstraat 66-70, 1072 CW Amsterdam",
+    address: "Albert Cuypstraat 66, 1072 NB Amsterdam",
     description: "We are the first Korean sports club in Amsterdam. Only for Korean speaking members.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602204/ClubZooker/logo3_bioonc.png",
   )
@@ -292,12 +292,12 @@ end
   p admin
 end
 
-# 9
+# 9 address doesnt work
 
 1.times do
   club = Club.create!(
     name: "SC Swift",
-    address: "Muntplein 1, 1017 CK Amsterdam",
+    address: "Voetboogstraat 33, 1012 XK Amsterdam",
     description: "We are a fast-paced club aiming to have plenty of fun. Come visit us in Muntplein to join our Club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo17_ovjrkp.jpg",
   )
@@ -319,6 +319,7 @@ end
 end
 
 sleep(120)
+
 # 10
 
 1.times do
@@ -345,7 +346,7 @@ sleep(120)
   p admin
 end
 
-# 11
+# 11 address does not work
 
 1.times do
   club = Club.create!(
@@ -372,12 +373,13 @@ end
 end
 
 sleep(120)
+
 # 12
 
 1.times do
   club = Club.create!(
     name: "SC Vriendschap",
-    address: "Woubruggestraat 28-hs, 1059 VS Amsterdam",
+    address: "Woubruggestraat 28, 1059 AX Amsterdam",
     description: "We like friendships. We like sports. We like you. Join our club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo41_ucmtd1.png",
   )
@@ -424,7 +426,7 @@ end
   p admin
 end
 
-# 14
+# 14 address does not work
 
 1.times do
   club = Club.create!(
@@ -451,6 +453,7 @@ end
 end
 
 sleep(120)
+
 # 15
 
 1.times do
@@ -477,7 +480,7 @@ sleep(120)
   p admin
 end
 
-# 16
+# 16 address does not work
 
 1.times do
   club = Club.create!(
@@ -504,7 +507,8 @@ end
 end
 
 sleep(120)
-# 17
+
+# 17 address does not work
 
 1.times do
   club = Club.create!(
@@ -587,7 +591,7 @@ end
 1.times do
   club = Club.create!(
     name: "Social Club",
-    address: "ArenA Boulevard 1, 1100 DL Amsterdam",
+    address: "ArenA Boulevard 1, 1101 AX Amsterdam",
     description: "Our club is all about having fun and having a good time with your friends.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo5_njhjil.png",
   )
@@ -609,7 +613,8 @@ end
 end
 
 sleep(120)
-# 21
+
+# 21 address does not work
 
 1.times do
   club = Club.create!(
@@ -640,7 +645,7 @@ end
 1.times do
   club = Club.create!(
     name: "Amsterdam Dogs",
-    address: "Winkelcentrum Kalverpassage, Singel 457, 1012 WP Amsterdam",
+    address: "Handboogstraat 29, 1012 XM Amsterdam",
     description: "A club for passionate dog owners to do sports together. Dogs are allowed on the club property.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo38_nz9vyv.jpg",
   )
@@ -665,7 +670,7 @@ end
 
 1.times do
   club = Club.create!(
-    name: "Outdoor Activities Sports Club",
+    name: "Outdoor Sports Club",
     address: "Riekerweg 15, 1066 BT Amsterdam",
     description: "We're a club that does anything outdoors whenever the weather is good. Come join us!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo4_lg2dsw.jpg",
@@ -687,7 +692,8 @@ end
   p admin
 end
 
-# 24
+# 24 address does not work
+
 sleep(120)
 
 1.times do
@@ -767,7 +773,7 @@ end
   p admin
 end
 
-# 27
+# 27 address does not work
 
 1.times do
   club = Club.create!(
@@ -798,7 +804,7 @@ end
 1.times do
   club = Club.create!(
     name: "German Club Amsterdam",
-    address: "Bijlmerdreef 131-132, 1102 DB Amsterdam",
+    address: "Bijlmerdreef 131, 1102 BP Amsterdam",
     description: "We are Amsterdam's most popular club for Germans. We welcome anyone with German skills who wants to do sport.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567606016/ClubZooker/logo44_posbvc.gif",
   )
