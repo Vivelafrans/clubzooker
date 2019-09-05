@@ -1,0 +1,36 @@
+.chatmodal-outside {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatmodal-inside {
+  background-color: white;
+  display: block;
+  height: 90%;
+  width: 440px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.chatboxes {
+  overflow: scroll;
+  height: 80%;
+  padding: 10%;
+}
+
+.inputBox {
+  padding: 5%;
+}
+
+.disabled {
+  display: none !important;
+}
