@@ -1,3 +1,4 @@
+if (window.location.pathname === '/questionaire') {
   const rawPages = document.querySelectorAll('.page')
   const pages = [];
   let currentPageIndex = 0;
@@ -81,3 +82,4 @@
 
   selectAnswer();
   document.querySelector('#button1').addEventListener('click', displayNext);
+};
