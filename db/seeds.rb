@@ -211,6 +211,8 @@ end
   p admin
 end
 
+sleep(120)
+
 # 6
 
 1.times do
@@ -367,6 +369,7 @@ end
   p admin
 end
 
+sleep(120)
 # 12
 
 1.times do
@@ -497,6 +500,7 @@ end
   p admin
 end
 
+sleep(120)
 # 17
 
 1.times do
@@ -680,6 +684,7 @@ end
 end
 
 # 24
+sleep(120)
 
 1.times do
   club = Club.create!(
@@ -835,7 +840,7 @@ end
   p admin
 end
 
-
+sleep(120)
 # 30
 
 1.times do
@@ -940,6 +945,7 @@ end
   p admin
 end
 
+sleep(120)
 # 34
 
 1.times do
@@ -1018,6 +1024,7 @@ end
   p admin
 end
 
+sleep(120)
 # 37
 
 1.times do
