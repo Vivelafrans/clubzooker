@@ -29,7 +29,7 @@ sports = []
 1.times do
   club = Club.create!(
     name: "Amsterdam Leeuwen",
-    address: "Tweede Egelantiersdwarsstraat 9, 1015 SB Amsterdam",
+    address: "Tweede Egelantiersdwarsstraat 9, Amsterdam",
     description: "Join the Amsterdam Lions to meet new people, try new sports and have a great time. We want you!",
     photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/club.pjg_t9ss6c.png",
@@ -63,11 +63,12 @@ us = User.create(
 )
 users << us
 
-# Create 40 ordinary users
+# Create 20 ordinary users
 
-20.times do
+cg = 1
+5.times do
   user = User.create(
-    email: Faker::Internet.email,
+    email: "hello#{cg}@frans.com"
     password: '123456789',
     name: Faker::Name.name,
     age: (18..99).to_a.sample,
@@ -77,6 +78,7 @@ users << us
   )
   users << user
   p user
+  cg += 1
 end
 
 #Create 40 admins and clubs MAKE
@@ -86,7 +88,7 @@ end
 1.times do
   club = Club.create!(
     name: "Club Wagon",
-    address: "Overhoeksplein 2, 1031 KS Amsterdam",
+    address: "Overhoeksplein 2, Amsterdam",
     description: "Join our club and learn to sport. We accept people from all ages and nationalities.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo35_h24woz.gif",
     )
@@ -112,7 +114,7 @@ end
 1.times do
   club = Club.create!(
     name: "Club Excelsior",
-    address: "Haarlemmerweg 4, 1014 RW Amsterdam",
+    address: "Haarlemmerweg 4, Amsterdam",
     description: "Come join us. Take all your negativity and use it as a fuel to do something fun together.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo27_rwwexv.png",
   )
@@ -138,7 +140,7 @@ end
 1.times do
   club = Club.create!(
     name: "Expat Club",
-    address: "Fred. Roeskestraat 115, 1076 EE Amsterdam",
+    address: "Fred. Roeskestraat 115, Amsterdam",
     description: "Join our expat club. Meet new expats from all over the world and play different sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo26_oqmybe.png",
   )
@@ -164,7 +166,7 @@ end
 1.times do
   club = Club.create!(
     name: "Quick Boys",
-    address: "Piet Heinkade 11A, 1019 BR Amsterdam",
+    address: "Piet Heinkade 11A, Amsterdam",
     description: "Be Quick and join the coolest club for guys in Amsterdam.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo28_w0mffm.png",
   )
@@ -186,12 +188,12 @@ end
 end
 
 # 5
-sleep(120)
+
 
 1.times do
   club = Club.create!(
     name: "The Dutch Club",
-    address: "Oudezijds Achterburgwal 60h, 1012 DP Amsterdam",
+    address: "Oudezijds Achterburgwal 60h, Amsterdam",
     description: "Amsterdam's oldest sports club. Join the biggest and old club. Dutch speaking only. Hup!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo30_vvnrzg.png",
   )
@@ -212,14 +214,14 @@ sleep(120)
   p admin
 end
 
-sleep(120)
+
 
 # 6
 
 1.times do
   club = Club.create!(
     name: "Surinam Club Amsterdam",
-    address: "Waterlooplein 6, 1011 PG Amsterdam",
+    address: "Waterlooplein 6, Amsterdam",
     description: "The first Surinamese sports club in Amsterdam. We only accept people with passion for Surinamese food.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo38_sry67g.png",
   )
@@ -245,7 +247,7 @@ end
 1.times do
   club = Club.create!(
     name: "Amsterdam Business Club",
-    address: "Weteringschans 165 C, 1017 XD Amsterdam",
+    address: "Weteringschans 165 C, Amsterdam",
     description: "The premier sports club for working professionals in Amsterdam. Come here after work to do something healthy.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo34_bowsnh.png",
   )
@@ -271,7 +273,7 @@ end
 1.times do
   club = Club.create!(
     name: "Korean Association",
-    address: "Albert Cuypstraat 66, 1072 NB Amsterdam",
+    address: "Albert Cuypstraat 66, Amsterdam",
     description: "We are the first Korean sports club in Amsterdam. Only for Korean speaking members.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602204/ClubZooker/logo3_bioonc.png",
   )
@@ -297,7 +299,7 @@ end
 1.times do
   club = Club.create!(
     name: "SC Swift",
-    address: "Voetboogstraat 33, 1012 XK Amsterdam",
+    address: "Voetboogstraat 33, Amsterdam",
     description: "We are a fast-paced club aiming to have plenty of fun. Come visit us in Muntplein to join our Club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo17_ovjrkp.jpg",
   )
@@ -318,14 +320,14 @@ end
   p admin
 end
 
-sleep(120)
+
 
 # 10
 
 1.times do
   club = Club.create!(
     name: "Tonegido",
-    address: "Utrechtsestraat 37, 1017 VH Amsterdam",
+    address: "Utrechtsestraat 37, Amsterdam",
     description: "We welcome people from all parts of the Netherlands. Dutch language skills required.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo14_bbpxdj.png",
   )
@@ -351,7 +353,7 @@ end
 1.times do
   club = Club.create!(
     name: "FC de Koel",
-    address: "Hartenstraat 14, 1016 CB Amsterdam",
+    address: "Hartenstraat 14, Amsterdam",
     description: "We're a club that's all about exploring, capturing new things, and having fun.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo31_zz4vpg.jpg",
   )
@@ -372,14 +374,14 @@ end
   p admin
 end
 
-sleep(120)
+
 
 # 12
 
 1.times do
   club = Club.create!(
     name: "SC Vriendschap",
-    address: "Woubruggestraat 28, 1059 AX Amsterdam",
+    address: "Woubruggestraat 28, Amsterdam",
     description: "We like friendships. We like sports. We like you. Join our club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo41_ucmtd1.png",
   )
@@ -405,7 +407,7 @@ end
 1.times do
   club = Club.create!(
     name: "SC Overamstel",
-    address: "Piet Heinkade 173, 1019 GM Amsterdam",
+    address: "Piet Heinkade 173, Amsterdam",
     description: "Change your life and join our club. We welcome all genders, nationalities and ages.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo18_crzytd.png",
   )
@@ -431,7 +433,7 @@ end
 1.times do
   club = Club.create!(
     name: "Mercedes-Benz Club",
-    address: "Recht Boomssloot 34, 1011 EB Amsterdam",
+    address: "Recht Boomssloot 34, Amsterdam",
     description: "Do you drive a Mercedes? Join us, talk about cars and do some sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo13_k5i0ag.png",
   )
@@ -452,14 +454,14 @@ end
   p admin
 end
 
-sleep(120)
+
 
 # 15
 
 1.times do
   club = Club.create!(
     name: "Bay Club",
-    address: "Kinkerstraat 73A, 1053 DG Amsterdam",
+    address: "Kinkerstraat 73A, Amsterdam",
     description: "If you're Dutch and like to do sports, join our club any time. We also have international teams.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo15_excqhr.png",
   )
@@ -485,7 +487,7 @@ end
 1.times do
   club = Club.create!(
     name: "Bondi Icebergs",
-    address: "De Passage 100, 1101 AX Amsterdam",
+    address: "De Passage 100, Amsterdam",
     description: "We might seem icecold but once you join our club, you will notice that we warm each other with our spirit.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo7_m1kxwa.png",
   )
@@ -506,14 +508,14 @@ end
   p admin
 end
 
-sleep(120)
+
 
 # 17 address does not work
 
 1.times do
   club = Club.create!(
     name: "Boys Club",
-    address: "Paul van Vlissingenstraat 24, 1096 BK Amsterdam",
+    address: "Paul van Vlissingenstraat 24, Amsterdam",
     description: "Saturdays are for the boys and this club is as well.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo8_r2oufq.png",
   )
@@ -539,7 +541,7 @@ end
 1.times do
   club = Club.create!(
     name: "Amsterdam Bulldogs",
-    address: "Van der Pekstraat 79, 1031 CT Amsterdam",
+    address: "Van der Pekstraat 79, Amsterdam",
     description: "Join our club to for highly motivated members who want to do intense sport. We are the Bulldogs!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo20_rzcxrt.png",
   )
@@ -565,7 +567,7 @@ end
 1.times do
   club = Club.create!(
     name: "Amsterdam Bisons",
-    address: "Pilotenstraat 41a, 1059 CH Amsterdam",
+    address: "Pilotenstraat 41a, Amsterdam",
     description: "Join the Bisons and belong to one of Amsterdam's most prominent sports clubs. On the Bisons",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo33_skehoh.jpg",
   )
@@ -591,7 +593,7 @@ end
 1.times do
   club = Club.create!(
     name: "Social Club",
-    address: "ArenA Boulevard 1, 1101 AX Amsterdam",
+    address: "ArenA Boulevard 1, Amsterdam",
     description: "Our club is all about having fun and having a good time with your friends.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo5_njhjil.png",
   )
@@ -612,14 +614,14 @@ end
   p admin
 end
 
-sleep(120)
+
 
 # 21 address does not work
 
 1.times do
   club = Club.create!(
     name: "Clovely",
-    address: "Danzigerkade 8, 1013 AP Amsterdam",
+    address: "Danzigerkade 8, Amsterdam",
     description: "Come to Danzigerkade to do sports and make new friends. We are waiting for you.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo11_mixve9.png",
   )
@@ -645,7 +647,7 @@ end
 1.times do
   club = Club.create!(
     name: "Amsterdam Dogs",
-    address: "Handboogstraat 29, 1012 XM Amsterdam",
+    address: "Handboogstraat 29, Amsterdam",
     description: "A club for passionate dog owners to do sports together. Dogs are allowed on the club property.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo38_nz9vyv.jpg",
   )
@@ -671,7 +673,7 @@ end
 1.times do
   club = Club.create!(
     name: "Outdoor Sports Club",
-    address: "Riekerweg 15, 1066 BT Amsterdam",
+    address: "Riekerweg 15, Amsterdam",
     description: "We're a club that does anything outdoors whenever the weather is good. Come join us!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo4_lg2dsw.jpg",
   )
@@ -694,12 +696,12 @@ end
 
 # 24 address does not work
 
-sleep(120)
+
 
 1.times do
   club = Club.create!(
     name: "Office Club",
-    address: "Fogostraat 10, 1060 LJ Amsterdam",
+    address: "Fogostraat 10, Amsterdam",
     description: "We're the primary club in Amsterdam for working profressionals from around the world. Come join us.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo12_akxhir.png",
   )
@@ -721,12 +723,12 @@ sleep(120)
 end
 
 # 25
-sleep(120)
+
 
 1.times do
   club = Club.create!(
     name: "Amsterdam Pitbulls",
-    address: "Doorweg 32, 1182 DB Amstelveen",
+    address: "Doorweg 32, Amstelveen",
     description: "Come join us for different sport activities. We take sport seriously and compete on the highest level.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605897/ClubZooker/logo43_paywtc.jpg",
   )
@@ -752,7 +754,7 @@ end
 1.times do
   club = Club.create!(
     name: "TN 22",
-    address: "Naritaweg 48, 1043 BZ Amsterdam",
+    address: "Naritaweg 48, Amsterdam",
     description: "TN 22 is Amsterdam's primary club for woman in their 30s. Meet other like minded individuals.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo9_eepvxp.jpg",
   )
@@ -778,7 +780,7 @@ end
 1.times do
   club = Club.create!(
     name: "SCG Classic",
-    address: "Uilenstede 73A, 1183 AB Amstelveen",
+    address: "Uilenstede 73A, Amstelveen",
     description: "Join us, meet new friends from Amsterdam, and play different sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo10_chqrhy.jpg",
   )
@@ -804,7 +806,7 @@ end
 1.times do
   club = Club.create!(
     name: "German Club Amsterdam",
-    address: "Bijlmerdreef 131, 1102 BP Amsterdam",
+    address: "Bijlmerdreef 131, Amsterdam",
     description: "We are Amsterdam's most popular club for Germans. We welcome anyone with German skills who wants to do sport.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567606016/ClubZooker/logo44_posbvc.gif",
   )
@@ -830,7 +832,7 @@ end
 1.times do
   club = Club.create!(
     name: "Greenway Club",
-    address: "Pampusweg 20, 1398 PV Muiden",
+    address: "Pampusweg 20, Muiden",
     description: "We love sport! How about you? Come join us every monday?.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602207/ClubZooker/Greenway_qihi1x.png",
   )
@@ -851,298 +853,299 @@ end
   p admin
 end
 
-# sleep(120)
+
 # 30
-# sleep(20)
-
-# 1.times do
-#   club = Club.create!(
-#     name: "Tanaina's Club",
-#     address: "Oranje-Vrijstaatkade 21, 1093 KS Amsterdam",
-#     description: "Tanaina founded this club in 1987. Since then we welcomed more than 1000 members looking to do fun sports.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo16_eaq8ku.png",
-#   )
-
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
-
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
-
-# # 31
-
-# 1.times do
-#   club = Club.create!(
-#     name: "Club Française Amsterdam",
-#     address: "Oude Haagseweg 200, 1171 PE Badhoevedorp",
-#     description: "Our sports club strives do to improve your fitness, health and happiness. Come join us!",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo22_ux0mze.png",
-#   )
-
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
-
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
-
-# # 32
-
-# 1.times do
-#   club = Club.create!(
-#     name: "Expats Exercise",
-#     address: "Confuciusplein 14, 1064 LG Amsterdam",
-#     description: "Welcome expats! Are you new to Amsterdam and want to join a sports club? Come join us and have lots of fun and meet new friends.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo21_wg4yyf.png",
-#   )
-
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
-
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
-
-# # 33
-
-# 1.times do
-#   club = Club.create!(
-#     name: "Amsterdam Eagles",
-#     address: "Stadsplein 52, 1181 ZM Amstelveen",
-#     description: "Join the Eagles and change your life by doing more sport and getting to know new people.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo36_ocvue3.jpg",
-#   )
-
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
-
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
-
-# sleep(120)
-# # 34
-# sleep(120)
 
 
-# 1.times do
-#   club = Club.create!(
-#     name: "Pelican Waters",
-#     address: "Science Park 410, 1098 XH Amsterdam",
-#     description: "We are located in the Science Park and love to take in scientists from around the world.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo19_swruul.png",
-#   )
+1.times do
+  club = Club.create!(
+    name: "Tanaina's Club",
+    address: "Oranje-Vrijstaatkade 21, Amsterdam",
+    description: "Tanaina founded this club in 1987. Since then we welcomed more than 1000 members looking to do fun sports.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo16_eaq8ku.png",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-# # 35
+# 31
 
-# 1.times do
-#   club = Club.create!(
-#     name: "Italian Club",
-#     address: "Gillis van Ledenberchstraat 135I, 1052 VE Amsterdam",
-#     description: "Our club has the best club restaurant! But we offer way more than good Pizza & Pasta. Join us to learn more!",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo29_llpnpf.jpg",
-#   )
+1.times do
+  club = Club.create!(
+    name: "Club Française Amsterdam",
+    address: "Oude Haagseweg 200, Badhoevedorp",
+    description: "Our sports club strives do to improve your fitness, health and happiness. Come join us!",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo22_ux0mze.png",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-# # 36
+# 32
 
-# 1.times do
-#   club = Club.create!(
-#     name: "Havana Club",
-#     address: "Dapperstraat 2, 1093 BT Amsterdam",
-#     description: "Come join the club with the Cuban culture. We accept members from all over the world.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo23_klrl9j.jpg",
-#   )
+1.times do
+  club = Club.create!(
+    name: "Expats Exercise",
+    address: "Confuciusplein 14, Amsterdam",
+    description: "Welcome expats! Are you new to Amsterdam and want to join a sports club? Come join us and have lots of fun and meet new friends.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo21_wg4yyf.png",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-# sleep(120)
-# # 37
+# 33
 
-# 1.times do
-#   club = Club.create!(
-#     name: "Hot Club",
-#     address: "Bos en Lommerweg 130, 1055 ED Amsterdam",
-#     description: "Come to Bos en Lommerweg to check out our club and join us. You will not regret it.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo24_mny4xb.png",
-#   )
+1.times do
+  club = Club.create!(
+    name: "Amsterdam Eagles",
+    address: "Stadsplein 52, Amstelveen",
+    description: "Join the Eagles and change your life by doing more sport and getting to know new people.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo36_ocvue3.jpg",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-# # 38
-# sleep(120)
 
-# 1.times do
-#   club = Club.create!(
-#     name: "FC De Pijp",
-#     address: "Werfkade 4, 1033 RA Amsterdam",
-#     description: "Named after the coolest quarter in Amsterdam, we are also the coolest club. Join us!",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo25_cd4hct.png",
-#   )
+# 34
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
 
-# #39
+1.times do
+  club = Club.create!(
+    name: "Pelican Waters",
+    address: "Science Park 410, Amsterdam",
+    description: "We are located in the Science Park and love to take in scientists from around the world.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo19_swruul.png",
+  )
 
-# 1.times do
-#   club = Club.create!(
-#     name: "Club Zuid",
-#     address: "Waterlandplein 280, 1024 NB Amsterdam",
-#     description: "We are currently looking for new Dutch speaking members to join our ranks. Please message us if you're interested.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo32_zfbcfw.jpg",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+# 35
 
-# #40
+1.times do
+  club = Club.create!(
+    name: "Italian Club",
+    address: "Gillis van Ledenberchstraat 135I, Amsterdam",
+    description: "Our club has the best club restaurant! But we offer way more than good Pizza & Pasta. Join us to learn more!",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo29_llpnpf.jpg",
+  )
 
-# 1.times do
-#   club = Club.create!(
-#     name: "SC Diemen",
-#     address: "Lijnbaansgracht 173, 1016 VZ Amsterdam",
-#     description: "If you are looking for a fun time at a great sports club, you should joun SC Diemen.",
-#     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo37_yiisxy.jpg",
-#   )
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
 
-#   admin = User.create(
-#     email: Faker::Internet.email,
-#     password: '123456789',
-#     name: Faker::Name.name,
-#     age: (18..99).to_a.sample,
-#     address: Faker::Address.full_address,
-#     description: "Join my club to have great fun",
-#     remote_photo_url: "https://joeschmoe.io/api/v1/random",
-#   )
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
-#   club.update_attributes admin_id: admin.id
-#   admins << admin
-#   p club
-#   p admin
-# end
+# 36
+
+1.times do
+  club = Club.create!(
+    name: "Havana Club",
+    address: "Dapperstraat 2, Amsterdam",
+    description: "Come join the club with the Cuban culture. We accept members from all over the world.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo23_klrl9j.jpg",
+  )
+
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
+
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
+
+
+
+# 37
+
+1.times do
+  club = Club.create!(
+    name: "Hot Club",
+    address: "Bos en Lommerweg 130, Amsterdam",
+    description: "Come to Bos en Lommerweg to check out our club and join us. You will not regret it.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo24_mny4xb.png",
+  )
+
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
+
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
+
+# 38
+
+
+1.times do
+  club = Club.create!(
+    name: "FC De Pijp",
+    address: "Werfkade 4, Amsterdam",
+    description: "Named after the coolest quarter in Amsterdam, we are also the coolest club. Join us!",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo25_cd4hct.png",
+  )
+
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
+
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
+
+#39
+
+1.times do
+  club = Club.create!(
+    name: "Club Zuid",
+    address: "Waterlandplein 280, Amsterdam",
+    description: "We are currently looking for new Dutch speaking members to join our ranks. Please message us if you're interested.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo32_zfbcfw.jpg",
+  )
+
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
+
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
+
+#40
+
+1.times do
+  club = Club.create!(
+    name: "SC Diemen",
+    address: "Lijnbaansgracht 173, Amsterdam",
+    description: "If you are looking for a fun time at a great sports club, you should joun SC Diemen.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo37_yiisxy.jpg",
+  )
+
+  admin = User.create(
+    email: Faker::Internet.email,
+    password: '123456789',
+    name: Faker::Name.name,
+    age: (18..99).to_a.sample,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://joeschmoe.io/api/v1/random",
+  )
+
+  club.update_attributes admin_id: admin.id
+  admins << admin
+  p club
+  p admin
+end
 
 # Create 31 sports
 
