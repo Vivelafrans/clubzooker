@@ -22,9 +22,6 @@ User.destroy_all
 users = []
 admins = []
 sports = []
-sum = 0
-# sport_names = %w(Archery Badminton Basketball Boxing Climbing Cycling Dodgeball Fencing Field-Hockey Football Golf Handball Horse-Riding Korfball Krav-Maga Kung-Fu Quidditch Rowing Rugby Running Sailing Squash Surfing Swimming Table-Tennis Tennis Ultimate-Frisbee Volleyball Water-Polo Wrestling Yoga)
-sport_names = ["Archery", "Badminton", "Basketball", "Boxing", "Climbing", "Cycling", "Dodgeball", "Fencing", "Field Hockey", "Football", "Golf", "Handball", "Horse Riding", "Korfball", "Krav Maga", "Kung Fu", "Quidditch", "Rowing", "Rugby", "Running", "Sailing", "Squash", "Surfing", "Swimming", "Table Tennis", "Tennis", "Ultimate Frisbee", "Volleyball", "Water Polo", "Wrestling", "Yoga"]
 
 
 # Create Testuser who is a club admin
@@ -1125,17 +1122,470 @@ end
   p admin
 end
 
-# Create sports
+# Create 31 sports
 
-31.times do
+# 1
+
+1.times do
   sport = Sport.create(
-    name: "#{sport_names[sum]}",
+    name: "Archery",
+    teamsport: false,
+    equipment: true,
+    intensity: "medium",
+    description: "Archery is the art, sport, practice, or skill of using a bow to shoot arrows. Historically, archery has been used for hunting and combat. Today, it is mainly a competitive sport and recreational activity.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669479/ClubZooker/sport1_n0qljx.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 2
+
+1.times do
+  sport = Sport.create(
+    name: "Badminton",
+    teamsport: false,
+    equipment: true,
+    intensity: "medium",
+    description: "Badminton is a racquet sport played using racquets to hit a shuttlecock across a net. Badminton is often played as a casual outdoor activity in a yard or on a beach; formal games are played on a rectangular indoor court.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669480/ClubZooker/sport2_ramauf.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 3
+
+1.times do
+  sport = Sport.create(
+    name: "Basketball",
     teamsport: true,
     equipment: true,
     intensity: "medium",
+    description: "Basketball is a team sport in which two teams compete with the primary objective of shooting a basketball through the defender's hoop while preventing the opposing team from shooting through their own hoop.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669572/ClubZooker/joel-muniz-Ue5MJoavkIc-unsplash_qmb910.jpg",
   )
   sports << sport
-  sum += 1
+  p sport
+end
+
+# 4
+
+1.times do
+  sport = Sport.create(
+    name: "Boxing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Boxing is a combat sport in which two people, usually wearing protective gloves, throw punches at each other for a predetermined amount of time in a boxing ring.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669477/ClubZooker/hermes-rivera-qbf59TU077Q-unsplash_xugsov.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 5
+
+1.times do
+  sport = Sport.create(
+    name: "Climbing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Climbing is the activity of using one's hands, feet, or any other part of the body to ascend a steep topographical object. It is done for locomotion, recreation and competition.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669477/ClubZooker/hu-chen-etYvgxNEKlM-unsplash_qjx0fm.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 6
+
+1.times do
+  sport = Sport.create(
+    name: "Cycling",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Cycling, also called biking or bicycling, is the use of bicycles for transport, recreation, exercise or sport.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669481/ClubZooker/markus-spiske-WUehAgqO5hE-unsplash_c8pw54.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 7
+
+1.times do
+  sport = Sport.create(
+    name: "Dodgeball",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Dodgeball is a team sport in which players on two teams try to throw balls and hit opponents, while avoiding being hit themselves. The objective of each team is to eliminate all members of the opposing team by hitting them with thrown balls or through other means.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669481/ClubZooker/sport4_jdxlnj.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 8
+
+1.times do
+  sport = Sport.create(
+    name: "Fencing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "There are three forms of modern fencing, each of which uses a different kind of weapon and has different rules; thus the sport itself is divided into three competitive scenes: foil, épée, and sabre. Most competitive fencers choose to specialize in one weapon only.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669474/ClubZooker/chuttersnap-wNRgtjQQUCw-unsplash_fuhste.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 9
+
+1.times do
+  sport = Sport.create(
+    name: "Field Hockey",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Field hockey is a team game of the hockey family. Each team plays with eleven players, including the goalie. Players use sticks to hit a round, hard, plastic ball in order to score goals.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669476/ClubZooker/jeffrey-f-lin-rDceEUj7Klo-unsplash_yror1u.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 10
+
+1.times do
+  sport = Sport.create(
+    name: "Football",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Foorball is a team sport played with a spherical ball between two teams of eleven players. It is played by 250 million players in over 200 countries and dependencies, making it the world's most popular sport. The object of the game is to score by moving the ball beyond the goal line into the opposing goal.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669477/ClubZooker/isaiah-rustad-IEwZRIVwoCs-unsplash_1_iaolsd.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 11
+
+1.times do
+  sport = Sport.create(
+    name: "Golf",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Golf is a club-and-ball sport in which players use various clubs to hit balls into a series of holes on a course in as few strokes as possible. Coping with the varied terrains encountered on different courses is a key part of the game.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669474/ClubZooker/court-prather-Nka1wVAQWa4-unsplash_ibjtli.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 12
+
+1.times do
+  sport = Sport.create(
+    name: "Handball",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Handball is a team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the other team. A standard match consists of two periods of 30 minutes, and the team that scores more goals wins.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669478/ClubZooker/miguel-puig-phU8NHF85rU-unsplash_mofjqw.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 13
+
+1.times do
+  sport = Sport.create(
+    name: "Horse Riding",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Horse riding refers to the skill and sport of riding, driving, steeplechasing or vaulting with horses. This broad description includes the use of horses for practical working purposes, transportation, recreational activities, artistic or cultural exercises, and competitive sport.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669481/ClubZooker/kirsty-huth-BsLd5k1QHkQ-unsplash_nn9lwe.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 14
+
+1.times do
+  sport = Sport.create(
+    name: "Korfball",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Korfball is a ball sport, with similarities to netball and basketball. It is played by two teams and the objective is to throw a ball into a netless basket that is mounted on a 3.5 m high pole.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669473/ClubZooker/sport5_ab86i8.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 15
+
+1.times do
+  sport = Sport.create(
+    name: "Krav Maga",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Krav Maga is a military self-defence and fighting system developed for the Israel Defense Forces and Israeli security forces derived from a combination of techniques sourced from boxing, wrestling, aikido, judo and karate, along with realistic fight training.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669472/ClubZooker/sport6_v1qlwg.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 16
+
+1.times do
+  sport = Sport.create(
+    name: "Kung Fu",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Kung Fu are the several hundred fighting styles that have developed over the centuries in China. Styles that focus on qi manipulation are called internal, while others that concentrate on improving muscle and cardiovascular fitness are called external.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669474/ClubZooker/thao-le-hoang-uGbG4LnMFMY-unsplash_jh3ejd.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 17
+
+1.times do
+  sport = Sport.create(
+    name: "Quidditch",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Quidditch is a sport of two teams of seven players each mounted on broomsticks played on a hockey rink-sized pitch. It is based on a fictional game of the same name in the Harry Potter series of novels. The game is also sometimes referred to as muggle quidditch to distinguish.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567670765/ClubZooker/quidditch_oxomog.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#18
+
+1.times do
+  sport = Sport.create(
+    name: "Rowing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Rowing is the act of propelling a boat using the motion of oars in the water by displacing water to propel the boat forward. The sport can be either recreational for enjoyment or fitness, or competitive, when athletes race against each other in boats."
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669478/ClubZooker/morgan-mcknight-VVAKCaMCjrQ-unsplash_lhaxfq.jpg",,
+  )
+  sports << sport
+  p sport
+end
+
+#19
+
+1.times do
+  sport = Sport.create(
+    name: "Rugby",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Rugby is a football game played with an oval ball by two teams of 15 players or 13 players. Players try to score points by carrying the ball to their opponents' end of the field, or by kicking it over a bar fixed between two posts.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669480/ClubZooker/olga-guryanova-ft7vJxwl2RY-unsplash_b0tg4e.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 20
+
+1.times do
+  sport = Sport.create(
+    name: "Running",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "The main intention of running is to increase physical fitness with less stress on the body than from faster running but more than walking, or to maintain a steady speed for longer periods of time. Performed over long distances, it is a form of aerobic endurance training.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669473/ClubZooker/andrew-tanglao-3I2vzcmEpLU-unsplash_irzhvb.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 21
+
+1.times do
+  sport = Sport.create(
+    name: "Sailing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Sailing employs the wind—acting on sails, wingsails or kites—to propel a craft on the surface of the water. Today, most sailing represents a form of recreation or sport.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669477/ClubZooker/ludomil-lsXbZtrVSdQ-unsplash_aku5eq.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 22
+
+1.times do
+  sport = Sport.create(
+    name: "Squash",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Squash is a ball sport played by two or four players in a four-walled court with a small, hollow rubber ball. The players alternate in striking the ball on the four walls and the object of the game is to hit the ball in such a way that the opponent is not able to play a valid return.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669472/ClubZooker/sport7_stpwha.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#23
+
+1.times do
+  sport = Sport.create(
+    name: "Surfing",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or face of a moving wave, which usually carries the surfer towards the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or rivers.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669479/ClubZooker/nicole-honeywill-oC32cy4x-ZA-unsplash_q2uooq.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#24
+
+1.times do
+  sport = Sport.create(
+    name: "Swimming",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Swimming is the self-propulsion of a person through water, usually for recreation, sport, exercise, or survival. Locomotion is achieved through coordinated movement of the limbs, the body, or both.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669476/ClubZooker/gentrit-sylejmani-JjUyjE-oEbM-unsplash_a72xzf.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#25
+
+1.times do
+  sport = Sport.create(
+    name: "Table Tennis",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Table tennis, also known as ping-pong, is a sport in which two or four players hit a lightweight ball back and forth across a table using small rackets. The game takes place on a hard table divided by a net.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669480/ClubZooker/ilya-pavlov-dybZ3jXtYUo-unsplash_mpctr3.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#26
+
+1.times do
+  sport = Sport.create(
+    name: "Tennis",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Tennis is a racket sport that can be played individually against a single opponent or between two teams of two players each. Each player uses a tennis racket that is strung with cord to strike a hollow rubber ball covered with felt over or around a net and into the opponent's court.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669475/ClubZooker/christopher-burns-YSfTcJZR-ws-unsplash_ivuvly.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#27
+
+1.times do
+  sport = Sport.create(
+    name: "Ultimate Frisbee",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Ultimate frisbee, is a non-contact team sport played with a flying disc(frisbee). Points are scored by passing the disc to a teammate in the opposing end zone.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669473/ClubZooker/sport8_xypbne.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 28
+
+1.times do
+  sport = Sport.create(
+    name: "Volleyball",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Volleyball is a popular team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669475/ClubZooker/elizeu-dias--Vae5P6v-aI-unsplash_xh5ql3.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 29
+
+1.times do
+  sport = Sport.create(
+    name: "Water Polo",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Water polo is a competitive team sport played in the water between two teams. The game consists of four quarters in which the two teams attempt to score goals by throwing the ball into the opposing team's goal.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669474/ClubZooker/eugene-lim-gYglzOhOirg-unsplash_dzak1l.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+# 30
+
+1.times do
+  sport = Sport.create(
+    name: "Wrestling",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Wrestling is a physical competition, between two competitors or sparring partners, who attempt to gain and maintain a superior position. There are a wide range of styles with varying rules with both traditional historic and modern styles.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669475/ClubZooker/chris-chow-1pUWPMFo6VE-unsplash_ihhdom.jpg",
+  )
+  sports << sport
+  p sport
+end
+
+#31
+
+1.times do
+  sport = Sport.create(
+    name: "Yoga",
+    teamsport: true,
+    equipment: true,
+    intensity: "medium",
+    description: "Yoga is a group of physical, mental, and spiritual practices or disciplines which originated in ancient India. There is a broad variety of yoga schools, practices, and goals in Hinduism, Buddhism, and Jainism.",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567669477/ClubZooker/form-w0YIvob3LlI-unsplash_cza7pv.jpg",
+  )
+  sports << sport
   p sport
 end
 
