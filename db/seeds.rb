@@ -68,7 +68,7 @@ users << us
 cg = 1
 5.times do
   user = User.create(
-    email: "hello#{cg}@frans.com"
+    email: "hello#{cg}@frans.com",
     password: '123456789',
     name: Faker::Name.name,
     age: (18..99).to_a.sample,
