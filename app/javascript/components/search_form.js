@@ -47,9 +47,12 @@ const listenToThoseKeys = async () => {
       const url  = window.location.origin + '/api/v1/sports/' + input.value;
       const data = await fetch(url).then(response => response.json()).then((data) => { return data; })
       addListItems(data);
-      document.querySelectorAll("#results li").forEach(li => {
+      let test = document.querySelectorAll("#results li");
+      test.forEach(li => {
+          console.log(test);
         li.addEventListener("click", event => {
           input.value = event.currentTarget.innerText;
+          console.log(input.value);
           document.getElementById('printchatbox').insertAdjacentHTML("beforeend",`<span class="tag m-2 px-3">${inputBox.value}</span>`);
           form.insertAdjacentHTML("beforeend", `<input type="hidden" name="sport[]" value=${inputBox.value}>`);
           document.getElementById("chatinput").value = "";

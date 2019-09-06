@@ -1638,6 +1638,10 @@ Club.all.each do |club|
   club.sports.push Sport.all[0..10].sample
   club.sports.push Sport.all[11..20].sample
   club.sports.push Sport.all[21..30].sample
+
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "My rating is telling everthing...", rating: [1, 2, 3, 4, 5].sample)
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "My opinion is shown by stars", rating: [1, 2, 3, 4, 5].sample)
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "Had a decent time at the club", rating: [1, 2, 3, 4, 5].sample)
 end
 
 # Add three random sports to user
@@ -1662,6 +1666,10 @@ end
   club.sports.push Sport.find_by(name: "Football")
   club.sports.push Sport.find_by(name: "Volleyball")
   club.sports.push Sport.find_by(name: "Basketball")
+
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "Great training schedule and nice members", rating: 5)
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "Good equipment and nice pitch", rating: 5)
+  Review.create(club_id: club.id, user_id: users.sample.id, comment: "Lots of cool people and great coach", rating: 5)
 
 
   admin = User.create(
