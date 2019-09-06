@@ -23,21 +23,21 @@ users = []
 admins = []
 sports = []
 
-backgrounds= ["https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757026/victor-freitas-qZ-U9z4TQ6A-unsplash_wkgqht.jpg",
-"https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757021/tom-wheatley-Hj45YNaDNug-unsplash_1_kb9hr3.jpg",
-  "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757014/sandro-schuh-HgwY_YQ1m0w-unsplash_qhdof4.jpg",
-   "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757006/mario-klassen-70YxSTWa2Zw-unsplash_cfijjn.jpg",
-    "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757001/kolleen-gladden-ij5_qCBpIVY-unsplash_ayzk9x.jpg",
-     "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756996/jeffrey-f-lin-Knur_N-Q0XQ-unsplash_heml1r.jpg",
-      "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756991/gina-lin-m27OTMegUyA-unsplash_yazh9i.jpg",
-       "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756985/fitsum-admasu-oGv9xIl7DkY-unsplash_fsj6q7.jpg",
-        "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756980/dave-contreras-R1PUDOAhb5Q-unsplash_khk8cj.jpg",
-         "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756975/chander-r-AtfA8NDgpKA-unsplash_gxcima.jpg",
-          "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756970/austris-augusts-52p1K0d0euM-unsplash_ashcmx.jpg",
-           "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756964/andrew-mcelroy-XaGNO7bgZa8-unsplash_kw6tr3.jpg",
-            "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756959/ambitious-creative-co-rick-barrett-MOnU_o4DMQw-unsplash_kvq48b.jpg",
-             "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756956/abigail-keenan-8-s5QuUBtyM-unsplash_xxmazq.jpg",
-              "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756951/aaron-burden-Xy-F5GptgR8-unsplash_zwlz9c.jpg"]
+backgrounds= ["https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761924/photo-1499852771843-6693d72f906f_nhmo8m.jpg",
+ "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761924/photo-1489976908522-aabacf277f49_sdoksn.jpg",
+  "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761939/photo-1556817411-31ae72fa3ea0_madt99.jpg",
+   "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761939/photo-1559504706-3681828d848b_pocmxv.jpg",
+    "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761939/photo-1475955987304-4dc89c617ee9_qobib8.jpg",
+     "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761940/photo-1484452330304-377cdeb05340_piwqpx.jpg",
+      "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761939/photo-1457470572216-1240fac24b37_p1wz1w.jpg",
+       "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761940/photo-1478112544096-20cf77df3a88_svdtsr.jpg",
+        "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761939/photo-1431324155629-1a6deb1dec8d_bcwyu7.jpg",
+         "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761940/photo-1484482340112-e1e2682b4856_ol73ua.jpg",
+          "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761949/photo-1556746834-1cb5b8fabd54_dygbgz.jpg",
+           "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761949/photo-1552674605-db6ffd4facb5_ireehv.jpg",
+            "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761949/photo-1473976345543-9ffc928e648d_l9cvxg.jpg",
+             "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761949/photo-1542766788-a2f588f447ee_njeb9g.jpg",
+              "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761952/photo-1489944440615-453fc2b6a9a9_yp5m76.jpg"]
 
 # Create 20 ordinary users
 
@@ -306,7 +306,7 @@ end
 end
 
 
-
+sleep(60)
 # 10
 
 1.times do
@@ -583,6 +583,7 @@ end
   p admin
 end
 
+sleep(60)
 # 20
 
 1.times do
@@ -858,7 +859,7 @@ end
   p admin
 end
 
-
+sleep(60)
 # 30
 
 
@@ -999,6 +1000,7 @@ end
 end
 
 # 35
+sleep(60)
 
 1.times do
   club = Club.create!(
@@ -1654,7 +1656,7 @@ end
     address: "Tweede Egelantiersdwarsstraat 9, Amsterdam",
     description: "Join the Amsterdam Lions to meet new people, try new sports and have a great time. We want you!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/club.pjg_t9ss6c.png",
-    remote_background_url: "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567754288/photo-1489944440615-453fc2b6a9a9_kpp1ko.jpg"
+    remote_background_url: "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567761949/photo-1464983308776-3c7215084895_kaow8n.jpg"
   )
 
   club.sports.push Sport.find_by(name: "Football")
