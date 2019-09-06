@@ -66,7 +66,7 @@
           <div class="card-origin card-vertical my-2 text-center mx-auto">
             <%= link_to club_path(club), class: "card-link" do %>
             <div>
-              <img src="https://images.unsplash.com/photo-1464983308776-3c7215084895?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80" alt="sports background" class="card-vertical-cover">
+              <%= cl_image_tag club.background, class: "card-vertical-cover" %>
             </div>
             <div class="avatar-new-position">
               <%= cl_image_tag club.photo, class: "avatar-bordered-card" %>

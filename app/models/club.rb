@@ -13,6 +13,9 @@ class Club < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  mount_uploader :background, PhotoUploader
+
+
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { maximum: 500 }
