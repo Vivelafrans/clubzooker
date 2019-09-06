@@ -23,45 +23,21 @@ users = []
 admins = []
 sports = []
 
-
-# Create Testuser who is a club admin
-
-1.times do
-  club = Club.create!(
-    name: "Amsterdam Leeuwen",
-    address: "Tweede Egelantiersdwarsstraat 9, Amsterdam",
-    description: "Join the Amsterdam Lions to meet new people, try new sports and have a great time. We want you!",
-    photo: "https://api.adorable.io/avatars/285/abott@adorable.png",
-    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/club.pjg_t9ss6c.png",
-  )
-
-
-  admin = User.create(
-    email: 'test@admin.com',
-    password: '123456789',
-    name: 'Frans Knaapen',
-    age: 45,
-    address: Faker::Address.full_address,
-    description: "Join my club to have great fun",
-    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567686301/i7gio95kxqul7pro54vl.jpg",
-  )
-
-  club.update_attributes admin_id: admin.id
-  p admin
-end
-
-# Create Testuser who is normal user
-
-us = User.create(
-    email: 'test@user.com',
-    password: '123456789',
-    name: 'Thomas Johnsen',
-    age: 27,
-    address: 'Nieuwe Oostenburgerstraat 10-D, Amsterdam',
-    description: "I am looking for a cool sports club",
-    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567690936/Tom_fwjpdw.jpg"
-)
-users << us
+backgrounds= ["https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757026/victor-freitas-qZ-U9z4TQ6A-unsplash_wkgqht.jpg",
+"https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757021/tom-wheatley-Hj45YNaDNug-unsplash_1_kb9hr3.jpg",
+  "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757014/sandro-schuh-HgwY_YQ1m0w-unsplash_qhdof4.jpg",
+   "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757006/mario-klassen-70YxSTWa2Zw-unsplash_cfijjn.jpg",
+    "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567757001/kolleen-gladden-ij5_qCBpIVY-unsplash_ayzk9x.jpg",
+     "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756996/jeffrey-f-lin-Knur_N-Q0XQ-unsplash_heml1r.jpg",
+      "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756991/gina-lin-m27OTMegUyA-unsplash_yazh9i.jpg",
+       "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756985/fitsum-admasu-oGv9xIl7DkY-unsplash_fsj6q7.jpg",
+        "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756980/dave-contreras-R1PUDOAhb5Q-unsplash_khk8cj.jpg",
+         "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756975/chander-r-AtfA8NDgpKA-unsplash_gxcima.jpg",
+          "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756970/austris-augusts-52p1K0d0euM-unsplash_ashcmx.jpg",
+           "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756964/andrew-mcelroy-XaGNO7bgZa8-unsplash_kw6tr3.jpg",
+            "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756959/ambitious-creative-co-rick-barrett-MOnU_o4DMQw-unsplash_kvq48b.jpg",
+             "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756956/abigail-keenan-8-s5QuUBtyM-unsplash_xxmazq.jpg",
+              "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567756951/aaron-burden-Xy-F5GptgR8-unsplash_zwlz9c.jpg"]
 
 # Create 20 ordinary users
 
@@ -91,6 +67,7 @@ end
     address: "Overhoeksplein 2, Amsterdam",
     description: "Join our club and learn to sport. We accept people from all ages and nationalities.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo35_h24woz.gif",
+    remote_background_url: backgrounds.sample,
     )
 
   admin = User.create(
@@ -117,6 +94,7 @@ end
     address: "Haarlemmerweg 4, Amsterdam",
     description: "Come join us. Take all your negativity and use it as a fuel to do something fun together.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo27_rwwexv.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -143,6 +121,7 @@ end
     address: "Fred. Roeskestraat 115, Amsterdam",
     description: "Join our expat club. Meet new expats from all over the world and play different sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo26_oqmybe.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -169,6 +148,7 @@ end
     address: "Piet Heinkade 11A, Amsterdam",
     description: "Be Quick and join the coolest club for guys in Amsterdam.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo28_w0mffm.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -196,6 +176,7 @@ end
     address: "Oudezijds Achterburgwal 60h, Amsterdam",
     description: "Amsterdam's oldest sports club. Join the biggest and old club. Dutch speaking only. Hup!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo30_vvnrzg.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -224,6 +205,7 @@ end
     address: "Waterlooplein 6, Amsterdam",
     description: "The first Surinamese sports club in Amsterdam. We only accept people with passion for Surinamese food.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo38_sry67g.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -250,6 +232,7 @@ end
     address: "Weteringschans 165 C, Amsterdam",
     description: "The premier sports club for working professionals in Amsterdam. Come here after work to do something healthy.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo34_bowsnh.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -276,6 +259,7 @@ end
     address: "Albert Cuypstraat 66, Amsterdam",
     description: "We are the first Korean sports club in Amsterdam. Only for Korean speaking members.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602204/ClubZooker/logo3_bioonc.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -302,6 +286,7 @@ end
     address: "Voetboogstraat 33, Amsterdam",
     description: "We are a fast-paced club aiming to have plenty of fun. Come visit us in Muntplein to join our Club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo17_ovjrkp.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -330,6 +315,7 @@ end
     address: "Utrechtsestraat 37, Amsterdam",
     description: "We welcome people from all parts of the Netherlands. Dutch language skills required.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo14_bbpxdj.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -356,6 +342,7 @@ end
     address: "Hartenstraat 14, Amsterdam",
     description: "We're a club that's all about exploring, capturing new things, and having fun.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo31_zz4vpg.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -384,6 +371,7 @@ end
     address: "Woubruggestraat 28, Amsterdam",
     description: "We like friendships. We like sports. We like you. Join our club.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo41_ucmtd1.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -410,6 +398,7 @@ end
     address: "Piet Heinkade 173, Amsterdam",
     description: "Change your life and join our club. We welcome all genders, nationalities and ages.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo18_crzytd.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -436,6 +425,7 @@ end
     address: "Recht Boomssloot 34, Amsterdam",
     description: "Do you drive a Mercedes? Join us, talk about cars and do some sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo13_k5i0ag.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -464,6 +454,7 @@ end
     address: "Kinkerstraat 73A, Amsterdam",
     description: "If you're Dutch and like to do sports, join our club any time. We also have international teams.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo15_excqhr.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -490,6 +481,7 @@ end
     address: "De Passage 100, Amsterdam",
     description: "We might seem icecold but once you join our club, you will notice that we warm each other with our spirit.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo7_m1kxwa.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -518,6 +510,7 @@ end
     address: "Paul van Vlissingenstraat 24, Amsterdam",
     description: "Saturdays are for the boys and this club is as well.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo8_r2oufq.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -544,6 +537,7 @@ end
     address: "Van der Pekstraat 79, Amsterdam",
     description: "Join our club to for highly motivated members who want to do intense sport. We are the Bulldogs!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo20_rzcxrt.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -570,6 +564,7 @@ end
     address: "Pilotenstraat 41a, Amsterdam",
     description: "Join the Bisons and belong to one of Amsterdam's most prominent sports clubs. On the Bisons",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo33_skehoh.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -596,6 +591,7 @@ end
     address: "ArenA Boulevard 1, Amsterdam",
     description: "Our club is all about having fun and having a good time with your friends.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo5_njhjil.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -624,6 +620,7 @@ end
     address: "Danzigerkade 8, Amsterdam",
     description: "Come to Danzigerkade to do sports and make new friends. We are waiting for you.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo11_mixve9.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -650,6 +647,7 @@ end
     address: "Handboogstraat 29, Amsterdam",
     description: "A club for passionate dog owners to do sports together. Dogs are allowed on the club property.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605648/ClubZooker/logo38_nz9vyv.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -676,6 +674,7 @@ end
     address: "Riekerweg 15, Amsterdam",
     description: "We're a club that does anything outdoors whenever the weather is good. Come join us!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo4_lg2dsw.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -704,6 +703,7 @@ end
     address: "Fogostraat 10, Amsterdam",
     description: "We're the primary club in Amsterdam for working profressionals from around the world. Come join us.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo12_akxhir.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -731,6 +731,7 @@ end
     address: "Doorweg 32, Amstelveen",
     description: "Come join us for different sport activities. We take sport seriously and compete on the highest level.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567605897/ClubZooker/logo43_paywtc.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -757,6 +758,7 @@ end
     address: "Naritaweg 48, Amsterdam",
     description: "TN 22 is Amsterdam's primary club for woman in their 30s. Meet other like minded individuals.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/logo9_eepvxp.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -783,6 +785,7 @@ end
     address: "Uilenstede 73A, Amstelveen",
     description: "Join us, meet new friends from Amsterdam, and play different sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo10_chqrhy.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -809,6 +812,7 @@ end
     address: "Bijlmerdreef 131, Amsterdam",
     description: "We are Amsterdam's most popular club for Germans. We welcome anyone with German skills who wants to do sport.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567606016/ClubZooker/logo44_posbvc.gif",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -835,6 +839,7 @@ end
     address: "Pampusweg 20, Muiden",
     description: "We love sport! How about you? Come join us every monday?.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602207/ClubZooker/Greenway_qihi1x.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -863,6 +868,7 @@ end
     address: "Oranje-Vrijstaatkade 21, Amsterdam",
     description: "Tanaina founded this club in 1987. Since then we welcomed more than 1000 members looking to do fun sports.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602206/ClubZooker/logo16_eaq8ku.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -889,6 +895,7 @@ end
     address: "Oude Haagseweg 200, Badhoevedorp",
     description: "Our sports club strives do to improve your fitness, health and happiness. Come join us!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo22_ux0mze.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -915,6 +922,7 @@ end
     address: "Confuciusplein 14, Amsterdam",
     description: "Welcome expats! Are you new to Amsterdam and want to join a sports club? Come join us and have lots of fun and meet new friends.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo21_wg4yyf.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -941,6 +949,7 @@ end
     address: "Stadsplein 52, Amstelveen",
     description: "Join the Eagles and change your life by doing more sport and getting to know new people.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo36_ocvue3.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -970,6 +979,7 @@ end
     address: "Science Park 410, Amsterdam",
     description: "We are located in the Science Park and love to take in scientists from around the world.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo19_swruul.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -996,6 +1006,7 @@ end
     address: "Gillis van Ledenberchstraat 135I, Amsterdam",
     description: "Our club has the best club restaurant! But we offer way more than good Pizza & Pasta. Join us to learn more!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603846/ClubZooker/logo29_llpnpf.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1022,6 +1033,7 @@ end
     address: "Dapperstraat 2, Amsterdam",
     description: "Come join the club with the Cuban culture. We accept members from all over the world.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo23_klrl9j.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1050,6 +1062,7 @@ end
     address: "Bos en Lommerweg 130, Amsterdam",
     description: "Come to Bos en Lommerweg to check out our club and join us. You will not regret it.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603844/ClubZooker/logo24_mny4xb.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1077,6 +1090,7 @@ end
     address: "Werfkade 4, Amsterdam",
     description: "Named after the coolest quarter in Amsterdam, we are also the coolest club. Join us!",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603845/ClubZooker/logo25_cd4hct.png",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1103,6 +1117,7 @@ end
     address: "Waterlandplein 280, Amsterdam",
     description: "We are currently looking for new Dutch speaking members to join our ranks. Please message us if you're interested.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603847/ClubZooker/logo32_zfbcfw.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1129,6 +1144,7 @@ end
     address: "Lijnbaansgracht 173, Amsterdam",
     description: "If you are looking for a fun time at a great sports club, you should joun SC Diemen.",
     remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567603848/ClubZooker/logo37_yiisxy.jpg",
+    remote_background_url: backgrounds.sample,
   )
 
   admin = User.create(
@@ -1629,6 +1645,57 @@ User.all.each do |user|
   user.sports.push Sport.all[11..20].sample
   user.sports.push Sport.all[21..30].sample
 end
+
+# Create Testuser who is a club admin
+
+1.times do
+  club = Club.create!(
+    name: "Amsterdam Leeuwen",
+    address: "Tweede Egelantiersdwarsstraat 9, Amsterdam",
+    description: "Join the Amsterdam Lions to meet new people, try new sports and have a great time. We want you!",
+    remote_photo_url: "https://res.cloudinary.com/dcptvbn0h/image/upload/v1567602205/ClubZooker/club.pjg_t9ss6c.png",
+    remote_background_url: "https://res.cloudinary.com/dwuobqwk0/image/upload/v1567754288/photo-1489944440615-453fc2b6a9a9_kpp1ko.jpg"
+  )
+
+  club.sports.push Sport.find_by(name: "Football")
+  club.sports.push Sport.find_by(name: "Volleyball")
+  club.sports.push Sport.find_by(name: "Basketball")
+
+
+  admin = User.create(
+    email: 'test@admin.com',
+    password: '123456789',
+    name: 'Frans Knaapen',
+    age: 45,
+    address: Faker::Address.full_address,
+    description: "Join my club to have great fun",
+    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567686301/i7gio95kxqul7pro54vl.jpg",
+  )
+
+
+  club.update_attributes admin_id: admin.id
+  p admin
+end
+
+# Create Testuser who is normal user
+
+us = User.create(
+    email: 'test@user.com',
+    password: '123456789',
+    name: 'Thomas Johnsen',
+    age: 27,
+    address: 'Nieuwe Oostenburgerstraat 10-D, Amsterdam',
+    description: "I am looking for a cool sports club",
+    remote_photo_url: "https://res.cloudinary.com/vivelafrans/image/upload/v1567690936/Tom_fwjpdw.jpg"
+)
+us.sports.push Sport.find_by(name: "Football")
+users << us
+
+
+
+
+
+
 
 puts "Finished creating #{users.count + 1} users"
 puts "Finished creating #{admins.count + 1} admins"
